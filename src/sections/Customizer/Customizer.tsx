@@ -328,7 +328,7 @@ export const Customizer: React.FC = () => {
             {/* 4. Print Technique & Location */}
             <div className="ctrl-group">
               <label className="ctrl-label">4. Técnica & Ubicación:</label>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+              <div className="customizer-two-selects">
                 <select
                   value={selectedTechnique}
                   onChange={(e) => setSelectedTechnique(e.target.value)}
@@ -360,7 +360,7 @@ export const Customizer: React.FC = () => {
                   <span style={{ color: '#F3E5AB' }}>★ Diseños Navideños Listos:</span>
                   <span style={{ fontSize: '0.72rem', color: '#D4AF37' }}>Edición Fin de Año</span>
                 </label>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.5rem' }}>
+                <div className="customizer-templates-grid">
                   {SEASONAL_TEMPLATES.map((tmpl) => {
                     const isSelected = uploadedImage === tmpl.svgDataUri;
                     return (
@@ -411,7 +411,7 @@ export const Customizer: React.FC = () => {
             {/* 6. Custom Text Input */}
             <div className="ctrl-group">
               <label className="ctrl-label">6. Añadir Texto Personalizado (Opcional):</label>
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
+              <div className="custom-text-row">
                 <input
                   type="text"
                   placeholder="Ej: Staff 2026, Nombre o Slogan..."
@@ -424,7 +424,7 @@ export const Customizer: React.FC = () => {
                   type="color"
                   value={textColor}
                   onChange={(e) => setTextColor(e.target.value)}
-                  style={{ width: '48px', height: '44px', padding: '2px', background: 'none', border: 'none', cursor: 'pointer' }}
+                  className="custom-color-picker"
                   title="Color de la tipografía"
                 />
               </div>
@@ -433,7 +433,7 @@ export const Customizer: React.FC = () => {
             {/* 7. Quantity & Pricing Tier */}
             <div className="ctrl-group">
               <label className="ctrl-label">7. Cantidad y Volumen:</label>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <div className="customizer-qty-row">
                 <div className="modal-qty-control" style={{ marginBottom: 0 }}>
                   <button
                     type="button"
@@ -458,7 +458,7 @@ export const Customizer: React.FC = () => {
                   </button>
                 </div>
 
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                <div className="customizer-qty-discount">
                   {pricing.discountPercent > 0 ? (
                     <span style={{ color: 'var(--accent-green)', fontWeight: 700 }}>
                       ¡Aplica {pricing.discountPercent}% de descuento!
@@ -491,7 +491,7 @@ export const Customizer: React.FC = () => {
             </div>
 
             {/* Actions */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div className="customizer-actions-grid">
               <button
                 type="button"
                 className="btn btn-primary"
