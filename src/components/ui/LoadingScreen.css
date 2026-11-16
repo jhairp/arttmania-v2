@@ -1,0 +1,225 @@
+/* Loading Screen Overlay */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #080909;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loading-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+/* Ambient Radial Glow behind the bird */
+.loading-ambient-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 168, 120, 0.18) 0%,
+    rgba(7, 89, 232, 0.15) 35%,
+    rgba(230, 0, 169, 0.12) 65%,
+    transparent 80%
+  );
+  filter: blur(60px);
+  animation: ambientPulse 4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes ambientPulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.loading-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 480px;
+  padding: 2rem;
+  z-index: 2;
+}
+
+/* Colibrí Stage & Rings */
+.colibri-stage {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+}
+
+/* Rotating Orbit Rings */
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit-ring-outer {
+  inset: 0;
+  border: 1.5px dashed rgba(198, 200, 203, 0.25);
+  border-top-color: #00A878;
+  border-right-color: #0759E8;
+  border-bottom-color: #E600A9;
+  border-left-color: #F5B800;
+  animation: rotateClockwise 12s linear infinite;
+  box-shadow: 0 0 25px rgba(0, 168, 120, 0.15);
+}
+
+.orbit-ring-inner {
+  inset: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px solid rgba(0, 168, 120, 0.8);
+  border-left: 2px solid rgba(230, 0, 169, 0.8);
+  animation: rotateCounterClockwise 7s linear infinite;
+}
+
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* Colibri Flying & Shimmer Avatar */
+.colibri-avatar-wrap {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: colibriFlight 2.6s ease-in-out infinite alternate;
+}
+
+.colibri-flying-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 24px rgba(0, 168, 120, 0.45))
+          drop-shadow(0 2px 12px rgba(230, 0, 169, 0.35));
+  animation: wingBeat 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes colibriFlight {
+  0% {
+    transform: translateY(-8px) scale(0.96) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(4px) scale(1.02) rotate(3deg);
+  }
+  100% {
+    transform: translateY(-10px) scale(0.98) rotate(-1deg);
+  }
+}
+
+@keyframes wingBeat {
+  0% {
+    filter: drop-shadow(0 4px 16px rgba(0, 168, 120, 0.5))
+            drop-shadow(0 0 8px rgba(7, 89, 232, 0.4));
+  }
+  100% {
+    filter: drop-shadow(0 12px 30px rgba(230, 0, 169, 0.6))
+            drop-shadow(0 0 16px rgba(245, 184, 0, 0.5));
+  }
+}
+
+.colibri-aura {
+  position: absolute;
+  inset: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  animation: auraPulse 2s ease-in-out infinite;
+}
+
+@keyframes auraPulse {
+  0%, 100% { transform: scale(0.85); opacity: 0.5; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Typography */
+.loading-brand-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  color: #F1F1F1;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.loading-brand-title .brand-accent {
+  background: linear-gradient(135deg, #C6C8CB 0%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.loading-brand-tagline {
+  font-size: 0.85rem;
+  color: #C6C8CB;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+  margin-bottom: 1.6rem;
+}
+
+/* Sleek Progress Bar */
+.loading-bar-track {
+  width: 240px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.4rem;
+}
+
+.loading-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00A878, #0759E8, #E600A9, #F5B800);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 168, 120, 0.6);
+}
+
+/* Tech Badges */
+.loading-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(198, 200, 203, 0.55);
+}
+
+.loading-badges .dot {
+  color: #00A878;
+  font-size: 0.8rem;
+}

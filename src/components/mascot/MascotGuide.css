@@ -1,0 +1,14 @@
+.mascot { position: fixed; left: 1rem; bottom: 1rem; flex-direction: column-reverse; align-items: flex-start; z-index: 40; display: flex; align-items: flex-end; gap: .6rem; pointer-events: none; }
+.mascot > * { pointer-events: auto; }
+.mascot-bird { all: unset; cursor: pointer; width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%;
+  background: var(--bg-surface-elevated); border: 1px solid var(--border-card); box-shadow: var(--shadow-md), 0 0 18px var(--accent-green-glow);
+  animation: birdFloat 3.2s ease-in-out infinite; }
+.mascot-bubble { position: relative; max-width: 230px; font-weight: 500; padding: .7rem 2rem .7rem .9rem; border-radius: 14px 14px 14px 4px; margin: 0 0 .6rem 0;
+  background: #fff; color: #111; font-size: .82rem; line-height: 1.35; box-shadow: var(--shadow-md);
+  animation: bubbleIn .4s var(--transition-smooth);  }
+.mascot-bubble p { margin: 0; }
+.mascot-bubble button { all: unset; cursor: pointer; position: absolute; top: .4rem; right: .45rem; opacity: .55; }
+@keyframes birdFloat { 50% { transform: translateY(-6px); } }
+@keyframes bubbleIn { from { opacity: 0; transform: translateX(-10px) scale(.9); } }
+@media (max-width: 540px) { .mascot-bubble { max-width: 160px; font-size: .75rem; } .mascot-bird { width: 52px; height: 52px; } }
+@media (prefers-reduced-motion: reduce) { .mascot-bird, .mascot-bubble { animation: none; } }

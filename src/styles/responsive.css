@@ -1,0 +1,92 @@
+/* Responsive Styles & Global Viewport Optimizations */
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --nav-height: 72px;
+  }
+
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 64px;
+  }
+
+  /* Reduced Section Padding in Mobile to 2rem */
+  .section-padding {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .section-header {
+    margin-bottom: 1.25rem !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.45rem, 5vw, 1.85rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .section-description {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .section-tag {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .btn {
+    padding: 0.65rem 1.15rem;
+    font-size: 0.85rem;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .section-padding {
+    padding-top: 1.75rem !important;
+    padding-bottom: 1.75rem !important;
+  }
+
+  .section-header {
+    margin-bottom: 1rem !important;
+  }
+
+  .section-title {
+    font-size: 1.45rem !important;
+  }
+
+  .section-description {
+    font-size: 0.84rem !important;
+  }
+}

@@ -1,0 +1,894 @@
+/* =========================================================
+   Seasonal Section Styles - Theme-Driven & Mobile First
+   ========================================================= */
+
+.seasonal-section {
+  position: relative;
+  background-color: #080909;
+  background-image:
+    radial-gradient(ellipse 65% 50% at 50% 0%, var(--season-tint, rgba(211, 47, 47, 0.08)) 0%, transparent 75%),
+    linear-gradient(180deg, rgba(8, 9, 9, 0.98) 0%, rgba(13, 14, 16, 0.98) 100%);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+  transition: background-image 450ms cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle Geometric Pattern Overlay */
+.seasonal-pattern-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(198, 200, 203, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Background Subtle Glow */
+.seasonal-glow {
+  position: absolute;
+  top: 10%;
+  right: -5%;
+  width: clamp(280px, 45vw, 550px);
+  height: clamp(280px, 45vw, 550px);
+  border-radius: 50%;
+  background-color: var(--season-accent, #D32F2F);
+  filter: blur(140px);
+  opacity: 0.14;
+  pointer-events: none;
+  z-index: 0;
+  transition: background-color 450ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 450ms ease;
+}
+
+.seasonal-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Adjustments */
+.seasonal-tag .dot {
+  background: var(--season-accent, #D32F2F);
+  box-shadow: 0 0 8px var(--season-accent, #D32F2F);
+  transition: background-color 400ms ease, box-shadow 400ms ease;
+}
+
+.seasonal-text-highlight {
+  background: var(--season-gradient, linear-gradient(135deg, #E2E4E7 0%, #9DA1A6 100%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  transition: all 400ms ease;
+}
+
+.seasonal-header-desc {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================================================
+   Season Tabs Selector (Segmented Control style)
+   ========================================================= */
+
+.season-tabs-wrapper {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.season-tabs-row {
+  display: flex;
+  gap: 0.65rem;
+  overflow-x: auto;
+  padding: 0.35rem 0.25rem 0.75rem 0.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.season-tabs-row::-webkit-scrollbar {
+  height: 4px;
+}
+
+.season-tabs-row::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.season-tabs-row::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+.season-tab-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  min-height: 44px;
+  touch-action: manipulation;
+  transition: color 250ms ease,
+              background-color 250ms ease,
+              border-color 250ms ease,
+              box-shadow 250ms ease,
+              transform 200ms ease;
+}
+
+.season-tab-btn:hover {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.25);
+  background: var(--bg-surface-elevated);
+  transform: translateY(-1px);
+}
+
+.season-tab-btn.active {
+  background: var(--season-accent-soft, rgba(211, 47, 47, 0.16));
+  border-color: var(--season-accent, #D32F2F);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 0 14px var(--season-accent-soft, rgba(211, 47, 47, 0.25));
+}
+
+.season-tab-icon {
+  color: var(--season-accent, #D32F2F);
+  flex-shrink: 0;
+  transition: color 400ms ease;
+}
+
+.season-tab-btn:not(.active) .season-tab-icon {
+  color: var(--text-muted);
+}
+
+.season-tab-indicator {
+  position: absolute;
+  bottom: -4px;
+  left: 30%;
+  right: 30%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--season-accent, #D32F2F);
+  box-shadow: 0 0 6px var(--season-accent, #D32F2F);
+}
+
+/* =========================================================
+   Countdown Banner
+   ========================================================= */
+
+.seasonal-countdown-banner {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.75rem;
+  margin-bottom: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 400ms ease;
+}
+
+.seasonal-countdown-banner::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--season-accent, #D32F2F);
+  transition: background-color 450ms ease;
+}
+
+.countdown-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1 1 300px;
+}
+
+.countdown-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.22rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: var(--season-accent-soft, rgba(211, 47, 47, 0.15));
+  color: var(--season-accent, #D32F2F);
+  border: 1px solid var(--season-accent, #D32F2F);
+  width: fit-content;
+  transition: all 400ms ease;
+}
+
+.countdown-deadline-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.countdown-deadline-text strong {
+  color: #FFFFFF;
+}
+
+.countdown-right-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.countdown-timer-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+}
+
+.countdown-box {
+  background: #0D0E10;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.65rem;
+  min-width: 52px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.countdown-num {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  font-family: 'Outfit', monospace, sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.countdown-unit {
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+  font-weight: 600;
+}
+
+.countdown-colon {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+.btn-countdown-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.95rem;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  min-height: 44px;
+  touch-action: manipulation;
+  transition: all 200ms ease;
+}
+
+.btn-countdown-action:hover {
+  background: var(--bg-subtle);
+  border-color: var(--season-accent, #D32F2F);
+  color: #FFFFFF;
+}
+
+.countdown-expired-state {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.countdown-expired-tag {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+   Seasonal Cards Grid
+   ========================================================= */
+
+.seasonal-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.seasonal-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 250ms ease,
+              box-shadow 250ms ease,
+              border-color 250ms ease;
+  animation: seasonalCardFadeIn 350ms ease-out both;
+}
+
+@keyframes seasonalCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.seasonal-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+}
+
+.seasonal-card.featured-card {
+  border-color: var(--season-accent, #D32F2F);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px var(--season-accent-soft, rgba(211, 47, 47, 0.15));
+}
+
+@media (min-width: 993px) {
+  .seasonal-card.featured-card {
+    transform: scale(1.02);
+  }
+  .seasonal-card.featured-card:hover {
+    transform: scale(1.02) translateY(-4px);
+  }
+}
+
+/* Card Image Grande & Protagónica */
+.seasonal-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #0d0e10;
+  cursor: pointer;
+}
+
+.seasonal-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.seasonal-card:hover .seasonal-card-img {
+  transform: scale(1.06);
+}
+
+.seasonal-card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 9, 9, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
+}
+
+.seasonal-card:hover .seasonal-card-image-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.btn-quick-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  background: rgba(14, 15, 17, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.btn-quick-view:hover {
+  background: #FFFFFF;
+  color: #080909;
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.seasonal-badge-pill {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: rgba(8, 9, 9, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 2;
+}
+
+.seasonal-savings-pill {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.22rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: var(--season-accent, #B3121F);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Card Content Despejado & Elegante */
+.seasonal-card-content {
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.seasonal-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.65rem;
+  line-height: 1.3;
+  cursor: pointer;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color var(--transition-fast);
+}
+
+.seasonal-card-title:hover {
+  color: var(--season-accent, var(--accent-blue));
+}
+
+.seasonal-card-tagline {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.seasonal-techniques-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+
+.seasonal-tech-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+}
+
+/* Includes List with Accordion */
+.seasonal-includes-box {
+  background: rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  margin-bottom: 1.15rem;
+}
+
+.seasonal-includes-title {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 0.45rem;
+}
+
+.seasonal-includes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.seasonal-includes-item {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  line-height: 1.35;
+}
+
+.seasonal-check-icon {
+  color: var(--season-accent, #00A878);
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: color 400ms ease;
+}
+
+.seasonal-accordion-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.65rem;
+  padding: 0.35rem 0.5rem;
+  background: none;
+  border: none;
+  color: var(--season-accent, var(--accent-blue));
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: color 200ms ease, opacity 200ms ease;
+  min-height: 36px;
+  touch-action: manipulation;
+}
+
+.seasonal-accordion-btn:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+/* Price Box */
+.seasonal-price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  margin-bottom: 0.95rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.seasonal-price-main {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+}
+
+.seasonal-promo-price {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.seasonal-original-price {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.seasonal-unit-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Card Actions: Botón Ver Detalles y Botón Rápido de Carrito */
+.seasonal-actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 44px;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.btn-seasonal-details {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: var(--bg-surface-elevated, #242629);
+  border: 1px solid var(--border-card);
+  color: var(--text-primary, #F1F1F1);
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-md);
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 42px;
+  white-space: nowrap;
+  touch-action: manipulation;
+  transition: all var(--transition-fast);
+}
+
+.btn-seasonal-details:hover {
+  background: var(--bg-subtle, #2b2e32);
+  border-color: var(--season-accent, #D4AF37);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.btn-seasonal-cart-quick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--season-accent, #B3121F);
+  border: 1px solid transparent;
+  color: #FFFFFF;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  width: 44px;
+  height: 42px;
+  touch-action: manipulation;
+  transition: all var(--transition-fast);
+}
+
+.btn-seasonal-cart-quick:hover {
+  filter: brightness(1.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.btn-seasonal-cart-quick.added {
+  background: #00A878;
+  color: #FFFFFF;
+}
+
+.btn-seasonal-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-card);
+  color: var(--text-primary);
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  min-height: 44px;
+  white-space: nowrap;
+  touch-action: manipulation;
+  transition: all 200ms ease;
+}
+
+.btn-seasonal-whatsapp:hover {
+  background: #25D366;
+  border-color: #25D366;
+  color: #080909;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+}
+
+/* Bottom B2B Banner */
+.seasonal-pdf-banner {
+  background: linear-gradient(135deg, var(--season-tint, rgba(211, 47, 47, 0.12)) 0%, rgba(20, 21, 23, 0.96) 100%);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  transition: background 400ms ease;
+}
+
+.seasonal-pdf-text h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
+}
+
+.seasonal-pdf-text p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  max-width: 660px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.btn-download-pdf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-card);
+  color: var(--text-primary);
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  min-height: 44px;
+  touch-action: manipulation;
+  transition: all 200ms ease;
+}
+
+.btn-download-pdf:hover {
+  background: var(--season-accent, var(--accent-blue));
+  border-color: transparent;
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   Mobile Optimization (< 768px)
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .seasonal-section.section-padding {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .seasonal-header-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Horizontal Snap Carousel for Cards */
+  .seasonal-cards-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .seasonal-card {
+    flex: 0 0 85%;
+    max-width: 85%;
+    scroll-snap-align: center;
+  }
+
+  .seasonal-card.featured-card {
+    transform: none;
+  }
+
+  /* Compact Single-Row Countdown Banner */
+  .seasonal-countdown-banner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+    gap: 0.85rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .countdown-info {
+    flex: none;
+  }
+
+  .countdown-deadline-text {
+    font-size: 0.82rem;
+  }
+
+  .countdown-right-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .countdown-timer-group {
+    gap: 0.35rem;
+  }
+
+  .countdown-box {
+    min-width: 44px;
+    padding: 0.35rem 0.4rem;
+  }
+
+  .countdown-num {
+    font-size: 1.15rem;
+  }
+
+  .countdown-unit {
+    font-size: 0.55rem;
+  }
+
+  .countdown-colon {
+    font-size: 0.95rem;
+  }
+
+  .btn-countdown-action {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.76rem;
+    min-height: 40px;
+  }
+
+  .seasonal-pdf-banner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.25rem 1rem;
+  }
+
+  .btn-download-pdf {
+    width: 100%;
+  }
+
+  .season-tab-btn {
+    padding: 0.5rem 0.95rem;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .seasonal-actions-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .btn-seasonal-cart,
+  .btn-seasonal-whatsapp {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}

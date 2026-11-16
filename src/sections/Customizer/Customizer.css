@@ -1,0 +1,270 @@
+/* =========================================================
+   Customizer Section Styles - Compact Mobile Studio
+   ========================================================= */
+
+.customizer-section {
+  position: relative;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.customizer-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Left: Mockup Visualizer */
+.mockup-stage {
+  position: sticky;
+  top: 100px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+}
+
+.mockup-viewport {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 1 / 1;
+  background: #0D0E10;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mockup-base-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all var(--transition-normal);
+}
+
+/* Dynamic Printable Overlay Area on the mockup */
+.mockup-print-area {
+  position: absolute;
+  border: 1.5px dashed rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overflow: hidden;
+  padding: 8px;
+  transition: all var(--transition-normal);
+}
+
+.mockup-print-area.loc-center {
+  top: 36%;
+  left: 32%;
+  width: 36%;
+  height: 38%;
+}
+
+.mockup-print-area.loc-chest {
+  top: 32%;
+  left: 30%;
+  width: 18%;
+  height: 18%;
+}
+
+.mockup-print-area.loc-back {
+  top: 34%;
+  left: 28%;
+  width: 44%;
+  height: 42%;
+}
+
+.uploaded-design-preview {
+  max-width: 90%;
+  max-height: 65%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
+}
+
+.mockup-text-overlay {
+  margin-top: 4px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  word-break: break-word;
+  max-width: 100%;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.mockup-info-bar {
+  margin-top: 1.25rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Right: Control Panel */
+.customizer-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ctrl-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.ctrl-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--silver-metallic);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.product-picker-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.65rem 0.45rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  min-height: 44px;
+  touch-action: manipulation;
+  transition: all var(--transition-fast);
+}
+
+.product-picker-btn:hover,
+.product-picker-btn.active {
+  background: var(--bg-surface-elevated);
+  border-color: var(--silver-metallic);
+  color: var(--text-primary);
+}
+
+.color-palette-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.palette-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  position: relative;
+  transition: transform var(--transition-fast);
+}
+
+.palette-btn:hover {
+  transform: scale(1.15);
+}
+
+.palette-btn.active {
+  border-color: #FFFFFF;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.upload-dropzone {
+  border: 2px dashed var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  text-align: center;
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.upload-dropzone:hover {
+  border-color: var(--silver-metallic);
+  background: var(--bg-surface-elevated);
+}
+
+.custom-text-input {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  background: var(--bg-deep);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  min-height: 42px;
+}
+
+.custom-text-input:focus {
+  border-color: var(--silver-metallic);
+}
+
+.price-summary-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================================================
+   Mobile Optimization (< 768px)
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .customizer-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .mockup-stage {
+    position: static;
+    padding: 1rem;
+  }
+
+  .mockup-viewport {
+    max-width: 280px;
+  }
+
+  .product-picker-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .customizer-controls {
+    gap: 1.15rem;
+  }
+
+  .upload-dropzone {
+    padding: 1rem;
+  }
+}

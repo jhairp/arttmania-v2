@@ -1,0 +1,326 @@
+/* =========================================================
+   Business Section Styles - B2B Responsive & Compact Mobile
+   ========================================================= */
+
+.business-section {
+  position: relative;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.business-hero-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.business-hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100%;
+  background: radial-gradient(circle at 80% 50%, rgba(7, 89, 232, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.business-hero-content {
+  max-width: 640px;
+  position: relative;
+  z-index: 1;
+}
+
+.business-hero-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: #F1F1F1;
+  line-height: 1.25;
+}
+
+.business-hero-desc {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.btn-corporate-cta {
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
+/* Solutions Grid / Carousel */
+.business-grid-services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.business-item-card {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all var(--transition-normal);
+}
+
+.business-item-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-focus);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+.business-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.business-item-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #F1F1F1;
+}
+
+.business-item-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Volume Tiers Card */
+.volume-tiers-table-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+}
+
+.volume-tiers-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.volume-tiers-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #F1F1F1;
+  margin-bottom: 0.35rem;
+}
+
+.volume-tiers-subtitle {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.volume-tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.volume-tier-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.1rem;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.volume-tier-box:hover {
+  border-color: var(--silver-metallic);
+  background: var(--bg-surface-elevated);
+}
+
+.tier-qty-badge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.2rem;
+}
+
+.tier-discount-tag {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  background: rgba(0, 168, 120, 0.15);
+  border: 1px solid var(--accent-green);
+  border-radius: var(--radius-full);
+  color: var(--accent-green);
+  font-size: 0.74rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.tier-discount-tag.factory-tier {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  background: rgba(7, 89, 232, 0.15);
+}
+
+.tier-desc {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+}
+
+/* Modal Form styling */
+.corporate-modal-content {
+  max-width: 540px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 2rem !important;
+}
+
+.modal-title-b2b {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  color: #F1F1F1;
+}
+
+.modal-sub-b2b {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.b2b-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.b2b-form-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.form-group-b2b {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+.b2b-actions-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.b2b-actions-row button {
+  flex: 1;
+  min-height: 44px;
+}
+
+/* =========================================================
+   Mobile Optimization (< 768px)
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .business-hero-card {
+    padding: 1.25rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .business-hero-title {
+    font-size: 1.25rem;
+  }
+
+  .business-hero-desc {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .btn-corporate-cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Horizontal Snap Carousel for 6 Solutions */
+  .business-grid-services {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0.85rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .business-item-card {
+    flex: 0 0 78%;
+    max-width: 78%;
+    scroll-snap-align: center;
+    padding: 1.15rem;
+  }
+
+  .business-item-title {
+    font-size: 1rem;
+  }
+
+  .business-item-desc {
+    font-size: 0.82rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* 2x2 Grid for Volume Tiers in Mobile */
+  .volume-tiers-table-card {
+    padding: 1.25rem;
+  }
+
+  .volume-tiers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+  }
+
+  .volume-tier-box {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .tier-qty-badge {
+    font-size: 1.05rem;
+  }
+
+  .tier-desc {
+    display: none; /* Hide tier description on mobile for compact height */
+  }
+
+  .b2b-form-row {
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .corporate-modal-content {
+    padding: 1.25rem !important;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}

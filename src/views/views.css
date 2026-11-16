@@ -1,0 +1,17 @@
+.view-enter { animation: viewIn .45s var(--transition-smooth, ease) both; }
+@keyframes viewIn { from { opacity: 0; transform: translateY(14px); } }
+.view-top-pad { padding-top: 0; }
+.collections-bar { display: flex; gap: .6rem; overflow-x: auto; padding-top: 1.5rem; padding-bottom: .5rem; scrollbar-width: none; }
+.collections-bar::-webkit-scrollbar { display: none; }
+.collection-chip { --chip: #0759E8; flex: none; display: inline-flex; align-items: center; gap: .45rem; padding: .6rem 1.1rem; border-radius: 999px;
+  border: 1px solid var(--border-card); background: var(--bg-card); color: var(--text-secondary); font-weight: 600; font-size: .88rem; cursor: pointer;
+  transition: transform .2s, background .2s, color .2s, box-shadow .2s; }
+.collection-chip:hover { transform: translateY(-2px); border-color: var(--chip); color: var(--text-primary); }
+.collection-chip.active { background: var(--chip); border-color: var(--chip); color: #fff; box-shadow: 0 8px 22px -6px var(--chip); }
+
+/* Sin espacios muertos bajo el menú: el contenido arranca pegado al header */
+.view-top-pad { padding-top: 0; }
+.view-top-pad section.section-padding { padding-top: 2.25rem; padding-bottom: 2.5rem; }
+.collections-bar { padding-top: 1rem; }
+
+.view-top-pad > section.section-padding:first-child { padding-top: 1.5rem; }

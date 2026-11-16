@@ -1,0 +1,240 @@
+/* =========================================================
+   Services Section Styles - Carousel on Mobile & Accordion Specs
+   ========================================================= */
+
+.services-section {
+  position: relative;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-focus);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+}
+
+.service-image-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: var(--bg-deep);
+}
+
+.service-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.service-card:hover .service-card-img {
+  transform: scale(1.05);
+}
+
+.service-accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 2;
+}
+
+.service-turnaround-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(14, 15, 17, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-subtle);
+  padding: 0.22rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--silver-metallic);
+  z-index: 2;
+}
+
+.service-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.service-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.service-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.85rem;
+}
+
+/* Accordion trigger */
+.service-accordion-trigger {
+  display: none; /* Visible on mobile */
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 0;
+  color: var(--silver-metallic);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  min-height: 40px;
+}
+
+.service-specs-collapsible {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.service-spec-block {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.service-specs-collapsible .service-spec-block:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.service-spec-title {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.service-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.service-pill {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-elevated);
+  color: var(--silver-metallic);
+  border: 1px solid rgba(198, 200, 203, 0.1);
+}
+
+.service-pill.mat-pill {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.service-card-footer {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.service-min-order {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.btn-quote-service {
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
+/* =========================================================
+   Responsive Breakpoints (< 1080px and < 768px)
+   ========================================================= */
+
+@media (max-width: 1080px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Horizontal Snap Carousel to drastically reduce mobile vertical scroll */
+  .services-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .service-card {
+    flex: 0 0 84%;
+    max-width: 84%;
+    scroll-snap-align: center;
+  }
+
+  .service-image-container {
+    height: 160px;
+  }
+
+  .service-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Accordion active on mobile */
+  .service-accordion-trigger {
+    display: flex;
+  }
+
+  .service-specs-collapsible {
+    display: none;
+  }
+
+  .service-specs-collapsible.open {
+    display: flex;
+    animation: fadeIn 200ms ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
