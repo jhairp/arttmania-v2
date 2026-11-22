@@ -115,37 +115,8 @@ export const PRODUCTS: Product[] = [
     ]
   },
   {
-    id: 'polera-promocional',
-    name: 'Polera Promocional de Campaña',
-    category: 'textiles',
-    categoryName: 'Textiles',
-    shortDescription: 'Solución económica para eventos masivos, activaciones de marca y publicidad exterior.',
-    fullDescription: 'Polera de algodón cardado de 150g optimizada para grandes volúmenes con serigrafía tradicional o DTF. Excelente relación costo-beneficio para activaciones electorales, ferias y conciertos.',
-    price: 38,
-    unit: 'unidad',
-    rating: 4.6,
-    reviewsCount: 19,
-    inStock: true,
-    colors: [
-      { name: 'Blanco Puro', hex: '#FFFFFF' },
-      { name: 'Negro', hex: '#101112' },
-      { name: 'Azul Rey', hex: '#0759E8' },
-      { name: 'Rojo Corporativo', hex: '#C01B2B' }
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    techniques: ['Serigrafía', 'DTF Textil'],
-    minQuantity: 25,
-    image: '/images/products/polera-promocional.jpg',
-    gallery: ['/images/products/polera-promocional.jpg'],
-    specs: [
-      { label: 'Material', value: '100% Algodón Cardado' },
-      { label: 'Gramaje', value: '150 g/m²' },
-      { label: 'Pedido mínimo', value: '25 unidades' }
-    ]
-  },
-  {
     id: 'sudadera-hoodie',
-    name: 'Polerón Hoodie con Capucha y Cangurera',
+    name: 'Canguro Hoodie con Capucha y Bolsillo Frontal',
     category: 'textiles',
     categoryName: 'Textiles',
     shortDescription: 'Algodón frizado perchado grueso de 320g, ojalillos metálicos y forro interno suave.',
@@ -311,7 +282,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'poleron-crewneck',
-    name: 'Polerón Clásico Cuello Redondo (Crewneck)',
+    name: 'Sudadera Clásica Cuello Redondo (Crewneck)',
     category: 'textiles',
     categoryName: 'Textiles',
     shortDescription: 'Franela de algodón perchado 280g con interior suave y puños acanalados. Perfecto para bordado y DTF.',

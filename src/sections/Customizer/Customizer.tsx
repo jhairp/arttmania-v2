@@ -49,7 +49,7 @@ const CUSTOMIZABLE_PRODUCTS: MockupProduct[] = [
   },
   {
     id: 'sudadera-hoodie',
-    name: 'Hoodie con Capucha Pesado',
+    name: 'Canguro Hoodie con Capucha',
     category: 'textiles',
     basePrice: 145,
     image: '/images/products/sudadera-hoodie.jpg',

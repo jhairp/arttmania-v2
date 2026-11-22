@@ -14,7 +14,7 @@ export const CATEGORIES: Category[] = [
     name: 'Textiles',
     slug: 'textiles',
     description: 'Poleras personalizadas, sudaderas, gorras, uniformes y ropa de trabajo con acabados duraderos.',
-    itemCount: 20,
+    itemCount: 19,
     image: '/images/categories/cat-textiles.jpg',
     accentColor: '#0759E8'
   },
