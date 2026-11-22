@@ -117,7 +117,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCollection }) => {
               <span>Catálogo navideño</span><ArrowRight size={16} />
             </button>
             <button type="button" className="btn btn-secondary btn-hero-secondary" onClick={() => onOpenCollection('normal')}>
-              <LayoutGrid size={16} /><span>Catálogo general</span>
+              <LayoutGrid size={16} /><span>Catálogo Oficial</span>
             </button>
           </div>
         </div>

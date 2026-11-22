@@ -16,5 +16,5 @@ export const COMPANY_INFO = {
   },
   mapUrl: 'https://maps.app.goo.gl/YR2FuE1n9aYFUDfXA',
   coords: { lat: -16.498661, lng: -68.144862 },
-  logo: '/logo/art_mania.png'
+  logo: '/logo/art_mania.webp'
 };

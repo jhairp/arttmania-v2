@@ -60,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => 
             onError={(e) => {
               if (isChristmas && !e.currentTarget.dataset.fallback) {
                 e.currentTarget.dataset.fallback = 'true';
-                e.currentTarget.src = '/logo/art_mania_navideno.png';
+                e.currentTarget.src = '/logo/art_mania_navideno.webp';
               }
             }}
           />

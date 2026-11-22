@@ -41,9 +41,8 @@ export const Products: React.FC = () => {
       if (sortBy === 'price-asc') return a.price - b.price;
       if (sortBy === 'price-desc') return b.price - a.price;
       if (sortBy === 'rating') return b.rating - a.rating;
-      if (a.featured && !b.featured) return -1;
-      if (!a.featured && b.featured) return 1;
-      return a.name.localeCompare(b.name);
+      // 'featured' (Más Vendidos y Populares): respeta el orden curado del catálogo oficial
+      return 0;
     });
   }, [selectedCategory, searchQuery, sortBy]);
 

@@ -78,7 +78,7 @@ export const SEASONAL_CONFIG: SeasonalConfig = {
   
   // Logo navideño del Header (en public/logo/art_mania_navideño.png)
   assets: {
-    logoHeader: '/logo/art_mania_navideño.png'
+    logoHeader: '/logo/art_mania_navideno.webp'
   }
 };
 

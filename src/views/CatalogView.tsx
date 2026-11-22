@@ -17,7 +17,7 @@ export const CatalogView: React.FC<Props> = ({ collection, onChange }) => {
         <button type="button" role="tab" aria-selected={!season}
           className={`collection-chip ${!season ? 'active' : ''}`}
           style={{ ['--chip' as string]: '#0759E8' }} onClick={() => onChange('normal')}>
-          <LayoutGrid size={16} /><span>Catálogo normal</span>
+          <LayoutGrid size={16} /><span>Catálogo Oficial</span>
         </button>
         {SEASONS.map((s) => {
           const Icon = ICONS[s.iconName];
