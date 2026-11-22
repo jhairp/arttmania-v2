@@ -5,10 +5,13 @@
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 200;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(4, 5, 6, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,13 +30,15 @@
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   width: 100%;
-  max-width: 900px;
-  max-height: 88vh;
+  max-width: 920px;
+  max-height: min(88vh, 760px);
+  max-height: min(88dvh, 760px);
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 0 0 45px rgba(0, 0, 0, 0.6);
   overflow: hidden;
+  margin: auto;
 }
 
 .modal-mobile-handle {
@@ -77,26 +82,73 @@
 
 .modal-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.05fr 1.15fr;
   gap: 2rem;
   padding: 2rem;
+  align-items: start;
 }
 
+/* Escenario de presentación fotográfica con iluminación de estudio */
 .modal-gallery-box {
-  background: #111214;
-  border-radius: var(--radius-md);
+  position: relative;
+  background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.08) 0%, rgba(13, 14, 16, 0.95) 75%);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(198, 200, 203, 0.16);
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 380px;
+  padding: 1.5rem;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08), 0 16px 36px rgba(0, 0, 0, 0.55);
+}
+
+.modal-gallery-halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75%;
+  height: 75%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(7, 89, 232, 0.16) 0%, rgba(0, 168, 120, 0.09) 45%, transparent 70%);
+  filter: blur(24px);
+  pointer-events: none;
 }
 
 .modal-main-img {
+  position: relative;
+  z-index: 2;
   width: 100%;
   height: 100%;
-  max-height: 420px;
-  object-fit: cover;
+  max-height: 360px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.75));
+  transition: transform var(--transition-normal);
+}
+
+.modal-gallery-box:hover .modal-main-img {
+  transform: scale(1.04);
+}
+
+.modal-gallery-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: rgba(14, 15, 17, 0.88);
+  border: 1px solid var(--border-card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--silver-metallic);
+  text-transform: uppercase;
 }
 
 .modal-info-col {

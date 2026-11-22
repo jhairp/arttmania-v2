@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { X, ShoppingBag, MessageSquare, Plus, Minus } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import { X, ShoppingBag, MessageSquare, Plus, Minus, Sparkles } from 'lucide-react';
 import { Product } from '../../data/products';
 import { useCart } from '../../context/CartContext';
 import { calculateDiscountedPrice } from '../../data/promotions';
@@ -14,14 +15,31 @@ interface ProductDetailModalProps {
 }
 
 export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product, onClose }) => {
-  if (!product) return null;
-
   const { isChristmas } = useSeasonalTheme();
   const { addItem } = useCart();
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]?.name || '');
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0] || '');
-  const [selectedTechnique, setSelectedTechnique] = useState(product.techniques[0] || '');
-  const [quantity, setQuantity] = useState(product.minQuantity || 1);
+  const [selectedColor, setSelectedColor] = useState('');
+  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedTechnique, setSelectedTechnique] = useState('');
+  const [quantity, setQuantity] = useState(1);
+
+  // Sincronizar estado cuando se abre un nuevo producto
+  useEffect(() => {
+    if (product) {
+      setSelectedColor(product.colors[0]?.name || '');
+      setSelectedSize(product.sizes[0] || '');
+      setSelectedTechnique(product.techniques[0] || '');
+      setQuantity(product.minQuantity || 1);
+
+      // Bloquear scroll del fondo para que el modal quede estático y centrado
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [product]);
+
+  if (!product) return null;
 
   const pricing = calculateDiscountedPrice(product.price, quantity);
 
@@ -39,12 +57,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
   };
 
   const handleWhatsAppQuote = () => {
-    const quoteNote = `Color: ${selectedColor}, Talla/Medida: ${selectedSize}, Técnica: ${selectedTechnique}`;
+    const quoteNote = `Talla/Medida: ${selectedSize}, Técnica: ${selectedTechnique}${selectedColor ? `, Color: ${selectedColor}` : ''}`;
     const url = buildDirectProductQuoteUrl(product.name, quantity, `${selectedTechnique} (${quoteNote})`);
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  return (
+  const modalNode = (
     <div className="modal-backdrop" onClick={onClose}>
       <div
         className="modal-dialog"
@@ -70,13 +88,18 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
 
         <div className="modal-scrollable-body">
           <div className="modal-grid">
-            {/* Gallery Column */}
+            {/* Gallery Column: Escenario de estudio fotográfico con halo y sombra */}
             <div className="modal-gallery-box">
+              <div className="modal-gallery-halo" aria-hidden="true" />
               <img
                 src={product.image}
                 alt={product.name}
                 className="modal-main-img"
               />
+              <div className="modal-gallery-badge">
+                <Sparkles size={12} color="#F5B800" />
+                <span>Acabado Profesional</span>
+              </div>
             </div>
 
             {/* Info & Configurations Column */}
@@ -108,7 +131,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                 </div>
               </div>
 
-              {/* Color Selection */}
+              {/* Color Selection - Ocultado temporalmente por solicitud del usuario */}
+              {/*
               {product.colors && product.colors.length > 0 && (
                 <div className="modal-config-group">
                   <div className="modal-section-label">Color: <span style={{ color: '#F1F1F1' }}>{selectedColor}</span></div>
@@ -135,6 +159,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                   </div>
                 </div>
               )}
+              */}
 
               {/* Size / Dimension Selection */}
               {product.sizes && product.sizes.length > 0 && (
@@ -233,4 +258,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
       </div>
     </div>
   );
+
+  return typeof document !== 'undefined'
+    ? createPortal(modalNode, document.body)
+    : null;
 };

@@ -98,7 +98,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenDetails
         {/* Short description - hidden on mobile via CSS */}
         <p className="product-card-desc">{product.shortDescription}</p>
 
-        {/* Color Swatches (compact, max 3 on mobile) */}
+        {/* Color Swatches - Ocultado temporalmente por solicitud */}
+        {/*
         {product.colors && product.colors.length > 0 && (
           <div className="product-swatches" title="Colores disponibles">
             {product.colors.slice(0, 3).map((color, i) => (
@@ -116,6 +117,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenDetails
             )}
           </div>
         )}
+        */}
 
         {/* Price & Availability */}
         <div className="product-price-row">
