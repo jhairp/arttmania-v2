@@ -309,6 +309,288 @@ export const PRODUCTS: Product[] = [
       { label: 'Cierre', value: 'Cremallera de nylon separable calibre 8' }
     ]
   },
+  {
+    id: 'poleron-crewneck',
+    name: 'Polerón Clásico Cuello Redondo (Crewneck)',
+    category: 'textiles',
+    categoryName: 'Textiles',
+    shortDescription: 'Franela de algodón perchado 280g con interior suave y puños acanalados. Perfecto para bordado y DTF.',
+    fullDescription: 'Sudadera sin capucha confeccionada en algodón perchado premium con interior afelpado térmico de gran confort. Cuello redondo reforzado con rib 2x1 y costuras overlock de cuatro hilos. Prenda favorita para promociones estudiantiles y merch corporativo minimalista.',
+    price: 110,
+    unit: 'unidad',
+    rating: 4.9,
+    reviewsCount: 32,
+    inStock: true,
+    featured: true,
+    badge: 'Popular',
+    colors: [
+      { name: 'Negro Profundo', hex: '#0D0E10' },
+      { name: 'Gris Melange', hex: '#63676E' },
+      { name: 'Azul Marino', hex: '#162235' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    techniques: ['DTF Textil', 'Bordado Computarizado', 'Serigrafía'],
+    minQuantity: 6,
+    image: '/images/products/poleron-crewneck.jpg',
+    gallery: ['/images/products/poleron-crewneck.jpg'],
+    specs: [
+      { label: 'Composición', value: '70% Algodón / 30% Poliéster Perchado' },
+      { label: 'Gramaje', value: '280 g/m² térmico' },
+      { label: 'Acabados', value: 'Puños y basta en rib elástico reforzado' }
+    ]
+  },
+  {
+    id: 'chaleco-corporativo',
+    name: 'Chaleco Corporativo Acolchado Térmico',
+    category: 'textiles',
+    categoryName: 'Textiles',
+    shortDescription: 'Cierre completo, cuello alto y relleno térmico ligero. Ideal para ejecutivos y personal de campo.',
+    fullDescription: 'Chaleco impermeable de perfil ejecutivo con acolchado romboidal o lineal de alta densidad. Cuenta con bolsillos laterales con cremallera invisible, forro térmico transpirable y cuello alto que brinda abrigo sin restar movilidad.',
+    price: 135,
+    unit: 'unidad',
+    rating: 4.8,
+    reviewsCount: 19,
+    inStock: true,
+    colors: [
+      { name: 'Negro Mate', hex: '#141517' },
+      { name: 'Azul Ejecutivo', hex: '#0F1E38' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    techniques: ['Bordado Computarizado', 'Parche Láser Cuero'],
+    minQuantity: 6,
+    image: '/images/products/chaleco-corporativo.jpg',
+    gallery: ['/images/products/chaleco-corporativo.jpg'],
+    specs: [
+      { label: 'Exterior', value: 'Microfibra semi-mate repelente al agua' },
+      { label: 'Aislamiento', value: 'Guata siliconada térmica ultraligera' },
+      { label: 'Bolsillos', value: '2 laterales con cierre + 1 interno' }
+    ]
+  },
+  {
+    id: 'chaleco-seguridad',
+    name: 'Chaleco de Seguridad Reflectivo Brigadista',
+    category: 'textiles',
+    categoryName: 'Textiles',
+    shortDescription: 'Tela dril o gabardina de alta visibilidad con múltiples bolsillos y cintas reflectivas 3M homologadas.',
+    fullDescription: 'Chaleco técnico para supervisores, prevencionistas e ingenieros en obra. Confeccionado en tela dril de alta resistencia con porta-radio, porta-lapiceros, compartimento para credencial y dos bandas reflectivas 3M de 2 pulgadas cruzadas en espalda y paralelas en pecho.',
+    price: 60,
+    unit: 'unidad',
+    rating: 4.9,
+    reviewsCount: 41,
+    inStock: true,
+    badge: 'Seguridad',
+    colors: [
+      { name: 'Naranja Alta Visibilidad', hex: '#FF6B00' },
+      { name: 'Amarillo Neón', hex: '#D2FF00' },
+      { name: 'Azul Marino', hex: '#132138' }
+    ],
+    sizes: ['M', 'L', 'XL', 'XXL'],
+    techniques: ['DTF Textil', 'Serigrafía', 'Bordado'],
+    minQuantity: 12,
+    image: '/images/products/chaleco-seguridad.jpg',
+    gallery: ['/images/products/chaleco-seguridad.jpg'],
+    specs: [
+      { label: 'Material', value: 'Dril nacional 100% algodón / Gabardina' },
+      { label: 'Reflectivo', value: 'Cinta 3M clase 2 certificada' },
+      { label: 'Compartimentos', value: '4 bolsillos delanteros con fuelle' }
+    ]
+  },
+  {
+    id: 'camisa-ejecutiva',
+    name: 'Camisa Corporativa Oxford Manga Larga',
+    category: 'textiles',
+    categoryName: 'Textiles',
+    shortDescription: 'Tejido Oxford 60/40 anti-arrugas de alta prestancia. Cuello clásico estructurado y bolsillo opcional.',
+    fullDescription: 'La prenda insignia para imagen corporativa bancaria, comercial e institucional. Tela Oxford hilado tinturado de tejido tupido que no trasluce, con tratamiento de fácil planchado y corte ergonómico disponible en silueta clásica y slim fit.',
+    price: 95,
+    unit: 'unidad',
+    rating: 4.8,
+    reviewsCount: 27,
+    inStock: true,
+    colors: [
+      { name: 'Azul Cielo Oxford', hex: '#89A8D4' },
+      { name: 'Blanco Nieve', hex: '#F8F9FA' },
+      { name: 'Gris Perla', hex: '#B2B6BD' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    techniques: ['Bordado Computarizado'],
+    minQuantity: 6,
+    image: '/images/products/camisa-ejecutiva.jpg',
+    gallery: ['/images/products/camisa-ejecutiva.jpg'],
+    specs: [
+      { label: 'Composición', value: '60% Algodón / 40% Poliéster Easy-Care' },
+      { label: 'Cuello', value: 'Button-down fusionado indeformable' },
+      { label: 'Puños', value: 'Ajuste doble botón con ojal reforzado' }
+    ]
+  },
+  {
+    id: 'cortavientos-windbreaker',
+    name: 'Chaqueta Cortavientos Impermeable (Windbreaker)',
+    category: 'textiles',
+    categoryName: 'Textiles',
+    shortDescription: 'Tela taslán microfibra repelente al agua con forro interior de malla transpirable y capucha oculta.',
+    fullDescription: 'Chaqueta liviana para protección contra viento y lluvia ligera, diseñada para equipos de entrega, staff deportivo y personal móvil. Incluye cintura y capucha con tensores elásticos regulables y cierres sellados.',
+    price: 125,
+    unit: 'unidad',
+    rating: 4.7,
+    reviewsCount: 22,
+    inStock: true,
+    colors: [
+      { name: 'Negro / Grafito', hex: '#111215' },
+      { name: 'Azul Rey', hex: '#0B3A82' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    techniques: ['Bordado Computarizado', 'DTF Textil', 'Vinil Reflectivo'],
+    minQuantity: 6,
+    image: '/images/products/cortavientos-windbreaker.jpg',
+    gallery: ['/images/products/cortavientos-windbreaker.jpg'],
+    specs: [
+      { label: 'Exterior', value: 'Taslán 100% poliéster repelente' },
+      { label: 'Forro', value: 'Malla transpirable dry-mesh' },
+      { label: 'Ajuste', value: 'Cordón elástico con stopper en basta' }
+    ]
+  },
+  {
+    id: 'gorra-trucker',
+    name: 'Gorra Trucker con Malla Transpirable',
+    category: 'textiles',
+    categoryName: 'Textiles',
+    shortDescription: 'Frontal acolchado de esponja o twill y malla trasera de alta ventilación con broche plástico snapback.',
+    fullDescription: 'La gorra publicitaria más solicitada en ferias y eventos masivos. Su panel frontal plano de poliéster acolchado brinda el lienzo perfecto para estampado full color DTF o sublimación nítida con costos altamente competitivos.',
+    price: 35,
+    unit: 'unidad',
+    rating: 4.8,
+    reviewsCount: 54,
+    inStock: true,
+    badge: 'Económica',
+    colors: [
+      { name: 'Frente Blanco / Malla Negra', hex: '#141518' },
+      { name: 'Frente Blanco / Malla Azul', hex: '#0C2D5C' },
+      { name: 'Negro Total', hex: '#08090A' }
+    ],
+    sizes: ['Ajustable (54-60cm)'],
+    techniques: ['DTF Textil', 'Sublimación', 'Bordado'],
+    minQuantity: 12,
+    image: '/images/products/gorra-trucker.jpg',
+    gallery: ['/images/products/gorra-trucker.jpg'],
+    specs: [
+      { label: 'Frontal', value: 'Poliéster acolchado alta densidad' },
+      { label: 'Malla', value: 'Red de nylon transpirable' },
+      { label: 'Cierre', value: 'Broche plástico snapback de 7 puntos' }
+    ]
+  },
+  {
+    id: 'gorro-beanie',
+    name: 'Gorro Beanie Tejido de Invierno',
+    category: 'textiles',
+    categoryName: 'Textiles',
+    shortDescription: 'Punto acrílico elástico acanalado con doble vuelta. Aislante térmico ideal con parche bordado o cuero láser.',
+    fullDescription: 'Gorro tejido de invierno de estilo casual y ajuste envolvente. Elaborado en lana acrílica hipoalergénica de doble capa que no pica. Se personaliza con parches de cuero grabado láser o escudos bordados de alta definición.',
+    price: 40,
+    unit: 'unidad',
+    rating: 4.9,
+    reviewsCount: 30,
+    inStock: true,
+    colors: [
+      { name: 'Negro Carbón', hex: '#111214' },
+      { name: 'Gris Plomo', hex: '#4A4E57' },
+      { name: 'Azul Noche', hex: '#15243B' }
+    ],
+    sizes: ['Talla Única Elástica'],
+    techniques: ['Parche Cuero Láser', 'Bordado Computarizado', 'DTF'],
+    minQuantity: 12,
+    image: '/images/products/gorro-beanie.jpg',
+    gallery: ['/images/products/gorro-beanie.jpg'],
+    specs: [
+      { label: 'Material', value: '100% Acrílico térmico Soft-Touch' },
+      { label: 'Construcción', value: 'Punto canalé 1x1 con dobladillo de 7cm' },
+      { label: 'Aplicación', value: 'Parche frontal centrado' }
+    ]
+  },
+  {
+    id: 'polera-manga-larga',
+    name: 'Polera Manga Larga de Algodón Peinado',
+    category: 'textiles',
+    categoryName: 'Textiles',
+    shortDescription: 'Algodón 100% 20/1 con puños rib elásticos. Excelente para media estación y uniformes de personal.',
+    fullDescription: 'Prenda clásica de alta rotación para promociones de invierno y uniformes de trabajo diurno. Tela de algodón peinado suave de 180 gramos con refuerzo de hombro a hombro y puños acanalados que mantienen la manga en su lugar.',
+    price: 75,
+    unit: 'unidad',
+    rating: 4.8,
+    reviewsCount: 33,
+    inStock: true,
+    colors: [
+      { name: 'Negro Grafito', hex: '#141517' },
+      { name: 'Blanco Suave', hex: '#F1F1F1' },
+      { name: 'Azul Marino', hex: '#16233B' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    techniques: ['DTF Textil', 'Serigrafía', 'Bordado'],
+    minQuantity: 6,
+    image: '/images/products/polera-manga-larga.jpg',
+    gallery: ['/images/products/polera-manga-larga.jpg'],
+    specs: [
+      { label: 'Material', value: '100% Algodón Peinado 20/1' },
+      { label: 'Gramaje', value: '180 g/m²' },
+      { label: 'Mangas', value: 'Puños con rib de algodón elastano' }
+    ]
+  },
+  {
+    id: 'musculosa-deportiva',
+    name: 'Musculosa Deportiva / Bividí Dry-Fit',
+    category: 'textiles',
+    categoryName: 'Textiles',
+    shortDescription: 'Sisa amplia y costuras reforzadas para máxima libertad de movimiento. Tejido técnico anti-humedad.',
+    fullDescription: 'Camiseta sin mangas diseñada para atletismo, crossfit, gimnasios y competencias de verano. Microfibra deportiva con canales de ventilación y tratamiento antibacterial, personalizable con sublimación fotográfica sin límite de colores.',
+    price: 45,
+    unit: 'unidad',
+    rating: 4.8,
+    reviewsCount: 18,
+    inStock: true,
+    colors: [
+      { name: 'Negro Deportivo', hex: '#101216' },
+      { name: 'Verde Flúor', hex: '#00A878' },
+      { name: 'Azul Francia', hex: '#0055D4' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    techniques: ['Sublimación Full Print', 'Vinil Textil'],
+    minQuantity: 6,
+    image: '/images/products/musculosa-deportiva.jpg',
+    gallery: ['/images/products/musculosa-deportiva.jpg'],
+    specs: [
+      { label: 'Tejido', value: 'Microfibra poliéster con elastano 145g' },
+      { label: 'Corte', value: 'Espalda deportiva con sisa holgada' },
+      { label: 'Propiedades', value: 'Secado ultra rápido y protección UV' }
+    ]
+  },
+  {
+    id: 'overol-industrial',
+    name: 'Overol Industrial de Trabajo Tipo Mameluco',
+    category: 'textiles',
+    categoryName: 'Textiles',
+    shortDescription: 'Dril 100% algodón pesado de uso rudo con doble cierre frontal, múltiples bolsillos y cintas reflectivas 3M.',
+    fullDescription: 'Traje de protección integral para operarios de minería, mecánica automotriz, hidrocarburos y construcción civil. Elaborado en dril pesado anti-desgarro con triple costura reforzada en tiros y entrepierna, cintura elastizada y bandas reflectivas 3M en brazos, pecho y piernas.',
+    price: 180,
+    unit: 'unidad',
+    rating: 5.0,
+    reviewsCount: 16,
+    inStock: true,
+    badge: 'Industrial',
+    colors: [
+      { name: 'Azul Marino Industrial', hex: '#131E33' },
+      { name: 'Naranja Seguridad', hex: '#E05500' }
+    ],
+    sizes: ['M', 'L', 'XL', 'XXL', 'XXXL'],
+    techniques: ['Bordado Computarizado', 'Serigrafía Textil'],
+    minQuantity: 6,
+    image: '/images/products/overol-industrial.jpg',
+    gallery: ['/images/products/overol-industrial.jpg'],
+    specs: [
+      { label: 'Tela', value: 'Dril pesado 100% algodón 310 g/m²' },
+      { label: 'Seguridad', value: 'Bandas reflectivas 3M en mangas, pecho y botamangas' },
+      { label: 'Cremallera', value: 'Cierre bidireccional metálico de alta resistencia' }
+    ]
+  },
 
   // ================= SUBLIMACIÓN (11) =================
   {
