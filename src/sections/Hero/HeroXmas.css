@@ -16,7 +16,53 @@
 .xmas-carousel { position: relative; display: flex; flex-direction: column; align-items: center; }
 .xmas-halo { position: absolute; top: 46%; left: 50%; width: min(90%, 620px); aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%;
   background: radial-gradient(circle, rgba(245, 184, 0, .22), rgba(230, 0, 169, .08) 55%, transparent 72%); filter: blur(6px); }
-.xmas-stage { position: relative; width: 100%; height: min(80vh, 720px); overflow: hidden; }
+.xmas-stage {
+  position: relative;
+  width: 100%;
+  height: min(80vh, 720px);
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.xmas-stage.is-dragging {
+  cursor: grabbing;
+}
+.xmas-stage.is-dragging .xmas-slide img {
+  pointer-events: none;
+}
+
+.xmas-arrow {
+  all: unset;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(12, 16, 20, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s, border-color 0.25s, opacity 0.25s;
+  opacity: 0.65;
+}
+.xmas-arrow:hover {
+  opacity: 1;
+  background: rgba(245, 184, 0, 0.25);
+  border-color: var(--accent-yellow);
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+.xmas-arrow--prev { left: 10px; }
+.xmas-arrow--next { right: 10px; }
 .xmas-slide { all: unset; box-sizing: border-box; cursor: pointer; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1rem;
   opacity: 0; transform: translateX(75%); pointer-events: none;
   transition: transform 1s cubic-bezier(.22, .8, .3, 1), opacity 1s ease; }

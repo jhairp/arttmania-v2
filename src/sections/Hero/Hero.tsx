@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { ArrowRight, LayoutGrid } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight, LayoutGrid } from 'lucide-react';
 import { SantaHatIcon } from '../../components/seasonal/ChristmasSVGs';
 import './Hero.css';
 import './HeroXmas.css';
@@ -20,14 +20,78 @@ interface HeroProps { onOpenCollection: (col: string) => void; }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenCollection }) => {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const startX = useRef(0);
+  const dragDistance = useRef(0);
   const n = SLIDES.length;
 
+  // Movimiento automático continuo (no se detiene al pasar el mouse por encima ni en celulares)
+  // Solo se suspende temporalmente en los milisegundos en que el usuario mantiene presionado y arrastra
   useEffect(() => {
-    if (paused) return;
-    const t = setInterval(() => setIndex((i) => (i + 1) % n), 3800);
+    if (isDragging) return;
+    const t = setInterval(() => {
+      setIndex((i) => (i + 1) % n);
+    }, 3800);
     return () => clearInterval(t);
-  }, [paused, n]);
+  }, [isDragging, index, n]);
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {}
+    setIsDragging(true);
+    startX.current = e.clientX;
+    dragDistance.current = 0;
+    setDragOffset(0);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+    const delta = e.clientX - startX.current;
+    dragDistance.current = Math.abs(delta);
+    setDragOffset(delta);
+  };
+
+  const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+    try {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    } catch {}
+    setIsDragging(false);
+
+    if (dragOffset < -40) {
+      // Deslizar a la izquierda -> siguiente polera
+      setIndex((i) => (i + 1) % n);
+    } else if (dragOffset > 40) {
+      // Deslizar a la derecha -> polera anterior
+      setIndex((i) => (i - 1 + n) % n);
+    }
+    setDragOffset(0);
+  };
+
+  const handlePointerCancel = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+    try {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    } catch {}
+    setIsDragging(false);
+    setDragOffset(0);
+  };
+
+  const handleSlideClick = (e: React.MouseEvent) => {
+    // Si fue arrastre/swipe (> 8px), ignorar el clic de redirección
+    if (dragDistance.current > 8) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    onOpenCollection('navidad');
+  };
+
+  const prevSlide = () => setIndex((i) => (i - 1 + n) % n);
+  const nextSlide = () => setIndex((i) => (i + 1) % n);
 
   return (
     <section id="hero" className="hero-section hero-xmas">
@@ -58,30 +122,79 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCollection }) => {
           </div>
         </div>
 
-        <div className="xmas-carousel" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+        <div className="xmas-carousel">
           <div className="xmas-halo" aria-hidden="true" />
-          <div className="xmas-stage">
+          <div
+            className={`xmas-stage ${isDragging ? 'is-dragging' : ''}`}
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerUp}
+            onPointerCancel={handlePointerCancel}
+          >
             {SLIDES.map((s, i) => {
               const offset = (i - index + n) % n;
               const state = offset === 0 ? 'is-active' : offset === n - 1 ? 'is-prev' : '';
+
+              let style: React.CSSProperties | undefined = undefined;
+              if (isDragging && dragOffset !== 0) {
+                if (offset === 0) {
+                  style = { transform: `translateX(${dragOffset}px)`, transition: 'none' };
+                } else if (offset === 1 && dragOffset < 0) {
+                  style = {
+                    transform: `translateX(calc(75% + ${dragOffset}px))`,
+                    opacity: Math.min(1, Math.abs(dragOffset) / 120),
+                    transition: 'none'
+                  };
+                } else if (offset === n - 1 && dragOffset > 0) {
+                  style = {
+                    transform: `translateX(calc(-75% + ${dragOffset}px))`,
+                    opacity: Math.min(1, Math.abs(dragOffset) / 120),
+                    transition: 'none'
+                  };
+                }
+              }
+
               return (
                 <button
                   key={s.img}
                   type="button"
                   className={`xmas-slide ${state}`}
-                  onClick={() => onOpenCollection('navidad')}
+                  style={style}
+                  onClick={handleSlideClick}
                   aria-hidden={offset !== 0}
                   tabIndex={offset === 0 ? 0 : -1}
                   aria-label={`${s.name}: ver catálogo navideño`}
                 >
-                  <img src={`/images/hero-carousel/${s.img}.webp`} alt={s.name} loading={i < 2 ? 'eager' : 'lazy'} />
+                  <img
+                    src={`/images/hero-carousel/${s.img}.webp`}
+                    alt={s.name}
+                    loading={i < 2 ? 'eager' : 'lazy'}
+                    draggable={false}
+                  />
                 </button>
               );
             })}
+
+            <button
+              type="button"
+              className="xmas-arrow xmas-arrow--prev"
+              onClick={(e) => { e.stopPropagation(); prevSlide(); }}
+              aria-label="Polera anterior"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              type="button"
+              className="xmas-arrow xmas-arrow--next"
+              onClick={(e) => { e.stopPropagation(); nextSlide(); }}
+              aria-label="Siguiente polera"
+            >
+              <ChevronRight size={20} />
+            </button>
           </div>
           <div className="xmas-caption">
             <strong key={index}>{SLIDES[index].name}</strong>
-            <span>Toca la polera para ver la colección</span>
+            <span>Toca o arrastra la polera para ver la colección</span>
           </div>
           <div className="xmas-dots" role="tablist" aria-label="Poleras">
             {SLIDES.map((s, i) => (

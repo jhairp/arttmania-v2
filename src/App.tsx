@@ -16,7 +16,7 @@ import { LoadingScreen } from './components/ui/LoadingScreen';
 import { BackToTop } from './components/ui/BackToTop';
 import { CartProvider } from './context/CartContext';
 import { useSeasonalTheme } from './hooks/useSeasonalTheme';
-import { SnowEffect, ChristmasBanner } from './components/seasonal';
+import { SnowEffect } from './components/seasonal';
 import './styles/global.css';
 import './components/seasonal/seasonal.css';
 import './views/views.css';
@@ -89,7 +89,6 @@ export const AppContent: React.FC = () => {
     <div className={`app-root ${isChristmas ? 'theme-christmas' : ''}`}>
       <LoadingScreen minDuration={1600} onFinish={() => setLoadingFinished(true)} />
       {isChristmas && loadingFinished && <SnowEffect active={loadingFinished} />}
-      {isChristmas && <ChristmasBanner onNavigate={handleNavigate} />}
 
       <Header activeSection={route.view} onNavigate={handleNavigate} />
 
