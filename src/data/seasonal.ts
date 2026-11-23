@@ -50,18 +50,18 @@ export const SEASONS: SeasonCategory[] = [
   },
   {
     id: 'halloween',
-    name: 'Halloween & Noche de Brujas',
+    name: 'Halloween & Noche de Brujas · Línea Umbría',
     shortName: 'Halloween',
     iconName: 'Ghost',
-    deadlineLabel: 'Cierre de pedidos con entrega antes del 31 de Octubre:',
-    targetDate: '2026-10-27T23:59:59',
+    deadlineLabel: 'Cierre de pedidos con entrega garantizada antes del 31 de Octubre:',
+    targetDate: '2027-10-27T23:59:59',
     accentColor: '#E8590C',
     accent: '#E8590C',
     accentSoft: 'rgba(232, 89, 12, 0.16)',
     surfaceTint: 'rgba(75, 29, 107, 0.12)',
     gradient: 'linear-gradient(135deg, #E8590C 0%, #7B2CBF 100%)',
-    badgeText: 'Edición Halloween',
-    description: 'Poleras con tintas DTF neón que brillan en la oscuridad, vasos térmicos temáticos, bolsitas de dulces y stickers holográficos.'
+    badgeText: 'Colección Umbría Activa',
+    description: 'Colección exclusiva "Umbría de Arttmania": poleras negras de algodón peinado premium con estampados DTF de alta definición de íconos del terror, cultura dark y edición Halloween.'
   },
   {
     id: 'san-valentin',
@@ -678,41 +678,290 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     featured: false
   },
 
-  // =================== HALLOWEEN ===================
+  // =================== HALLOWEEN · COLECCIÓN UMBRÍA DE ARTTMANIA ===================
   {
-    id: 'hoodie-halloween-neon',
+    id: 'halloween-modelo-h01',
     seasonId: 'halloween',
-    name: 'Hoodie Glow in the Dark "Terror Edition"',
-    badge: 'Brilla en la Noche',
-    tagline: 'Estampado con tintas especiales reactivas a la oscuridad',
-    description: 'Sudadera pesada con capucha confeccionada en frisa abrigada, con ilustración temática de terror que brilla con luz negra o en la penumbra.',
+    name: 'Modelo H01 · Crypt Demon Ojos Azules (Umbría)',
+    badge: 'Catálogo H01',
+    tagline: 'Rostro demoníaco hiperrealista con iluminación azul eléctrica',
+    description: 'Confección en algodón peinado negro intenso con estampado DTF de altísima resolución que resalta cada textura, sombra y brillo ocular.',
     includes: [
-      'Hoodie pesado con capucha y bolsillo canguro',
-      'Estampado DTF con efecto fluorescente / fotoluminiscente',
-      'Sticker holográfico de colección de regalo'
+      'Polera algodón peinado 100% negro profundo (línea Umbría)',
+      'Estampado DTF textil HD de alta resistencia al lavado',
+      'Tallas disponibles: Infantil 2-14 y Adultos S a XXXL',
+      'Precios especiales por mayor a partir de 12 unidades (desde 25 Bs.)'
     ],
-    originalPrice: 180,
-    promoPrice: 149,
-    image: '/images/products/sudadera-hoodie.jpg',
-    techniques: ['DTF Textil Neón'],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H01.jpg',
+    techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: true
   },
   {
-    id: 'pack-dulces-halloween',
+    id: 'halloween-modelo-h02',
     seasonId: 'halloween',
-    name: 'Pack 12 Bolsitas "Truco o Trato"',
-    badge: 'Ideal Fiestas Infantiles',
-    tagline: 'Bolsas de tela reutilizables para colegios y fiestas',
-    description: 'Docena de bolsitas de tocuyo ecológico con cordón ajustable estampadas con motivos de Halloween y nombres de los niños.',
+    name: 'Modelo H02 · Polera Oficial "Umbría de Arttmania"',
+    badge: 'Edición Oficial',
+    tagline: 'Emblema gótico en textura ósea dorada sobre cruz carmesí',
+    description: 'El diseño insignia de nuestra línea oscura "Umbría de Arttmania". Tipografía metal gótica con detalles en alto contraste sobre prenda negra oversize o corte clásico.',
     includes: [
-      '12 Bolsitas de tela 20x25 cm con cordón',
-      'Estampado full color con nombres de los invitados',
-      '12 Chapitas metálicas de regalo'
+      'Algodón peinado 20/1 de tacto suave y cuello rib reforzado',
+      'Estampado DTF de máxima nitidez con rojos y dorados intensos',
+      'Disponible en corte clásico y oversize (tallas S a XXXL)',
+      'Descuento especial para grupos, bandas y eventos de Halloween'
     ],
-    originalPrice: 130,
-    promoPrice: 99,
-    image: '/images/products/bolsas-ecologicas.jpg',
-    techniques: ['Sublimación Textil', 'Serigrafía'],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H02.jpg',
+    techniques: ['DTF Textil HD', 'Algodón Peinado'],
+    featured: true
+  },
+  {
+    id: 'halloween-modelo-h03',
+    seasonId: 'halloween',
+    name: 'Modelo H03 · Chucky "Good Guys" Reflejo en Cuchillo',
+    badge: 'Más Vendido',
+    tagline: 'El muñeco diabólico con reflejo de víctima en la hoja metálica',
+    description: 'Ilustración cinematográfica de Chucky con cicatrices detalladas, ojos azules penetrantes y contraste de luces cálidas y frías.',
+    includes: [
+      'Polera negra de algodón reactivo que no destiñe ni encoge',
+      'Impresión DTF de calidad fotográfica y tacto flexible',
+      'Tallas completas para niños, jóvenes y adultos',
+      'Precios mayoristas por docena para fiestas y tiendas'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H03.jpg',
+    techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
+    featured: true
+  },
+  {
+    id: 'halloween-modelo-h04',
+    seasonId: 'halloween',
+    name: 'Modelo H04 · Frankenstein Neón & Fuego Púrpura',
+    badge: 'Catálogo H04',
+    tagline: 'El clásico monstruo en verde flúor rodeado de energía violeta',
+    description: 'Reinterpretación moderna y vibrante del monstruo de Frankenstein con saturación neón que destaca con fuerza sobre el fondo negro.',
+    includes: [
+      'Algodón peinado 180g de alta durabilidad',
+      'Tintas DTF vibrantes con contraste verde ácido y púrpura',
+      'Tallas Infantiles y Adultos S a XXXL',
+      'Envíos a todo el país y atención por mayor'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H04.jpg',
+    techniques: ['DTF Textil Neón', 'Algodón Peinado'],
+    featured: false
+  },
+  {
+    id: 'halloween-modelo-h05',
+    seasonId: 'halloween',
+    name: 'Modelo H05 · Freddy Krueger Pesadilla en Elm Street',
+    badge: 'Clásico del Terror',
+    tagline: 'Freddy con su sombrero clásico y guante de cuchillas afiladas',
+    description: 'Arte hiperrealista del señor de las pesadillas con destellos verdes y rojos sobre tela negra premium de la colección Umbría.',
+    includes: [
+      'Polera negra 100% algodón peinado hipoalergénico',
+      'Estampado DTF de gran formato en pecho',
+      'Tallas S, M, L, XL, XXL y XXXL',
+      'Precio promocional por campaña de Halloween'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H05.jpg',
+    techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
+    featured: true
+  },
+  {
+    id: 'halloween-modelo-h06',
+    seasonId: 'halloween',
+    name: 'Modelo H06 · Gato Brujo Místico & Calavera Dorada',
+    badge: 'Tendencia Halloween',
+    tagline: 'Felino hechicero con sombrero violeta, aura eléctrica y dije de cráneo',
+    description: 'Diseño místico y cautivador que combina la magia de Noche de Brujas con destellos neón púrpura y detalles en oro.',
+    includes: [
+      'Prenda suave de algodón peinado negro azabache',
+      'Colores intensos resistentes a múltiples lavados',
+      'Tallas disponibles desde infantil hasta XXXL',
+      'Favorito para fiestas temáticas y regalo de temporada'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H06.jpg',
+    techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
+    featured: true
+  },
+  {
+    id: 'halloween-modelo-h07',
+    seasonId: 'halloween',
+    name: 'Modelo H07 · Ghostface Scream bajo Luna de Sangre',
+    badge: 'Más Cotizado',
+    tagline: 'El ícono del slasher con luna roja, relámpagos violetas y puñal carmesí',
+    description: 'Composición atmosférica de Ghostface emergiendo entre la tormenta y la luna roja. Uno de los modelos más solicitados de la temporada.',
+    includes: [
+      'Algodón peinado premium con costuras reforzadas',
+      'Estampado DTF de alto contraste y profundidad cromática',
+      'Tallas juveniles y adultos S a XXXL',
+      'Descuentos por volumen desde 12 unidades'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H07.jpg',
+    techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
+    featured: true
+  },
+  {
+    id: 'halloween-modelo-h08',
+    seasonId: 'halloween',
+    name: 'Modelo H08 · Pennywise IT El Payaso Bailarín',
+    badge: 'Catálogo H08',
+    tagline: 'Mirada siniestra y sonrisa macabra sobre aura de fuego rojo',
+    description: 'Retrato frontal impactante de Pennywise con maquillaje agrietado, ojos amarillos brillantes y cuello victoriano desgastado.',
+    includes: [
+      'Confección en algodón peinado 20/1 de primera calidad',
+      'Estampado DTF de máxima definición y durabilidad',
+      'Tallas S a XXXL y tallas infantiles a pedido',
+      'Precios de fábrica al por mayor y menor'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H08.jpg',
+    techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
+    featured: true
+  },
+  {
+    id: 'halloween-modelo-h09',
+    seasonId: 'halloween',
+    name: 'Modelo H09 · Jason Voorhees Máscara Viernes 13',
+    badge: 'Catálogo H09',
+    tagline: 'La legendaria máscara de hockey con mirada roja e iluminación neón',
+    description: 'Diseño imponente de Jason Voorhees con textura desgastada de batalla y contra-luz fucsia y azul eléctrico.',
+    includes: [
+      'Polera negra de algodón reactivo de alto gramaje',
+      'Impresión DTF full color sin límite de detalles',
+      'Tallas completas para hombre y mujer',
+      'Atención de pedidos individuales y corporativos'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H09.jpg',
+    techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
+    featured: true
+  },
+  {
+    id: 'halloween-modelo-h10',
+    seasonId: 'halloween',
+    name: 'Modelo H10 · Tiffany "La Novia de Chucky" Neón',
+    badge: 'Especial Parejas',
+    tagline: 'Estética glam rock con letras de neón fucsia/azul y ojos verdes',
+    description: 'El complemento ideal del modelo Chucky (H03) para parejas en Halloween o para lucir un estilo dark pop inconfundible.',
+    includes: [
+      'Algodón peinado suave con caída impecable',
+      'Efecto visual de luces neón rosadas y celestes en DTF',
+      'Ideal para combinar en pareja con el Modelo H03 de Chucky',
+      'Disponible en todas las tallas'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H10.jpg',
+    techniques: ['DTF Textil Neón', 'Algodón Peinado'],
+    featured: true
+  },
+  {
+    id: 'halloween-modelo-h11',
+    seasonId: 'halloween',
+    name: 'Modelo H11 · Art the Clown "Terrifier" Edición Gore',
+    badge: 'Tendencia 2026',
+    tagline: 'El nuevo ícono del cine de terror moderno en máxima crudeza visual',
+    description: 'Estampado frontal de Art the Clown con tipografía roja sangrienta "TERRIFIER" y fondo de brasas ardientes.',
+    includes: [
+      'Polera negra línea Umbría en algodón 100% peinado',
+      'Estampado DTF de gran formato y negros profundos',
+      'Tallas S, M, L, XL, XXL y XXXL',
+      'Precios especiales por docena'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H11.jpg',
+    techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
+    featured: true
+  },
+  {
+    id: 'halloween-modelo-h12',
+    seasonId: 'halloween',
+    name: 'Modelo H12 · Blanka Street Fighter Bestia Eléctrica',
+    badge: 'Edición Gamer Dark',
+    tagline: 'Versión monstruosa hiperrealista rodeada de relámpagos y fuego',
+    description: 'Fusión perfecta entre cultura gamer y terror: Blanka desatando su descarga eléctrica en una ilustración llena de energía.',
+    includes: [
+      'Algodón peinado premium resistente al uso intensivo',
+      'Gama cromática explosiva en verde, naranja y azul eléctrico',
+      'Tallas infantiles, juveniles y adultos hasta XXXL',
+      'Entrega inmediata y envíos a toda Bolivia'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H12.jpg',
+    techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
+    featured: false
+  },
+  {
+    id: 'halloween-modelo-h13',
+    seasonId: 'halloween',
+    name: 'Modelo H13 · Calavera Mexicana Catrina Floral 3D',
+    badge: 'Arte & Tradición',
+    tagline: 'Cráneo bordado en flores multicolores con relieve visual',
+    description: 'Homenaje al Día de los Muertos con una calavera artística repleta de pétalos vibrantes, pedrería simulada y contraste espectacular sobre negro.',
+    includes: [
+      'Polera negra de algodón peinado que realza cada color floral',
+      'Estampado DTF de altísima riqueza cromática',
+      'Corte unisex cómodo en tallas infantil a XXXL',
+      'Descuento por cantidad para eventos culturales y comparsas'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H13.jpg',
+    techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
+    featured: true
+  },
+  {
+    id: 'halloween-modelo-h14',
+    seasonId: 'halloween',
+    name: 'Modelo H14 · Freezer Dragon Ball Aura Oscura',
+    badge: 'Edición Anime Dark',
+    tagline: 'El emperador del mal envuelto en llamas de ki púrpura y lettering',
+    description: 'Para los fanáticos del anime en versión oscura: Freezer en pose desafiante con aura violeta incandescente y tipografía urbana.',
+    includes: [
+      'Prenda 100% algodón peinado de tacto fresco y suave',
+      'Impresión DTF de alta definición con tonos violetas intensos',
+      'Tallas para niños, jóvenes y adultos (S a XXXL)',
+      'Precio mayorista disponible por docena'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H14.jpg',
+    techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
+    featured: false
+  },
+  {
+    id: 'halloween-modelo-h15',
+    seasonId: 'halloween',
+    name: 'Modelo H15 · Guerrero Vikingo Ragnar Ensangrentado',
+    badge: 'Catálogo H15',
+    tagline: 'Mirada azul penetrante tras la batalla en estética brutal dark',
+    description: 'Retrato fotorrealista de guerrero nórdico cubierto de sangre de combate con ojos azules hipnóticos sobre fondo negro.',
+    includes: [
+      'Algodón peinado negro profundo de 180 gramos',
+      'Estampado DTF con nivel de detalle fotográfico',
+      'Tallas S a XXXL con cuello reforzado',
+      'Precios de campaña por unidad y al por mayor'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/halloween/modelo_H15.jpg',
+    techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: false
   },
 
@@ -835,7 +1084,8 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
 
 // Helper to convert a seasonal item to a Product-like structure for the cart & modal
 export const seasonalItemToProduct = (item: SeasonalItem): Product => {
-  const isShirt = item.seasonId === 'navidad' || item.name.toLowerCase().includes('polera') || item.name.toLowerCase().includes('modelo');
+  const isShirt = item.seasonId === 'navidad' || item.seasonId === 'halloween' || item.name.toLowerCase().includes('polera') || item.name.toLowerCase().includes('modelo');
+  const isHalloween = item.seasonId === 'halloween';
   
   return {
     id: item.id,
@@ -851,7 +1101,10 @@ export const seasonalItemToProduct = (item: SeasonalItem): Product => {
     inStock: true,
     featured: item.featured,
     badge: item.badge,
-    colors: isShirt ? [
+    colors: isHalloween ? [
+      { name: 'Negro Umbría', hex: '#0E0E10' },
+      { name: 'Gris Carbón', hex: '#222428' }
+    ] : isShirt ? [
       { name: 'Blanco Nieve', hex: '#F1F1F1' },
       { name: 'Rojo Carmesí', hex: '#B3121F' },
       { name: 'Verde Bosque', hex: '#0F6B3A' },

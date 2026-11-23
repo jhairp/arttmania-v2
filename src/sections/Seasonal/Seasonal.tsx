@@ -56,6 +56,7 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
   const [activeSeasonId, setActiveSeasonId] = useState<SeasonCategory['id']>(seasonId ?? 'navidad');
   useEffect(() => { if (seasonId) setActiveSeasonId(seasonId); }, [seasonId]);
   const [xmasCategoryFilter, setXmasCategoryFilter] = useState<'all' | 'destacados' | 'divertida' | 'elegante' | 'urbana' | 'packs'>('all');
+  const [halloweenCategoryFilter, setHalloweenCategoryFilter] = useState<'all' | 'destacados' | 'terror' | 'mistico' | 'gamer'>('all');
   const [detailProduct, setDetailProduct] = useState<Product | null>(null);
   const [addedItems, setAddedItems] = useState<{ [id: string]: boolean }>({});
   const [expandedIncludes, setExpandedIncludes] = useState<{ [id: string]: boolean }>({});
@@ -80,6 +81,20 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
       }
       if (xmasCategoryFilter === 'packs') {
         return item.id.includes('pack') || item.id.includes('combo') || item.id.includes('mickey') || item.id.includes('familia') || item.id.includes('set') || item.id === 'navidad-modelo-n18';
+      }
+    }
+    if (activeSeasonId === 'halloween') {
+      if (halloweenCategoryFilter === 'destacados') {
+        return !!item.featured;
+      }
+      if (halloweenCategoryFilter === 'terror') {
+        return /modelo-h(03|04|05|07|08|09|10|11)$/.test(item.id);
+      }
+      if (halloweenCategoryFilter === 'mistico') {
+        return /modelo-h(01|02|06|13|15)$/.test(item.id);
+      }
+      if (halloweenCategoryFilter === 'gamer') {
+        return /modelo-h(12|14)$/.test(item.id);
       }
     }
     return true;
@@ -165,7 +180,7 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
       <div className="container seasonal-container">
         {/* Section Header */}
         <div className="section-header">
-          {isChristmas && (
+          {isChristmas && activeSeasonId === 'navidad' && (
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#D4AF37', fontSize: '0.9rem', fontWeight: 600, marginBottom: '0.5rem' }}>
               <ChristmasSparkleIcon size={14} color="#D4AF37" />
               <span>{config.texts.greeting}</span>
@@ -301,6 +316,47 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
           </div>
         )}
 
+        {/* Sub-filtro de Colección Halloween · Umbría de Arttmania */}
+        {activeSeasonId === 'halloween' && (
+          <div className="xmas-filter-bar halloween-filter-bar" role="tablist" aria-label="Filtrar colección de Halloween">
+            <button
+              type="button"
+              className={`xmas-pill-btn halloween-pill-btn ${halloweenCategoryFilter === 'all' ? 'active' : ''}`}
+              onClick={() => setHalloweenCategoryFilter('all')}
+            >
+              Todos los Modelos ({SEASONAL_ITEMS.filter((i) => i.seasonId === 'halloween').length})
+            </button>
+            <button
+              type="button"
+              className={`xmas-pill-btn halloween-pill-btn ${halloweenCategoryFilter === 'destacados' ? 'active' : ''}`}
+              onClick={() => setHalloweenCategoryFilter('destacados')}
+            >
+              ★ Destacados Umbría
+            </button>
+            <button
+              type="button"
+              className={`xmas-pill-btn halloween-pill-btn ${halloweenCategoryFilter === 'terror' ? 'active' : ''}`}
+              onClick={() => setHalloweenCategoryFilter('terror')}
+            >
+              Iconos del Terror (Slashers)
+            </button>
+            <button
+              type="button"
+              className={`xmas-pill-btn halloween-pill-btn ${halloweenCategoryFilter === 'mistico' ? 'active' : ''}`}
+              onClick={() => setHalloweenCategoryFilter('mistico')}
+            >
+              Oscuridad & Misticismo
+            </button>
+            <button
+              type="button"
+              className={`xmas-pill-btn halloween-pill-btn ${halloweenCategoryFilter === 'gamer' ? 'active' : ''}`}
+              onClick={() => setHalloweenCategoryFilter('gamer')}
+            >
+              Gamer & Anime Dark
+            </button>
+          </div>
+        )}
+
         {/* Cards Grid / Carousel */}
         <div
           id={`season-panel-${currentSeason.id}`}
@@ -319,8 +375,8 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
                 className={`seasonal-card ${item.featured ? 'featured-card' : ''}`}
                 style={{ animationDelay: `${index * 60}ms` }}
               >
-                {/* Moño navideño sutil */}
-                {isChristmas && <GiftBow size="md" position="top-right" style={{ top: '8px', right: '8px', zIndex: 3 }} />}
+                {/* Moño navideño sutil solo en Navidad */}
+                {isChristmas && activeSeasonId === 'navidad' && <GiftBow size="md" position="top-right" style={{ top: '8px', right: '8px', zIndex: 3 }} />}
 
                 {/* Image Box Grande & Protagónica */}
                 <div

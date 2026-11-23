@@ -295,6 +295,24 @@
   font-weight: 700;
 }
 
+.halloween-pill-btn {
+  border-color: rgba(232, 89, 12, 0.35);
+}
+
+.halloween-pill-btn:hover {
+  border-color: #E8590C;
+  color: #FFFFFF;
+  background: rgba(232, 89, 12, 0.16);
+}
+
+.halloween-pill-btn.active {
+  background: linear-gradient(135deg, #FF7A29 0%, #E8590C 55%, #7B2CBF 100%);
+  color: #FFFFFF;
+  border-color: #E8590C;
+  box-shadow: 0 4px 16px rgba(232, 89, 12, 0.45);
+  font-weight: 700;
+}
+
 @media (max-width: 768px) {
   .seasonal-banner-inner {
     flex-direction: row;
