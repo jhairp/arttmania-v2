@@ -154,7 +154,55 @@ export const SEASONS: SeasonCategory[] = [
 
 export const SEASONAL_ITEMS: SeasonalItem[] = [
   // =================== NAVIDAD & FIN DE AÑO 2026 ===================
-  // --- 1. MOCKUPS DESTACADOS EN ALTA RESOLUCIÓN ---
+  // --- 1. DESTACADOS AL INICIO: CANGUROS, POLERAS Y POLERAS DÚO ---
+  {
+    id: 'navidad-canguro-gato-rojo',
+    seasonId: 'navidad',
+    name: 'Canguro Gato Navideño',
+    badge: 'Frente + Espalda',
+    tagline: 'Canguro abrigado con logo en pecho y estampado grande en espalda',
+    description: 'Canguro hoodie navideño en algodón frisado de alto gramaje con doble estampado DTF: gatito navideño en el pecho delantero e ilustración completa en la parte trasera.',
+    includes: [
+      'Precio: 168 Bs. (incluye estampado delantero y trasero)',
+      'Algodón frisado perchado suave con capucha y bolsillo canguro',
+      'Tallas disponibles: S, M, L (arriba de L consultar para cotizar)',
+      'Estampado DTF textil HD de máxima durabilidad'
+    ],
+    originalPrice: 200,
+    promoPrice: 168,
+    image: '/images/seasonal/navidad/canguro_gato_rojo_1.jpg',
+    backImage: '/images/seasonal/navidad/canguro_gato_rojo_2.jpg',
+    gallery: [
+      '/images/seasonal/navidad/canguro_gato_rojo_1.jpg',
+      '/images/seasonal/navidad/canguro_gato_rojo_2.jpg'
+    ],
+    techniques: ['DTF Delantera + Trasera'],
+    featured: true
+  },
+  {
+    id: 'navidad-canguro-muneco-negro',
+    seasonId: 'navidad',
+    name: 'Canguro Muñeco de Nieve',
+    badge: 'Frente + Espalda',
+    tagline: 'Canguro negro profundo con muñeco de nieve en pecho y espalda',
+    description: 'Canguro hoodie negro confeccionado en frisa térmica pesada con estampado DTF frontal en el pecho y diseño navideño completo en la espalda.',
+    includes: [
+      'Precio: 168 Bs. (incluye estampado delantero y trasero)',
+      'Algodón frisado perchado suave con capucha y bolsillo canguro',
+      'Tallas disponibles: S, M, L (arriba de L consultar para cotizar)',
+      'Estampado DTF textil HD de máxima durabilidad'
+    ],
+    originalPrice: 200,
+    promoPrice: 168,
+    image: '/images/seasonal/navidad/canguro_muneco_negro_1.jpg',
+    backImage: '/images/seasonal/navidad/canguro_muneco_negro_2.jpg',
+    gallery: [
+      '/images/seasonal/navidad/canguro_muneco_negro_1.jpg',
+      '/images/seasonal/navidad/canguro_muneco_negro_2.jpg'
+    ],
+    techniques: ['DTF Delantera + Trasera'],
+    featured: true
+  },
   {
     id: 'navidad-mockup-santa-cool',
     seasonId: 'navidad',
@@ -172,44 +220,6 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     promoPrice: 65,
     image: '/images/seasonal/navidad/mockup_santa_cool_blanco.jpg',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)'],
-    featured: true
-  },
-  {
-    id: 'navidad-mockup-arbol-dorado',
-    seasonId: 'navidad',
-    name: 'Polera Árbol Dorado',
-    badge: 'Línea Elegante',
-    tagline: 'Composición sobria con pino en cinta dorada y reno',
-    description: 'Diseño minimalista y elegante en tonos oro brillante sobre tela verde bosque. Ideal para cenas navideñas de fin de año o uniformes de temporada.',
-    includes: [
-      'Precio: 65 Bs. la unidad | 120 Bs. el par',
-      'Opción con Logo Mediano: 38 Bs.',
-      'Tallas estándar: S, M, L (tallas superiores consultar para cotizar)',
-      'Detalles en tinta dorada de alta definición'
-    ],
-    originalPrice: 85,
-    promoPrice: 65,
-    image: '/images/seasonal/navidad/mockup_arbol_dorado_verde.jpg',
-    techniques: ['DTF Textil Dorado', 'Logo Mediano (38 Bs.)'],
-    featured: true
-  },
-  {
-    id: 'navidad-mockup-grinch-luces',
-    seasonId: 'navidad',
-    name: 'Polera El Grinch Luces',
-    badge: 'Tendencia 2026',
-    tagline: 'El personaje favorito de quienes viven la fiesta a su manera',
-    description: 'Ilustración detallada y expresiva del Grinch con gorrito navideño y corona de luces brillantes sobre rojo carmesí.',
-    includes: [
-      'Precio: 65 Bs. la unidad | 120 Bs. el par',
-      'Opción con Logo Mediano: 38 Bs.',
-      'Tallas estándar: S, M, L (tallas superiores consultar para cotizar)',
-      'Algodón reactivo que no despinta ni encoge'
-    ],
-    originalPrice: 85,
-    promoPrice: 65,
-    image: '/images/seasonal/navidad/mockup_grinch_luces_rojo.jpg',
-    techniques: ['DTF Textil Full Color', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
   {
@@ -232,22 +242,102 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     featured: true
   },
   {
-    id: 'navidad-mockup-familia-munecos',
+    id: 'navidad-canguro-pinguino-azul',
     seasonId: 'navidad',
-    name: 'Pack Familiar Muñecos',
-    badge: 'Pack Familiar',
-    tagline: 'Set temático para papá, mamá e hijos con copos de nieve',
-    description: 'Colección de poleras navideñas a juego para sesiones de fotos, nochebuena y recuerdos inolvidables en familia.',
+    name: 'Canguro Pingüinos',
+    badge: 'Frente + Espalda',
+    tagline: 'Canguro azul intenso con pingüinito en pecho y arte en espalda',
+    description: 'Canguro hoodie azul rey de tacto abrigado con doble personalización DTF: detalle de pingüino navideño adelante y composición completa atrás.',
     includes: [
-      '3 Poleras familiares (180 Bs. el pack de 3 | 120 Bs. el par | 65 Bs. unidad)',
+      'Precio: 168 Bs. (incluye estampado delantero y trasero)',
+      'Algodón frisado perchado suave con capucha y bolsillo canguro',
+      'Tallas disponibles: S, M, L (arriba de L consultar para cotizar)',
+      'Estampado DTF textil HD de máxima durabilidad'
+    ],
+    originalPrice: 200,
+    promoPrice: 168,
+    image: '/images/seasonal/navidad/canguro_pinguino_azul_1.webp',
+    backImage: '/images/seasonal/navidad/canguro_pinguino_azul_2.webp',
+    gallery: [
+      '/images/seasonal/navidad/canguro_pinguino_azul_1.webp',
+      '/images/seasonal/navidad/canguro_pinguino_azul_2.webp'
+    ],
+    techniques: ['DTF Delantera + Trasera'],
+    featured: true
+  },
+  {
+    id: 'navidad-canguro-snoopy-verde',
+    seasonId: 'navidad',
+    name: 'Canguro Snoopy Navideño',
+    badge: 'Frente + Espalda',
+    tagline: 'Canguro verde navideño con Snoopy en pecho y diseño en espalda',
+    description: 'Canguro hoodie verde bosque en frisa premium con estampado DTF en pecho delantero y diseño grande de Snoopy navideño en la parte trasera.',
+    includes: [
+      'Precio: 168 Bs. (incluye estampado delantero y trasero)',
+      'Algodón frisado perchado suave con capucha y bolsillo canguro',
+      'Tallas disponibles: S, M, L (arriba de L consultar para cotizar)',
+      'Estampado DTF textil HD de máxima durabilidad'
+    ],
+    originalPrice: 200,
+    promoPrice: 168,
+    image: '/images/seasonal/navidad/canguro_snoopy_verde_1.webp',
+    backImage: '/images/seasonal/navidad/canguro_snoopy_verde_2.webp',
+    gallery: [
+      '/images/seasonal/navidad/canguro_snoopy_verde_1.webp',
+      '/images/seasonal/navidad/canguro_snoopy_verde_2.webp'
+    ],
+    techniques: ['DTF Delantera + Trasera'],
+    featured: true
+  },
+  {
+    id: 'navidad-mockup-grinch-luces',
+    seasonId: 'navidad',
+    name: 'Polera El Grinch Luces',
+    badge: 'Tendencia 2026',
+    tagline: 'El personaje favorito de quienes viven la fiesta a su manera',
+    description: 'Ilustración detallada y expresiva del Grinch con gorrito navideño y corona de luces brillantes sobre rojo carmesí.',
+    includes: [
+      'Precio: 65 Bs. la unidad | 120 Bs. el par',
       'Opción con Logo Mediano: 38 Bs.',
       'Tallas estándar: S, M, L (tallas superiores consultar para cotizar)',
-      'Ilustración personalizada de muñecos de nieve con gorritos'
+      'Algodón reactivo que no despinta ni encoge'
     ],
-    originalPrice: 240,
-    promoPrice: 180,
-    image: '/images/seasonal/navidad/mockup_familia_munecos_verde.jpg',
-    techniques: ['DTF Textil', 'Sublimación Digital'],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/navidad/mockup_grinch_luces_rojo.jpg',
+    techniques: ['DTF Textil Full Color', 'Logo Mediano (38 Bs.)'],
+    featured: true
+  },
+  {
+    id: 'navidad-modelo-n18',
+    seasonId: 'navidad',
+    name: 'Poleras Dúo Regalo Pareja',
+    badge: 'Catálogo N18',
+    tagline: 'Set de 2 poleras divertidas con lazo dorado de obsequio (120 Bs. el par)',
+    description: 'Frases sincronizadas con lazo de regalo para celebrar las fiestas en pareja.',
+    includes: ['Precio Promocional: 120 Bs. el par (2 poleras) | 65 Bs. unidad', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Set de 2 poleras rojas en algodón peinado'],
+    originalPrice: 160,
+    promoPrice: 120,
+    image: '/images/seasonal/navidad/modelo_N18.jpg',
+    techniques: ['DTF Textil (Par 2 Poleras)', 'Logo Mediano (38 Bs.)']
+  },
+  {
+    id: 'navidad-mockup-arbol-dorado',
+    seasonId: 'navidad',
+    name: 'Polera Árbol Dorado',
+    badge: 'Línea Elegante',
+    tagline: 'Composición sobria con pino en cinta dorada y reno',
+    description: 'Diseño minimalista y elegante en tonos oro brillante sobre tela verde bosque. Ideal para cenas navideñas de fin de año o uniformes de temporada.',
+    includes: [
+      'Precio: 65 Bs. la unidad | 120 Bs. el par',
+      'Opción con Logo Mediano: 38 Bs.',
+      'Tallas estándar: S, M, L (tallas superiores consultar para cotizar)',
+      'Detalles en tinta dorada de alta definición'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/seasonal/navidad/mockup_arbol_dorado_verde.jpg',
+    techniques: ['DTF Textil Dorado', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
   {
@@ -269,8 +359,46 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     techniques: ['DTF Textil Dorado', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
+  {
+    id: 'navidad-mockup-familia-munecos',
+    seasonId: 'navidad',
+    name: 'Pack Familiar Muñecos',
+    badge: 'Pack Familiar',
+    tagline: 'Set temático para papá, mamá e hijos con copos de nieve',
+    description: 'Colección de poleras navideñas a juego para sesiones de fotos, nochebuena y recuerdos inolvidables en familia.',
+    includes: [
+      '3 Poleras familiares (180 Bs. el pack de 3 | 120 Bs. el par | 65 Bs. unidad)',
+      'Opción con Logo Mediano: 38 Bs.',
+      'Tallas estándar: S, M, L (tallas superiores consultar para cotizar)',
+      'Ilustración personalizada de muñecos de nieve con gorritos'
+    ],
+    originalPrice: 240,
+    promoPrice: 180,
+    image: '/images/seasonal/navidad/mockup_familia_munecos_verde.jpg',
+    techniques: ['DTF Textil', 'Sublimación Digital'],
+    featured: true
+  },
+  {
+    id: 'pack-navideno-familiar',
+    seasonId: 'navidad',
+    name: 'Pack Navidad en Casa',
+    badge: 'Pack Estrella',
+    tagline: 'Ideal para sesiones de fotos familiares y nochebuena',
+    description: 'Set completo de 3 poleras de algodón peinado con estampado navideño en DTF textil + 2 adornos en madera cortados a láser para el árbol.',
+    includes: [
+      '3 Poleras algodón peinado (tallas S, M, L)',
+      'Estampado full color navideño personalizado con apellido familiar',
+      '2 Adornos navideños de madera MDF grabados con nombres',
+      'Caja de regalo festiva incluida'
+    ],
+    originalPrice: 240,
+    promoPrice: 195,
+    image: '/images/seasonal/navidad/mockup_familia_munecos_verde.jpg',
+    techniques: ['DTF Textil', 'Grabado Láser'],
+    featured: true
+  },
 
-  // --- 2. MODELOS INDIVIDUALES CATÁLOGO DIGITAL 2026 (N01 - N16 y N18) ---
+  // --- 2. MODELOS INDIVIDUALES CATÁLOGO DIGITAL 2026 (N01 - N16) ---
   {
     id: 'navidad-modelo-n01',
     seasonId: 'navidad',
@@ -478,138 +606,6 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N16.jpg',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
-  },
-  {
-    id: 'navidad-modelo-n18',
-    seasonId: 'navidad',
-    name: 'Poleras Dúo Regalo Pareja',
-    badge: 'Catálogo N18',
-    tagline: 'Set de 2 poleras divertidas con lazo dorado de obsequio (120 Bs. el par)',
-    description: 'Frases sincronizadas con lazo de regalo para celebrar las fiestas en pareja.',
-    includes: ['Precio Promocional: 120 Bs. el par (2 poleras) | 65 Bs. unidad', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Set de 2 poleras rojas en algodón peinado'],
-    originalPrice: 160,
-    promoPrice: 120,
-    image: '/images/seasonal/navidad/modelo_N18.jpg',
-    techniques: ['DTF Textil (Par 2 Poleras)', 'Logo Mediano (38 Bs.)']
-  },
-
-  // --- 3. CANGUROS NAVIDEÑOS (VISTA DELANTERA Y TRASERA · 168 BS.) ---
-  {
-    id: 'navidad-canguro-gato-rojo',
-    seasonId: 'navidad',
-    name: 'Canguro Gato Navideño',
-    badge: 'Frente + Espalda',
-    tagline: 'Canguro abrigado con logo en pecho y estampado grande en espalda',
-    description: 'Canguro hoodie navideño en algodón frisado de alto gramaje con doble estampado DTF: gatito navideño en el pecho delantero e ilustración completa en la parte trasera.',
-    includes: [
-      'Precio: 168 Bs. (incluye estampado delantero y trasero)',
-      'Algodón frisado perchado suave con capucha y bolsillo canguro',
-      'Tallas disponibles: S, M, L (arriba de L consultar para cotizar)',
-      'Estampado DTF textil HD de máxima durabilidad'
-    ],
-    originalPrice: 200,
-    promoPrice: 168,
-    image: '/images/seasonal/navidad/canguro_gato_rojo_1.jpg',
-    backImage: '/images/seasonal/navidad/canguro_gato_rojo_2.jpg',
-    gallery: [
-      '/images/seasonal/navidad/canguro_gato_rojo_1.jpg',
-      '/images/seasonal/navidad/canguro_gato_rojo_2.jpg'
-    ],
-    techniques: ['DTF Delantera + Trasera'],
-    featured: true
-  },
-  {
-    id: 'navidad-canguro-muneco-negro',
-    seasonId: 'navidad',
-    name: 'Canguro Muñeco de Nieve',
-    badge: 'Frente + Espalda',
-    tagline: 'Canguro negro profundo con muñeco de nieve en pecho y espalda',
-    description: 'Canguro hoodie negro confeccionado en frisa térmica pesada con estampado DTF frontal en el pecho y diseño navideño completo en la espalda.',
-    includes: [
-      'Precio: 168 Bs. (incluye estampado delantero y trasero)',
-      'Algodón frisado perchado suave con capucha y bolsillo canguro',
-      'Tallas disponibles: S, M, L (arriba de L consultar para cotizar)',
-      'Estampado DTF textil HD de máxima durabilidad'
-    ],
-    originalPrice: 200,
-    promoPrice: 168,
-    image: '/images/seasonal/navidad/canguro_muneco_negro_1.jpg',
-    backImage: '/images/seasonal/navidad/canguro_muneco_negro_2.jpg',
-    gallery: [
-      '/images/seasonal/navidad/canguro_muneco_negro_1.jpg',
-      '/images/seasonal/navidad/canguro_muneco_negro_2.jpg'
-    ],
-    techniques: ['DTF Delantera + Trasera'],
-    featured: true
-  },
-  {
-    id: 'navidad-canguro-pinguino-azul',
-    seasonId: 'navidad',
-    name: 'Canguro Pingüinos',
-    badge: 'Frente + Espalda',
-    tagline: 'Canguro azul intenso con pingüinito en pecho y arte en espalda',
-    description: 'Canguro hoodie azul rey de tacto abrigado con doble personalización DTF: detalle de pingüino navideño adelante y composición completa atrás.',
-    includes: [
-      'Precio: 168 Bs. (incluye estampado delantero y trasero)',
-      'Algodón frisado perchado suave con capucha y bolsillo canguro',
-      'Tallas disponibles: S, M, L (arriba de L consultar para cotizar)',
-      'Estampado DTF textil HD de máxima durabilidad'
-    ],
-    originalPrice: 200,
-    promoPrice: 168,
-    image: '/images/seasonal/navidad/canguro_pinguino_azul_1.webp',
-    backImage: '/images/seasonal/navidad/canguro_pinguino_azul_2.webp',
-    gallery: [
-      '/images/seasonal/navidad/canguro_pinguino_azul_1.webp',
-      '/images/seasonal/navidad/canguro_pinguino_azul_2.webp'
-    ],
-    techniques: ['DTF Delantera + Trasera'],
-    featured: true
-  },
-  {
-    id: 'navidad-canguro-snoopy-verde',
-    seasonId: 'navidad',
-    name: 'Canguro Snoopy Navideño',
-    badge: 'Frente + Espalda',
-    tagline: 'Canguro verde navideño con Snoopy en pecho y diseño en espalda',
-    description: 'Canguro hoodie verde bosque en frisa premium con estampado DTF en pecho delantero y diseño grande de Snoopy navideño en la parte trasera.',
-    includes: [
-      'Precio: 168 Bs. (incluye estampado delantero y trasero)',
-      'Algodón frisado perchado suave con capucha y bolsillo canguro',
-      'Tallas disponibles: S, M, L (arriba de L consultar para cotizar)',
-      'Estampado DTF textil HD de máxima durabilidad'
-    ],
-    originalPrice: 200,
-    promoPrice: 168,
-    image: '/images/seasonal/navidad/canguro_snoopy_verde_1.webp',
-    backImage: '/images/seasonal/navidad/canguro_snoopy_verde_2.webp',
-    gallery: [
-      '/images/seasonal/navidad/canguro_snoopy_verde_1.webp',
-      '/images/seasonal/navidad/canguro_snoopy_verde_2.webp'
-    ],
-    techniques: ['DTF Delantera + Trasera'],
-    featured: true
-  },
-
-  // --- 4. PACK FAMILIAR ---
-  {
-    id: 'pack-navideno-familiar',
-    seasonId: 'navidad',
-    name: 'Pack Navidad en Casa',
-    badge: 'Pack Estrella',
-    tagline: 'Ideal para sesiones de fotos familiares y nochebuena',
-    description: 'Set completo de 3 poleras de algodón peinado con estampado navideño en DTF textil + 2 adornos en madera cortados a láser para el árbol.',
-    includes: [
-      '3 Poleras algodón peinado (tallas S, M, L)',
-      'Estampado full color navideño personalizado con apellido familiar',
-      '2 Adornos navideños de madera MDF grabados con nombres',
-      'Caja de regalo festiva incluida'
-    ],
-    originalPrice: 240,
-    promoPrice: 195,
-    image: '/images/seasonal/navidad/mockup_familia_munecos_verde.jpg',
-    techniques: ['DTF Textil', 'Grabado Láser'],
-    featured: true
   },
 
   // =================== HALLOWEEN · COLECCIÓN UMBRÍA DE ARTTMANIA ===================
