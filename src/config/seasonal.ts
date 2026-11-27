@@ -1,5 +1,5 @@
 /**
- * CONFIGURACIÓN CENTRAL DE TEMPORADAS - ART MANIA
+ * CONFIGURACIÓN CENTRAL DE TEMPORADAS - ARTTMANIA
  * 
  * Permite activar/desactivar el modo temático de forma:
  * - 'auto': Se activa por calendario (ej. 1 de Noviembre al 6 de Enero)
@@ -66,9 +66,9 @@ export const SEASONAL_CONFIG: SeasonalConfig = {
   orderDeadline: null,
   promoText: null,
   
-  // Textos formales y cálidos de ART MANIA
+  // Textos formales y cálidos de ARTTMANIA
   texts: {
-    greeting: 'Felices Fiestas les desea ART MANIA',
+    greeting: 'Felices Fiestas les desea ARTTMANIA',
     bannerText: 'Regalos corporativos y personalizados para esta Navidad',
     bannerCta: 'Ver Catálogo Navideño',
     bannerTargetSection: 'temporadas',

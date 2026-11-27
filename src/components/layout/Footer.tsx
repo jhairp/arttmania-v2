@@ -39,7 +39,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <img
               src={COMPANY_INFO.logo}
-              alt="ART MANIA"
+              alt="ARTTMANIA"
               style={{ height: '42px', maxWidth: '190px', objectFit: 'contain' }}
             />
             <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>

@@ -22,7 +22,7 @@ export interface CartOrderSummary {
 export function buildWhatsAppQuoteUrl(order: CartOrderSummary): string {
   const isChristmas = checkIsChristmasActive();
   const greeting = isChristmas ? `${SEASONAL_CONFIG.texts.whatsappGreeting}\n` : '';
-  let message = `${greeting}*SOLICITUD DE COTIZACIÓN - ART MANIA*\n`;
+  let message = `${greeting}*SOLICITUD DE COTIZACIÓN - ARTTMANIA*\n`;
   message += `━━━━━━━━━━━━━━━━━━━━━━\n`;
 
   if (order.customerName) {
@@ -55,7 +55,7 @@ export function buildWhatsAppQuoteUrl(order: CartOrderSummary): string {
     message += `\nObservaciones adicionales: ${order.notes}\n`;
   }
 
-  message += `\nHola ART MANIA. Deseo confirmar disponibilidad, plazos de entrega y coordinar el envío de mi diseño.`;
+  message += `\nHola ARTTMANIA. Deseo confirmar disponibilidad, plazos de entrega y coordinar el envío de mi diseño.`;
 
   const encoded = encodeURIComponent(message);
   return `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encoded}`;
@@ -64,7 +64,7 @@ export function buildWhatsAppQuoteUrl(order: CartOrderSummary): string {
 export function buildDirectProductQuoteUrl(productName: string, quantity = 1, technique = ''): string {
   const isChristmas = checkIsChristmasActive();
   const greeting = isChristmas ? `${SEASONAL_CONFIG.texts.whatsappGreeting}\n` : '';
-  let text = `${greeting}*CONSULTA DE PRODUCTO - ART MANIA*\n`;
+  let text = `${greeting}*CONSULTA DE PRODUCTO - ARTTMANIA*\n`;
   text += `━━━━━━━━━━━━━━━━━━━━━━\n`;
   text += `Hola. Quisiera cotizar el siguiente producto:\n\n`;
   text += `Producto: ${productName}\n`;
@@ -87,7 +87,7 @@ export function buildCorporateQuoteUrl(data: {
 }): string {
   const isChristmas = checkIsChristmasActive();
   const greeting = isChristmas ? `${SEASONAL_CONFIG.texts.whatsappGreeting}\n` : '';
-  let text = `${greeting}*SOLICITUD CORPORATIVA / PRODUCCIÓN POR VOLUMEN - ART MANIA*\n`;
+  let text = `${greeting}*SOLICITUD CORPORATIVA / PRODUCCIÓN POR VOLUMEN - ARTTMANIA*\n`;
   text += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
   text += `Empresa: ${data.companyName}\n`;
   text += `Contacto: ${data.contactName}\n`;

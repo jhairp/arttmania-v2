@@ -4,7 +4,7 @@ import { HummingbirdIcon } from '../common/HummingbirdIcon';
 import './MascotGuide.css';
 
 const TIPS: Record<string, string> = {
-  inicio: '¡Hola! Soy el colibrí de ART MANIA. Toca una polera para ver la colección navideña 🎄',
+  inicio: '¡Hola! Soy el colibrí de ARTTMANIA. Toca una polera para ver la colección navideña 🎄',
   catalogo: 'Elige una colección arriba: Catálogo Oficial, Navidad, Halloween y más.',
   personalizar: 'Diseña tu producto en tiempo real y pide tu cotización.',
   servicios: 'Así producimos: DTF, sublimación, láser y más. También atendemos empresas.',

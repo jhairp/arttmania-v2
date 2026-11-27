@@ -18,7 +18,7 @@ export const Location: React.FC = () => {
         </div>
         <div className="location-map">
           <iframe
-            title="Ubicación de ART MANIA en Google Maps"
+            title="Ubicación de ARTTMANIA en Google Maps"
             src={`https://www.google.com/maps?q=${lat},${lng}&z=17&output=embed`}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

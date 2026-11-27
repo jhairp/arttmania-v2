@@ -41,7 +41,7 @@ export const About: React.FC = () => {
           <div className="about-content">
             <div className="section-tag" style={{ width: 'fit-content' }}>
               <span className="dot" />
-              <span>Identidad ART MANIA</span>
+              <span>Identidad ARTTMANIA</span>
             </div>
 
             <h2 className="section-title">
@@ -49,7 +49,7 @@ export const About: React.FC = () => {
             </h2>
 
             <p className="about-lead-text">
-              En <strong>ART MANIA</strong> concebimos la personalización no como un simple estampado,
+              En <strong>ARTTMANIA</strong> concebimos la personalización no como un simple estampado,
               sino como la materialización física de la identidad de personas, empresas e instituciones en Bolivia.
             </p>
 
@@ -78,7 +78,7 @@ export const About: React.FC = () => {
           <div className="about-workshop-img-box">
             <img
               src="/images/about/production-workshop.jpg"
-              alt="Taller de producción y maquinaria de impresión en ART MANIA"
+              alt="Taller de producción y maquinaria de impresión en ARTTMANIA"
               className="about-workshop-img"
               loading="lazy"
             />

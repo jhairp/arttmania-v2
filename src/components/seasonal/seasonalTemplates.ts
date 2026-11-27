@@ -56,7 +56,7 @@ export const SEASONAL_TEMPLATES: SeasonalTemplate[] = [
         <path d="M120 40L124 50L135 52L127 59L129 70L120 64L111 70L113 59L105 52L116 50L120 40Z" fill="#D4AF37"/>
         <text x="120" y="115" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" letter-spacing="2">FELICES</text>
         <text x="120" y="140" text-anchor="middle" fill="#D4AF37" font-family="sans-serif" font-size="20" font-weight="900" letter-spacing="3">FIESTAS</text>
-        <text x="120" y="165" text-anchor="middle" fill="#C6C8CB" font-family="sans-serif" font-size="11" letter-spacing="4">ART MANIA</text>
+        <text x="120" y="165" text-anchor="middle" fill="#C6C8CB" font-family="sans-serif" font-size="11" letter-spacing="4">ARTTMANIA</text>
         <circle cx="120" cy="185" r="3" fill="#D4AF37"/>
       </svg>
     `)

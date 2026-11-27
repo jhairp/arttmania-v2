@@ -51,11 +51,11 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => 
             handleNavClick('hero');
           }}
           className="brand-link"
-          aria-label="ART MANIA Inicio"
+          aria-label="ARTTMANIA Inicio"
         >
           <img
             src={isChristmas ? config.assets.logoHeader : COMPANY_INFO.logo}
-            alt="ART MANIA - Impresión y Personalización"
+            alt="ARTTMANIA - Impresión y Personalización"
             className="brand-logo-img"
             onError={(e) => {
               if (isChristmas && !e.currentTarget.dataset.fallback) {
@@ -100,7 +100,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => 
 
           {/* Quick WhatsApp CTA (Desktop) */}
           <a
-            href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hola%20ART%20MANIA,%20deseo%20hacer%20una%20consulta.`}
+            href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hola%20ARTTMANIA,%20deseo%20hacer%20una%20consulta.`}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-whatsapp btn-sm"
@@ -153,7 +153,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => 
           </button>
 
           <a
-            href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hola%20ART%20MANIA,%20deseo%20hacer%20una%20consulta.`}
+            href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hola%20ARTTMANIA,%20deseo%20hacer%20una%20consulta.`}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-whatsapp"
@@ -164,7 +164,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => 
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', opacity: 0.6, fontSize: '0.8rem', marginTop: '0.5rem' }}>
             <HummingbirdIcon size={20} animated />
-            <span>ART MANIA • Impresión & Merchandising</span>
+            <span>ARTTMANIA • Impresión & Merchandising</span>
           </div>
         </div>
       </div>

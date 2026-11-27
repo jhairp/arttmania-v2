@@ -60,7 +60,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForQuote }) =
                   />
                   <img
                     src={service.image}
-                    alt={`Técnica de ${service.name} en ART MANIA`}
+                    alt={`Técnica de ${service.name} en ARTTMANIA`}
                     className="service-card-img"
                     loading="lazy"
                   />

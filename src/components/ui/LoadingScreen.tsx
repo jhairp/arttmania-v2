@@ -59,8 +59,8 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
           {/* Floating & Glowing Hummingbird */}
           <div className="colibri-avatar-wrap">
             <img
-              src="/favicon/colibri-vuelo.png"
-              alt="Art Mania Colibrí"
+              src="/favicon/colibri-vuelo.webp"
+              alt="Arttmania Colibrí"
               className="colibri-flying-img"
             />
           </div>
@@ -72,7 +72,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
         {/* Brand Name & Tagline */}
         <div className="loading-brand">
           <h2 className="loading-brand-title">
-            ART <span className="brand-accent">MANIA</span>
+            ARTT<span className="brand-accent">MANIA</span>
           </h2>
           <p className="loading-brand-tagline">
             Personalizamos tus ideas. Producimos calidad.
