@@ -126,6 +126,16 @@
   transition: transform var(--transition-normal);
 }
 
+.modal-main-img.dual-slide-in-left {
+  animation: dualSlideInLeft 560ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.modal-main-img.dual-slide-out-left {
+  position: absolute;
+  animation: dualSlideOutLeft 560ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  pointer-events: none;
+}
+
 .modal-gallery-box:hover .modal-main-img {
   transform: scale(1.04);
 }

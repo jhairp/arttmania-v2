@@ -20,7 +20,23 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedTechnique, setSelectedTechnique] = useState('');
+  const [modalSlideStep, setModalSlideStep] = useState(0);
+  const [isDraggingModalImg, setIsDraggingModalImg] = useState(false);
+  const [modalDragOffset, setModalDragOffset] = useState(0);
+  const modalDragStartRef = React.useRef(0);
   const [quantity, setQuantity] = useState(1);
+
+  const hasMultipleImages = !!(product?.gallery && product.gallery.length > 1);
+  const activeImageIndex = hasMultipleImages && product?.gallery ? modalSlideStep % product.gallery.length : 0;
+
+  // Auto-rotación continua con efecto de arrastre hacia la izquierda en el modal
+  useEffect(() => {
+    if (!hasMultipleImages || isDraggingModalImg || !product?.gallery) return;
+    const timer = setInterval(() => {
+      setModalSlideStep((prev) => prev + 1);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [hasMultipleImages, isDraggingModalImg, product]);
 
   // Sincronizar estado cuando se abre un nuevo producto
   useEffect(() => {
@@ -28,6 +44,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
       setSelectedColor(product.colors[0]?.name || '');
       setSelectedSize(product.sizes[0] || '');
       setSelectedTechnique(product.techniques[0] || '');
+      setModalSlideStep(0);
+      setIsDraggingModalImg(false);
+      setModalDragOffset(0);
       setQuantity(product.minQuantity || 1);
 
       // Bloquear scroll del fondo para que el modal quede estático y centrado
@@ -92,18 +111,151 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
 
         <div className="modal-scrollable-body">
           <div className="modal-grid">
-            {/* Gallery Column: Escenario de estudio fotográfico con halo y sombra */}
-            <div className="modal-gallery-box">
+            {/* Gallery Column: Escenario con auto-rotación y arrastre táctil/mouse sin botones */}
+            <div
+              className="modal-gallery-box"
+              style={hasMultipleImages ? { touchAction: 'pan-y', userSelect: 'none', cursor: isDraggingModalImg ? 'grabbing' : 'grab' } : undefined}
+              onPointerDown={(e) => {
+                if (!hasMultipleImages) return;
+                if (e.pointerType === 'mouse' && e.button !== 0) return;
+                try {
+                  e.currentTarget.setPointerCapture(e.pointerId);
+                } catch {}
+                setIsDraggingModalImg(true);
+                modalDragStartRef.current = e.clientX;
+                setModalDragOffset(0);
+              }}
+              onPointerMove={(e) => {
+                if (!isDraggingModalImg) return;
+                setModalDragOffset(e.clientX - modalDragStartRef.current);
+              }}
+              onPointerUp={(e) => {
+                if (!isDraggingModalImg || !product.gallery) return;
+                try {
+                  e.currentTarget.releasePointerCapture(e.pointerId);
+                } catch {}
+                if (Math.abs(modalDragOffset) > 25) {
+                  setModalSlideStep((prev) => prev + 1);
+                }
+                setIsDraggingModalImg(false);
+                setModalDragOffset(0);
+              }}
+              onPointerCancel={(e) => {
+                if (!isDraggingModalImg) return;
+                try {
+                  e.currentTarget.releasePointerCapture(e.pointerId);
+                } catch {}
+                setIsDraggingModalImg(false);
+                setModalDragOffset(0);
+              }}
+            >
               <div className="modal-gallery-halo" aria-hidden="true" />
-              <img
-                src={product.image}
-                alt={product.name}
-                className="modal-main-img"
-              />
-              <div className="modal-gallery-badge">
-                <Sparkles size={12} color="#F5B800" />
-                <span>Acabado Profesional</span>
-              </div>
+              {hasMultipleImages && product.gallery ? (() => {
+                const n = product.gallery.length;
+                const currentImg = product.gallery[modalSlideStep % n];
+                const prevImg = product.gallery[(modalSlideStep - 1 + n) % n];
+
+                if (isDraggingModalImg && modalDragOffset !== 0) {
+                  return (
+                    <>
+                      <img
+                        src={currentImg}
+                        alt={product.name}
+                        className="modal-main-img"
+                        draggable={false}
+                        style={{
+                          transform: `translateX(${modalDragOffset}px)`,
+                          transition: 'none'
+                        }}
+                      />
+                      <img
+                        src={prevImg}
+                        alt={`${product.name} - Siguiente vista`}
+                        className="modal-main-img"
+                        draggable={false}
+                        style={{
+                          position: 'absolute',
+                          transform:
+                            modalDragOffset < 0
+                              ? `translateX(calc(100% + ${modalDragOffset}px))`
+                              : `translateX(calc(-100% + ${modalDragOffset}px))`,
+                          transition: 'none'
+                        }}
+                      />
+                    </>
+                  );
+                }
+
+                return (
+                  <>
+                    {modalSlideStep > 0 && (
+                      <img
+                        key={`modal-out-${modalSlideStep}`}
+                        src={prevImg}
+                        alt=""
+                        aria-hidden="true"
+                        className="modal-main-img dual-slide-out-left"
+                        draggable={false}
+                      />
+                    )}
+                    <img
+                      key={`modal-in-${modalSlideStep}`}
+                      src={currentImg}
+                      alt={product.name}
+                      className={`modal-main-img ${modalSlideStep > 0 ? 'dual-slide-in-left' : ''}`}
+                      draggable={false}
+                    />
+                  </>
+                );
+              })() : (
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="modal-main-img"
+                  draggable={false}
+                />
+              )}
+              {hasMultipleImages ? (
+                <div
+                  aria-hidden="true"
+                  style={{
+                    position: 'absolute',
+                    bottom: '14px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    background: 'rgba(10, 11, 13, 0.72)',
+                    backdropFilter: 'blur(6px)',
+                    padding: '6px 11px',
+                    borderRadius: '999px',
+                    pointerEvents: 'none',
+                    zIndex: 5
+                  }}
+                >
+                  {product.gallery.map((imgUrl, idx) => {
+                    const isSelected = activeImageIndex === idx;
+                    return (
+                      <span
+                        key={imgUrl}
+                        style={{
+                          width: isSelected ? '18px' : '7px',
+                          height: '7px',
+                          borderRadius: '999px',
+                          background: isSelected ? '#FFFFFF' : 'rgba(255, 255, 255, 0.38)',
+                          transition: 'all 250ms ease'
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="modal-gallery-badge">
+                  <Sparkles size={12} color="#F5B800" />
+                  <span>Acabado Profesional</span>
+                </div>
+              )}
             </div>
 
             {/* Info & Configurations Column */}

@@ -65,11 +65,36 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
   const { isChristmas, config } = useSeasonalTheme();
   const [activeSeasonId, setActiveSeasonId] = useState<SeasonCategory['id']>(seasonId ?? 'navidad');
   useEffect(() => { if (seasonId) setActiveSeasonId(seasonId); }, [seasonId]);
-  const [xmasCategoryFilter, setXmasCategoryFilter] = useState<'all' | 'destacados' | 'divertida' | 'elegante' | 'urbana' | 'packs'>('all');
+  const [xmasCategoryFilter, setXmasCategoryFilter] = useState<'all' | 'destacados' | 'canguros' | 'divertida' | 'elegante' | 'packs'>('all');
   const [halloweenCategoryFilter, setHalloweenCategoryFilter] = useState<'all' | 'destacados' | 'terror' | 'mistico' | 'gamer'>('all');
   const [detailProduct, setDetailProduct] = useState<Product | null>(null);
   const [addedItems, setAddedItems] = useState<{ [id: string]: boolean }>({});
+  const [slideStepById, setSlideStepById] = useState<{ [id: string]: number }>({});
+  const [draggingCardId, setDraggingCardId] = useState<string | null>(null);
+  const [cardDragOffset, setCardDragOffset] = useState<number>(0);
+  const dragStartXRef = React.useRef<number>(0);
+  const dragDistRef = React.useRef<number>(0);
   const { addItem, setIsCartOpen } = useCart();
+
+  // Cambio automático continuo con efecto de arrastre hacia la izquierda para los canguros
+  useEffect(() => {
+    const dualViewItems = SEASONAL_ITEMS.filter((i) => i.seasonId === activeSeasonId && !!i.backImage);
+    if (dualViewItems.length === 0) return;
+
+    const timer = setInterval(() => {
+      setSlideStepById((prev) => {
+        const next = { ...prev };
+        dualViewItems.forEach((item) => {
+          if (draggingCardId !== item.id) {
+            next[item.id] = (prev[item.id] || 0) + 1;
+          }
+        });
+        return next;
+      });
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [activeSeasonId, draggingCardId]);
 
   // Mismo formato de paginación progresiva que el Catálogo Oficial (8 móvil, 12 desktop)
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -86,7 +111,10 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
     if (item.seasonId !== activeSeasonId) return false;
     if (activeSeasonId === 'navidad') {
       if (xmasCategoryFilter === 'destacados') {
-        return item.id.includes('mockup') || !!item.featured;
+        return item.id.includes('mockup') || item.id.includes('canguro') || !!item.featured;
+      }
+      if (xmasCategoryFilter === 'canguros') {
+        return item.id.includes('canguro');
       }
       if (xmasCategoryFilter === 'divertida') {
         return /modelo-n(0[1-9]|10)/.test(item.id);
@@ -304,6 +332,13 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
             </button>
             <button
               type="button"
+              className={`xmas-pill-btn ${xmasCategoryFilter === 'canguros' ? 'active' : ''}`}
+              onClick={() => setXmasCategoryFilter('canguros')}
+            >
+              Canguros (168 Bs.)
+            </button>
+            <button
+              type="button"
               className={`xmas-pill-btn ${xmasCategoryFilter === 'divertida' ? 'active' : ''}`}
               onClick={() => setXmasCategoryFilter('divertida')}
             >
@@ -390,10 +425,55 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
                   <GiftBow size="md" position="top-right" style={{ top: '8px', right: '8px', zIndex: 3 }} />
                 )}
 
-                {/* 1. Foto del Producto (al tocar abre modal de detalle) */}
+                {/* 1. Foto del Producto (con auto-rotación y arrastre táctil/mouse para canguros) */}
                 <div
                   className="seasonal-card-image-wrapper"
-                  onClick={() => setDetailProduct(seasonalItemToProduct(item))}
+                  style={item.backImage ? { touchAction: 'pan-y', userSelect: 'none', cursor: draggingCardId === item.id ? 'grabbing' : 'grab' } : undefined}
+                  onPointerDown={(e) => {
+                    if (!item.backImage) return;
+                    if (e.pointerType === 'mouse' && e.button !== 0) return;
+                    try {
+                      e.currentTarget.setPointerCapture(e.pointerId);
+                    } catch {}
+                    setDraggingCardId(item.id);
+                    dragStartXRef.current = e.clientX;
+                    dragDistRef.current = 0;
+                    setCardDragOffset(0);
+                  }}
+                  onPointerMove={(e) => {
+                    if (draggingCardId !== item.id) return;
+                    const delta = e.clientX - dragStartXRef.current;
+                    dragDistRef.current = Math.abs(delta);
+                    setCardDragOffset(delta);
+                  }}
+                  onPointerUp={(e) => {
+                    if (draggingCardId !== item.id) return;
+                    try {
+                      e.currentTarget.releasePointerCapture(e.pointerId);
+                    } catch {}
+                    if (Math.abs(cardDragOffset) > 25) {
+                      setSlideStepById((prev) => ({ ...prev, [item.id]: (prev[item.id] || 0) + 1 }));
+                    }
+                    setDraggingCardId(null);
+                    setCardDragOffset(0);
+                  }}
+                  onPointerCancel={(e) => {
+                    if (draggingCardId !== item.id) return;
+                    try {
+                      e.currentTarget.releasePointerCapture(e.pointerId);
+                    } catch {}
+                    setDraggingCardId(null);
+                    setCardDragOffset(0);
+                  }}
+                  onClick={(e) => {
+                    if (dragDistRef.current > 8) {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      dragDistRef.current = 0;
+                      return;
+                    }
+                    setDetailProduct(seasonalItemToProduct(item));
+                  }}
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
@@ -410,12 +490,117 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
                       -{discountPercent}%
                     </span>
                   )}
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="seasonal-card-img"
-                    loading="lazy"
-                  />
+                  {item.backImage ? (() => {
+                    const step = slideStepById[item.id] || 0;
+                    const isBack = step % 2 === 1;
+                    const currentImg = isBack ? item.backImage : item.image;
+                    const prevImg = isBack ? item.image : item.backImage;
+                    const isDraggingThis = draggingCardId === item.id && cardDragOffset !== 0;
+
+                    if (isDraggingThis) {
+                      return (
+                        <>
+                          <img
+                            src={currentImg}
+                            alt={item.name}
+                            className="seasonal-card-img"
+                            draggable={false}
+                            style={{
+                              position: 'absolute',
+                              inset: 0,
+                              transform: `translateX(${cardDragOffset}px)`,
+                              transition: 'none'
+                            }}
+                          />
+                          <img
+                            src={prevImg}
+                            alt={`${item.name} - Siguiente vista`}
+                            className="seasonal-card-img"
+                            draggable={false}
+                            style={{
+                              position: 'absolute',
+                              inset: 0,
+                              transform:
+                                cardDragOffset < 0
+                                  ? `translateX(calc(100% + ${cardDragOffset}px))`
+                                  : `translateX(calc(-100% + ${cardDragOffset}px))`,
+                              transition: 'none'
+                            }}
+                          />
+                        </>
+                      );
+                    }
+
+                    return (
+                      <>
+                        {step > 0 && (
+                          <img
+                            key={`out-${step}`}
+                            src={prevImg}
+                            alt=""
+                            aria-hidden="true"
+                            className="seasonal-card-img dual-slide-out-left"
+                            draggable={false}
+                          />
+                        )}
+                        <img
+                          key={`in-${step}`}
+                          src={currentImg}
+                          alt={isBack ? `${item.name} - Vista Trasera` : item.name}
+                          className={`seasonal-card-img ${step > 0 ? 'dual-slide-in-left' : ''}`}
+                          loading="lazy"
+                          draggable={false}
+                        />
+                      </>
+                    );
+                  })() : (
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="seasonal-card-img"
+                      loading="lazy"
+                      draggable={false}
+                    />
+                  )}
+                  {item.backImage && (
+                    <div
+                      aria-hidden="true"
+                      style={{
+                        position: 'absolute',
+                        bottom: '10px',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        background: 'rgba(8, 9, 9, 0.65)',
+                        backdropFilter: 'blur(6px)',
+                        padding: '5px 9px',
+                        borderRadius: '999px',
+                        pointerEvents: 'none',
+                        zIndex: 4
+                      }}
+                    >
+                      <span
+                        style={{
+                          width: (slideStepById[item.id] || 0) % 2 === 0 ? '16px' : '6px',
+                          height: '6px',
+                          borderRadius: '999px',
+                          background: (slideStepById[item.id] || 0) % 2 === 0 ? '#FFFFFF' : 'rgba(255, 255, 255, 0.4)',
+                          transition: 'all 250ms ease'
+                        }}
+                      />
+                      <span
+                        style={{
+                          width: (slideStepById[item.id] || 0) % 2 === 1 ? '16px' : '6px',
+                          height: '6px',
+                          borderRadius: '999px',
+                          background: (slideStepById[item.id] || 0) % 2 === 1 ? '#FFFFFF' : 'rgba(255, 255, 255, 0.4)',
+                          transition: 'all 250ms ease'
+                        }}
+                      />
+                    </div>
+                  )}
                   <div className="seasonal-card-image-overlay">
                     <button
                       type="button"
