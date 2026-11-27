@@ -43,15 +43,15 @@ export const PRODUCTS: Product[] = [
         { name: 'Azul Marino', hex: '#16233B' },
         { name: 'Verde Bosque', hex: '#0B3323' }
       ],
-      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-      techniques: ['DTF Textil', 'Serigrafía', 'Bordado'],
+      sizes: ['S', 'M', 'L'],
+      techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)', 'Serigrafía', 'Bordado'],
       minQuantity: 1,
       image: '/images/products/polera-personalizada.jpg',
       gallery: ['/images/products/polera-personalizada.jpg'],
       specs: [
-        { label: 'Material', value: '100% Algodón Peinado 20/1' },
-        { label: 'Gramaje', value: '180 g/m²' },
-        { label: 'Técnica recomendada', value: 'DTF Textil' },
+        { label: 'Precios Estándar', value: '65 Bs. uno | 120 Bs. el par | Logos medianos a 38 Bs.' },
+        { label: 'Tallas', value: 'S, M, L (Tallas superiores consultar para cotizar)' },
+        { label: 'Material', value: '100% Algodón Peinado 20/1 (180 g/m²)' },
         { label: 'Cuello', value: 'Rib de algodón elastano reforzado' }
       ]
     },
@@ -73,7 +73,7 @@ export const PRODUCTS: Product[] = [
         { name: 'Gris Jaspe', hex: '#484B52' },
         { name: 'Azul Petróleo', hex: '#142538' }
       ],
-      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      sizes: ['S', 'M', 'L'],
       techniques: ['DTF Textil', 'Bordado Computarizado'],
       minQuantity: 1,
       image: '/images/products/sudadera-hoodie.jpg',
@@ -101,7 +101,7 @@ export const PRODUCTS: Product[] = [
         { name: 'Azul Marino', hex: '#121D30' },
         { name: 'Blanco Óptico', hex: '#F5F5F7' }
       ],
-      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      sizes: ['S', 'M', 'L'],
       techniques: ['Bordado Computarizado', 'DTF Textil'],
       minQuantity: 6,
       image: '/images/products/uniformes-empresariales.jpg',
@@ -131,7 +131,7 @@ export const PRODUCTS: Product[] = [
         { name: 'Gris Carbón', hex: '#2B2E32' },
         { name: 'Crema Off-White', hex: '#EAE6DF' }
       ],
-      sizes: ['S', 'M', 'L', 'XL'],
+      sizes: ['S', 'M', 'L'],
       techniques: ['DTF Textil', 'Serigrafía al agua'],
       minQuantity: 1,
       image: '/images/products/polera-oversize.jpg',
@@ -161,7 +161,7 @@ export const PRODUCTS: Product[] = [
         { name: 'Gris Melange', hex: '#63676E' },
         { name: 'Azul Marino', hex: '#162235' }
       ],
-      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      sizes: ['S', 'M', 'L'],
       techniques: ['DTF Textil', 'Bordado Computarizado', 'Serigrafía'],
       minQuantity: 6,
       image: '/images/products/poleron-crewneck.jpg',
@@ -275,7 +275,7 @@ export const PRODUCTS: Product[] = [
         { name: 'Blanco Suave', hex: '#F1F1F1' },
         { name: 'Azul Marino', hex: '#16233B' }
       ],
-      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      sizes: ['S', 'M', 'L'],
       techniques: ['DTF Textil', 'Serigrafía', 'Bordado'],
       minQuantity: 6,
       image: '/images/products/polera-manga-larga.jpg',
@@ -302,7 +302,7 @@ export const PRODUCTS: Product[] = [
         { name: 'Negro / Grafito', hex: '#111215' },
         { name: 'Azul Rey', hex: '#0B3A82' }
       ],
-      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      sizes: ['S', 'M', 'L'],
       techniques: ['Bordado Computarizado', 'DTF Textil', 'Vinil Reflectivo'],
       minQuantity: 6,
       image: '/images/products/cortavientos-windbreaker.jpg',
@@ -329,7 +329,7 @@ export const PRODUCTS: Product[] = [
         { name: 'Negro Mate', hex: '#141517' },
         { name: 'Azul Ejecutivo', hex: '#0F1E38' }
       ],
-      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      sizes: ['S', 'M', 'L'],
       techniques: ['Bordado Computarizado', 'Parche Láser Cuero'],
       minQuantity: 6,
       image: '/images/products/chaleco-corporativo.jpg',
@@ -357,7 +357,7 @@ export const PRODUCTS: Product[] = [
         { name: 'Blanco Nieve', hex: '#F8F9FA' },
         { name: 'Gris Perla', hex: '#B2B6BD' }
       ],
-      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      sizes: ['S', 'M', 'L'],
       techniques: ['Bordado Computarizado'],
       minQuantity: 6,
       image: '/images/products/camisa-ejecutiva.jpg',
@@ -439,7 +439,7 @@ export const PRODUCTS: Product[] = [
         { name: 'Verde Flúor', hex: '#00A878' },
         { name: 'Azul Francia', hex: '#0055D4' }
       ],
-      sizes: ['S', 'M', 'L', 'XL'],
+      sizes: ['S', 'M', 'L'],
       techniques: ['Sublimación Full Print', 'Vinil Textil'],
       minQuantity: 6,
       image: '/images/products/musculosa-deportiva.jpg',

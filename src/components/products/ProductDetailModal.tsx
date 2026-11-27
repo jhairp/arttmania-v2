@@ -41,13 +41,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
 
   if (!product) return null;
 
-  const pricing = calculateDiscountedPrice(product.price, quantity);
+  const minQty = product.minQuantity || 1;
+  const safeQty = Math.min(10000, Math.max(minQty, quantity));
+  const pricing = calculateDiscountedPrice(product.price, safeQty, selectedTechnique);
+  const isSmlGarment = product.sizes.includes('S') && product.sizes.includes('M') && product.sizes.includes('L');
+  const isStandardShirtPricing = product.price === 65 || product.techniques.some((t) => t.toLowerCase().includes('38'));
 
   const handleAddToCart = () => {
     addItem({
       productId: product.id,
       product: product,
-      quantity,
+      quantity: safeQty,
       selectedColor,
       selectedSize,
       selectedTechnique,
@@ -58,7 +62,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
 
   const handleWhatsAppQuote = () => {
     const quoteNote = `Talla/Medida: ${selectedSize}, Técnica: ${selectedTechnique}${selectedColor ? `, Color: ${selectedColor}` : ''}`;
-    const url = buildDirectProductQuoteUrl(product.name, quantity, `${selectedTechnique} (${quoteNote})`);
+    const url = buildDirectProductQuoteUrl(product.name, safeQty, `${selectedTechnique} (${quoteNote})`);
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
@@ -117,8 +121,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                   <span className="product-price-unit">/ {product.unit}</span>
                   {pricing.discountPercent > 0 && (
                     <span className="modal-discount-tag">
-                      ¡{pricing.discountPercent}% descuento! (Ahorras {pricing.savings} Bs.)
+                      ¡Promo aplicada! (Ahorras {pricing.savings} Bs.)
                     </span>
+                  )}
+                  {isStandardShirtPricing && (
+                    <div style={{ fontSize: '0.76rem', color: '#D4AF37', fontWeight: 600, marginTop: '0.35rem' }}>
+                      Estándar: 65 Bs. uno • 120 Bs. el par • Logos medianos a 38 Bs.
+                    </div>
                   )}
                 </div>
                 <div style={{ textAlign: 'right' }}>
@@ -177,6 +186,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                       </button>
                     ))}
                   </div>
+                  {isSmlGarment && (
+                    <div style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', marginTop: '0.45rem' }}>
+                      * Se manejan tallas <strong>S, M y L</strong>. Arriba de eso (XL, XXL, XXXL) se debe consultar por WhatsApp para cotizar.
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -215,16 +229,20 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                   </button>
                   <input
                     type="number"
-                    min={product.minQuantity || 1}
+                    min={minQty}
+                    max={10000}
                     value={quantity}
-                    onChange={(e) => setQuantity(Math.max(product.minQuantity || 1, parseInt(e.target.value) || 1))}
+                    onChange={(e) => {
+                      const val = parseInt(e.target.value, 10);
+                      setQuantity(Number.isNaN(val) ? minQty : Math.min(10000, Math.max(minQty, val)));
+                    }}
                     className="qty-input"
                     aria-label="Cantidad de productos"
                   />
                   <button
                     type="button"
                     className="qty-btn"
-                    onClick={() => setQuantity(quantity + 1)}
+                    onClick={() => setQuantity(Math.min(10000, quantity + 1))}
                     aria-label="Aumentar cantidad"
                   >
                     <Plus size={16} />

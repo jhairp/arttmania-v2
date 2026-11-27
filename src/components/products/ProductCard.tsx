@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Eye, MessageSquare, Check } from 'lucide-react';
+import { ShoppingBag, Eye, Check } from 'lucide-react';
 import { Product } from '../../data/products';
 import { useCart } from '../../context/CartContext';
-import { buildDirectProductQuoteUrl } from '../../services/whatsapp';
 import { useSeasonalTheme } from '../../hooks/useSeasonalTheme';
 import { GiftBow } from '../seasonal/GiftBow';
 import './ProductCard.css';
@@ -14,11 +13,11 @@ interface ProductCardProps {
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenDetails }) => {
   const { isChristmas } = useSeasonalTheme();
-  const { addItem } = useCart();
+  const { addItem, setIsCartOpen } = useCart();
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
 
-  const handleAddToCart = (e: React.MouseEvent) => {
+  const handleBuyClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     addItem({
       productId: product.id,
@@ -29,6 +28,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenDetails
       selectedTechnique: product.techniques[0],
       unitPrice: product.price
     });
+    setIsCartOpen(true);
 
     setIsAdded(true);
     setTimeout(() => {
@@ -36,22 +36,27 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenDetails
     }, 1500);
   };
 
-  const handleQuoteClick = (e: React.MouseEvent) => {
+  const handleDetailsClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const url = buildDirectProductQuoteUrl(product.name, product.minQuantity, product.techniques[0]);
-    window.open(url, '_blank', 'noopener,noreferrer');
+    onOpenDetails(product);
   };
 
   return (
     <article className="product-card">
-      {isChristmas && <GiftBow size="md" position="top-right" style={{ top: '8px', right: '8px' }} />}
+      {isChristmas && <GiftBow size="md" position="top-right" style={{ top: '8px', right: '8px', zIndex: 3 }} />}
 
-      {/* Product Image Box */}
+      {/* 1. Foto del Producto (al tocar abre modal de detalle) */}
       <div
         className={`product-image-box ${!imageLoaded ? 'skeleton-loading' : ''}`}
         onClick={() => onOpenDetails(product)}
         role="button"
         tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            onOpenDetails(product);
+          }
+        }}
         aria-label={`Ver detalles de ${product.name}`}
       >
         <img
@@ -72,10 +77,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenDetails
           <button
             type="button"
             className="btn btn-secondary btn-sm"
-            onClick={(e) => {
-              e.stopPropagation();
-              onOpenDetails(product);
-            }}
+            onClick={handleDetailsClick}
           >
             <Eye size={15} />
             <span>Ver Detalles</span>
@@ -83,62 +85,29 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenDetails
         </div>
       </div>
 
-      {/* Body */}
+      {/* Cuerpo minimalista: Tipo de trabajo, Precio, botón Comprar + Ver Detalles */}
       <div className="product-card-body">
-        <span className="product-category-label">{product.categoryName}</span>
+        {/* 2. Tipo de trabajo (Técnica) */}
+        <div className="product-techniques-list">
+          <span className="product-tech-tag">
+            {product.techniques[0] || product.categoryName}
+          </span>
+        </div>
 
-        <h3
-          className="product-card-title"
-          onClick={() => onOpenDetails(product)}
-          title={product.name}
-        >
-          {product.name}
-        </h3>
-
-        {/* Short description - hidden on mobile via CSS */}
-        <p className="product-card-desc">{product.shortDescription}</p>
-
-        {/* Color Swatches - Ocultado temporalmente por solicitud */}
-        {/*
-        {product.colors && product.colors.length > 0 && (
-          <div className="product-swatches" title="Colores disponibles">
-            {product.colors.slice(0, 3).map((color, i) => (
-              <span
-                key={i}
-                className="color-dot"
-                style={{ backgroundColor: color.hex }}
-                title={color.name}
-              />
-            ))}
-            {product.colors.length > 3 && (
-              <span className="swatches-more">
-                +{product.colors.length - 3}
-              </span>
-            )}
-          </div>
-        )}
-        */}
-
-        {/* Price & Availability */}
+        {/* 3. Precio */}
         <div className="product-price-row">
           <div className="product-price-group">
-            <span className="product-price-amount">{product.price} Bs.</span>
-            <span className="product-price-unit">/ {product.unit}</span>
-          </div>
-
-          <div className="product-stock-status">
-            <Check size={12} strokeWidth={2.5} />
-            <span>{product.inStock ? 'Disponible' : 'Bajo Pedido'}</span>
+            <span className="product-price-amount">Bs. {product.price}</span>
           </div>
         </div>
 
-        {/* Actions Grid */}
+        {/* 4. Botón Comprar (principal) + Botón Ver Detalles (un poco más pequeño) */}
         <div className="product-actions-grid">
           <button
             type="button"
             className={`btn-product-add ${isAdded ? 'added' : ''}`}
-            onClick={handleAddToCart}
-            aria-label={`Añadir ${product.name} al carrito`}
+            onClick={handleBuyClick}
+            aria-label={`Comprar ${product.name}`}
           >
             {isAdded ? (
               <>
@@ -155,13 +124,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenDetails
 
           <button
             type="button"
-            className="btn-product-quote"
-            onClick={handleQuoteClick}
-            aria-label={`Cotizar ${product.name} por WhatsApp`}
-            title="Consultar por WhatsApp"
+            className="btn-product-details-sm"
+            onClick={handleDetailsClick}
+            aria-label={`Ver detalles de ${product.name}`}
+            title="Ver detalles del producto"
           >
-            <MessageSquare size={15} strokeWidth={1.8} />
-            <span className="btn-label">Cotizar</span>
+            <Eye size={14} strokeWidth={1.8} />
+            <span className="btn-label">Ver Detalles</span>
           </button>
         </div>
       </div>
