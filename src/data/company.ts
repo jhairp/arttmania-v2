@@ -10,7 +10,7 @@ export const COMPANY_INFO = {
   city: 'La Paz - Bolivia',
   schedule: 'Lunes a Sabado: 09:00 - 20:00',
   social: {
-    facebook: 'https://facebook.com/arttmaniabolivia',
+    facebook: 'https://www.facebook.com/Artemaniaserigrafic',
     instagram: 'https://instagram.com/arttmaniabolivia',
     tiktok: 'https://www.tiktok.com/@artt.mania'
   },
