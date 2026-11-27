@@ -87,12 +87,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenDetails
 
       {/* Cuerpo minimalista: Tipo de trabajo, Precio, botón Comprar + Ver Detalles */}
       <div className="product-card-body">
-        {/* 2. Tipo de trabajo (Técnica) */}
-        <div className="product-techniques-list">
-          <span className="product-tech-tag">
-            {product.techniques[0] || product.categoryName}
-          </span>
-        </div>
+        {/* 2. Nombre del producto */}
+        <h3 className="product-card-title">
+          {product.name}
+        </h3>
 
         {/* 3. Precio */}
         <div className="product-price-row">

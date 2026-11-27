@@ -601,12 +601,10 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
 
                 {/* Cuerpo minimalista: Tipo de trabajo, Precio, botón Comprar + Ver Detalles */}
                 <div className="seasonal-card-content">
-                  {/* 2. Tipo de trabajo (Técnica) */}
-                  <div className="seasonal-techniques-list">
-                    <span className="seasonal-tech-tag">
-                      {item.techniques[0]}
-                    </span>
-                  </div>
+                  {/* 2. Nombre del producto */}
+                  <h3 className="seasonal-card-title">
+                    {item.name}
+                  </h3>
 
                   {/* 3. Precio */}
                   <div className="seasonal-price-row">

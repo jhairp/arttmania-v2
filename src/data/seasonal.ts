@@ -158,7 +158,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-mockup-santa-cool',
     seasonId: 'navidad',
-    name: 'Polera Santa Cool con Gafas (Blanco)',
+    name: 'Polera Santa Cool',
     badge: 'Más Vendido',
     tagline: 'Algodón peinado premium con Papá Noel moderno y luces festivas',
     description: 'Confección en suave algodón peinado 20/1 con estampado en DTF textil de alta elasticidad. Un clásico moderno para celebraciones navideñas familiares y de amigos.',
@@ -177,7 +177,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-mockup-arbol-dorado',
     seasonId: 'navidad',
-    name: 'Polera Árbol Dorado & Ciervo Festivo (Verde Bosque)',
+    name: 'Polera Árbol Dorado',
     badge: 'Línea Elegante',
     tagline: 'Composición sobria con pino en cinta dorada y reno',
     description: 'Diseño minimalista y elegante en tonos oro brillante sobre tela verde bosque. Ideal para cenas navideñas de fin de año o uniformes de temporada.',
@@ -196,7 +196,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-mockup-grinch-luces',
     seasonId: 'navidad',
-    name: 'Polera El Grinch con Guirnalda de Luces (Rojo Navidad)',
+    name: 'Polera El Grinch Luces',
     badge: 'Tendencia 2026',
     tagline: 'El personaje favorito de quienes viven la fiesta a su manera',
     description: 'Ilustración detallada y expresiva del Grinch con gorrito navideño y corona de luces brillantes sobre rojo carmesí.',
@@ -215,7 +215,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-mockup-mickey-minnie',
     seasonId: 'navidad',
-    name: 'Dúo de Poleras Pareja "Mickey & Minnie Navideños"',
+    name: 'Poleras Dúo Mickey y Minnie',
     badge: 'Especial Parejas',
     tagline: '2 Poleras combinadas con diseño continuo y corazón rojo (120 Bs. el par)',
     description: 'Set especial para novios y matrimonios. Ilustraciones sincronizadas de Mickey y Minnie dándose un beso con gorrito de Papá Noel.',
@@ -234,7 +234,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-mockup-familia-munecos',
     seasonId: 'navidad',
-    name: 'Pack Familiar "Familia Muñecos de Nieve"',
+    name: 'Pack Familiar Muñecos',
     badge: 'Pack Familiar',
     tagline: 'Set temático para papá, mamá e hijos con copos de nieve',
     description: 'Colección de poleras navideñas a juego para sesiones de fotos, nochebuena y recuerdos inolvidables en familia.',
@@ -253,7 +253,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-mockup-nacimiento-sagrado',
     seasonId: 'navidad',
-    name: 'Polera Silueta Nacimiento Sagrado & Estrella (Rojo)',
+    name: 'Polera Nacimiento Dorado',
     badge: 'Tradición & Fe',
     tagline: 'El verdadero sentido de la Navidad en trazo fino dorado',
     description: 'Representación artística y solemne del pesebre de Belén con la estrella guía en acabado oro sobre fondo rojo navideño.',
@@ -274,7 +274,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n01',
     seasonId: 'navidad',
-    name: 'Modelo N01 · Santa Claus Ho Ho Ho (Gafas Cool)',
+    name: 'Polera Santa Gafas',
     badge: 'Catálogo N01',
     tagline: 'Papá Noel con actitud, gafas de sol y saludo de paz',
     description: 'Polera clásica blanca con el personaje festivo favorito en versión juvenil y fresca.',
@@ -287,7 +287,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n02',
     seasonId: 'navidad',
-    name: 'Modelo N02 · Reno Navideño Nariz Roja (Rojo Carmesí)',
+    name: 'Polera Reno Nariz Roja',
     badge: 'Catálogo N02',
     tagline: 'Tierno reno sonriente con astas y estrellas de nieve',
     description: 'Polera roja festiva con ilustración tierna de reno navideño en alta resolución.',
@@ -300,7 +300,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n03',
     seasonId: 'navidad',
-    name: 'Modelo N03 · El Grinch Navideño con Gorro (Verde)',
+    name: 'Polera El Grinch Verde',
     badge: 'Catálogo N03',
     tagline: 'El clásico antihéroe que roba sonrisas en Navidad',
     description: 'Diseño icónico del Grinch sonriendo con gorro de Santa sobre tela verde de temporada.',
@@ -313,7 +313,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n04',
     seasonId: 'navidad',
-    name: 'Modelo N04 · Muñeco de Nieve con Bufanda y Gorro',
+    name: 'Polera Muñeco de Nieve',
     badge: 'Catálogo N04',
     tagline: 'Clásico muñeco de nieve de invierno con detalles rojos',
     description: 'Ilustración entrañable de muñeco de nieve sonriente con copos y bufanda tejida.',
@@ -326,7 +326,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n05',
     seasonId: 'navidad',
-    name: 'Modelo N05 · Pesebre & Nacimiento Sagrado (Negro Grafito)',
+    name: 'Polera Pesebre Dorado',
     badge: 'Catálogo N05',
     tagline: 'Silueta dorada del nacimiento con estrella de Belén',
     description: 'Diseño solemne y elegante en trazo dorado sobre fondo oscuro para quienes celebran el verdadero espíritu de la Navidad.',
@@ -339,7 +339,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n06',
     seasonId: 'navidad',
-    name: 'Modelo N06 · Árbol Ribbon Geométrico (Rojo Fiesta)',
+    name: 'Polera Pino Dorado',
     badge: 'Catálogo N06',
     tagline: 'Pino estilizado en cinta continua dorada con estrella',
     description: 'Composición moderna de árbol de navidad abstracto en tonos dorados sobre prenda roja festiva.',
@@ -352,7 +352,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n07',
     seasonId: 'navidad',
-    name: 'Modelo N07 · Galleta de Jengibre Navideña (Verde Pino)',
+    name: 'Polera Galleta de Jengibre',
     badge: 'Catálogo N07',
     tagline: 'Muñeco de jengibre sonriente con moño y botones rojos',
     description: 'Diseño tradicional y simpático para niños, familias y amantes de la repostería navideña.',
@@ -365,7 +365,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n08',
     seasonId: 'navidad',
-    name: 'Modelo N08 · Feliz Navidad Lettering & Campanas',
+    name: 'Polera Campanas Navideñas',
     badge: 'Catálogo N08',
     tagline: 'Frase tradicional con campanas doradas y lazo rojo',
     description: 'Tipografía clásica y festiva con follaje de acebo y campanas para desear felices fiestas.',
@@ -378,7 +378,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n09',
     seasonId: 'navidad',
-    name: 'Modelo N09 · Snoopy & Woodstock Navideños (Rojo)',
+    name: 'Polera Snoopy Navideño',
     badge: 'Catálogo N09',
     tagline: 'Snoopy abrazando su corazón festivo con gorrito de Santa',
     description: 'Diseño nostálgico y adorable del icónico perrito blanco con detalles de nieve y amor.',
@@ -391,7 +391,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n10',
     seasonId: 'navidad',
-    name: 'Modelo N10 · Reno Urbano con Gafas de Sol (Verde)',
+    name: 'Polera Reno Urbano',
     badge: 'Catálogo N10',
     tagline: 'Reno con actitud y lentes reflejantes de invierno',
     description: 'Diseño con gran personalidad para chicos, jóvenes y familias modernas.',
@@ -404,7 +404,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n11',
     seasonId: 'navidad',
-    name: 'Modelo N11 · Trío de Gnomos Escandinavos (Blanco)',
+    name: 'Polera Gnomos Navideños',
     badge: 'Catálogo N11',
     tagline: 'Tres gnomos nórdicos con gorros tejidos y barbas largas',
     description: 'Estética escandinava elegante y navideña en tonos rojo y gris sobre polera blanca.',
@@ -417,7 +417,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n12',
     seasonId: 'navidad',
-    name: 'Modelo N12 · Santa Claus Clásico Realista (Rojo)',
+    name: 'Polera Santa Clásico',
     badge: 'Catálogo N12',
     tagline: 'Papá Noel con gesto de silencio y gafas doradas',
     description: 'Ilustración de alta calidad artística con textura realista de barba y guantes blancos.',
@@ -430,7 +430,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n13',
     seasonId: 'navidad',
-    name: 'Modelo N13 · Ciervo Poligonal Geométrico Oro (Negro)',
+    name: 'Polera Ciervo Dorado',
     badge: 'Catálogo N13',
     tagline: 'Estética geométrica vanguardista en líneas doradas',
     description: 'Diseño sofisticado para quienes prefieren un look navideño sobrio, moderno y elegante.',
@@ -443,7 +443,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n14',
     seasonId: 'navidad',
-    name: 'Modelo N14 · Polera "Navidad en Familia" (Blanco)',
+    name: 'Polera Navidad en Familia',
     badge: 'Catálogo N14',
     tagline: 'Tres pinos navideños y dedicatoria familiar cálida',
     description: 'Prenda pensada para reuniones y cenas familiares con pinos decorados y tipografía festiva.',
@@ -456,7 +456,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n15',
     seasonId: 'navidad',
-    name: 'Modelo N15 · Pingüino Festivo con Bufanda (Verde)',
+    name: 'Polera Pingüino Navideño',
     badge: 'Catálogo N15',
     tagline: 'Tierno pingüinito polar con gorro rojo y bufanda tejida',
     description: 'Modelo favorito para toda la familia, cursos escolares y regalos navideños.',
@@ -469,7 +469,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n16',
     seasonId: 'navidad',
-    name: 'Modelo N16 · Reno Navideño Sonriente (Rojo)',
+    name: 'Polera Reno Sonriente',
     badge: 'Catálogo N16',
     tagline: 'Carita sonriente de reno con cascabel y nieve',
     description: 'Prenda festiva muy tierna para sesiones fotográficas navideñas.',
@@ -482,7 +482,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-modelo-n18',
     seasonId: 'navidad',
-    name: 'Modelo N18 · Dúo Pareja "Él es mi regalo / Ella es mi regalo"',
+    name: 'Poleras Dúo Regalo Pareja',
     badge: 'Catálogo N18',
     tagline: 'Set de 2 poleras divertidas con lazo dorado de obsequio (120 Bs. el par)',
     description: 'Frases sincronizadas con lazo de regalo para celebrar las fiestas en pareja.',
@@ -497,7 +497,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-canguro-gato-rojo',
     seasonId: 'navidad',
-    name: 'Canguro Navideño Gato con Gorro (Rojo · Delantera y Trasera)',
+    name: 'Canguro Gato Navideño',
     badge: 'Frente + Espalda',
     tagline: 'Canguro abrigado con logo en pecho y estampado grande en espalda',
     description: 'Canguro hoodie navideño en algodón frisado de alto gramaje con doble estampado DTF: gatito navideño en el pecho delantero e ilustración completa en la parte trasera.',
@@ -521,7 +521,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-canguro-muneco-negro',
     seasonId: 'navidad',
-    name: 'Canguro Navideño Muñeco de Nieve (Negro · Delantera y Trasera)',
+    name: 'Canguro Muñeco de Nieve',
     badge: 'Frente + Espalda',
     tagline: 'Canguro negro profundo con muñeco de nieve en pecho y espalda',
     description: 'Canguro hoodie negro confeccionado en frisa térmica pesada con estampado DTF frontal en el pecho y diseño navideño completo en la espalda.',
@@ -545,7 +545,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-canguro-pinguino-azul',
     seasonId: 'navidad',
-    name: 'Canguro Navideño Pingüinos Festivos (Azul · Delantera y Trasera)',
+    name: 'Canguro Pingüinos',
     badge: 'Frente + Espalda',
     tagline: 'Canguro azul intenso con pingüinito en pecho y arte en espalda',
     description: 'Canguro hoodie azul rey de tacto abrigado con doble personalización DTF: detalle de pingüino navideño adelante y composición completa atrás.',
@@ -569,7 +569,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'navidad-canguro-snoopy-verde',
     seasonId: 'navidad',
-    name: 'Canguro Navideño Snoopy (Verde Bosque · Delantera y Trasera)',
+    name: 'Canguro Snoopy Navideño',
     badge: 'Frente + Espalda',
     tagline: 'Canguro verde navideño con Snoopy en pecho y diseño en espalda',
     description: 'Canguro hoodie verde bosque en frisa premium con estampado DTF en pecho delantero y diseño grande de Snoopy navideño en la parte trasera.',
@@ -595,7 +595,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'pack-navideno-familiar',
     seasonId: 'navidad',
-    name: 'Pack Familiar "Navidad en Casa"',
+    name: 'Pack Navidad en Casa',
     badge: 'Pack Estrella',
     tagline: 'Ideal para sesiones de fotos familiares y nochebuena',
     description: 'Set completo de 3 poleras de algodón peinado con estampado navideño en DTF textil + 2 adornos en madera cortados a láser para el árbol.',
@@ -616,7 +616,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h01',
     seasonId: 'halloween',
-    name: 'Modelo H01 · Crypt Demon Ojos Azules (Umbría)',
+    name: 'Polera Crypt Demon',
     badge: 'Catálogo H01',
     tagline: 'Rostro demoníaco hiperrealista con iluminación azul eléctrica',
     description: 'Confección en algodón peinado negro intenso con estampado DTF de altísima resolución que resalta cada textura, sombra y brillo ocular.',
@@ -635,7 +635,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h02',
     seasonId: 'halloween',
-    name: 'Modelo H02 · Polera Oficial "Umbría de Arttmania"',
+    name: 'Polera Oficial Umbría',
     badge: 'Edición Oficial',
     tagline: 'Emblema gótico en textura ósea dorada sobre cruz carmesí',
     description: 'El diseño insignia de nuestra línea oscura "Umbría de Arttmania". Tipografía metal gótica con detalles en alto contraste sobre prenda negra oversize o corte clásico.',
@@ -654,7 +654,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h03',
     seasonId: 'halloween',
-    name: 'Modelo H03 · Chucky "Good Guys" Reflejo en Cuchillo',
+    name: 'Polera Chucky',
     badge: 'Más Vendido',
     tagline: 'El muñeco diabólico con reflejo de víctima en la hoja metálica',
     description: 'Ilustración cinematográfica de Chucky con cicatrices detalladas, ojos azules penetrantes y contraste de luces cálidas y frías.',
@@ -673,7 +673,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h04',
     seasonId: 'halloween',
-    name: 'Modelo H04 · Frankenstein Neón & Fuego Púrpura',
+    name: 'Polera Frankenstein Neón',
     badge: 'Catálogo H04',
     tagline: 'El clásico monstruo en verde flúor rodeado de energía violeta',
     description: 'Reinterpretación moderna y vibrante del monstruo de Frankenstein con saturación neón que destaca con fuerza sobre el fondo negro.',
@@ -692,7 +692,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h05',
     seasonId: 'halloween',
-    name: 'Modelo H05 · Freddy Krueger Pesadilla en Elm Street',
+    name: 'Polera Freddy Krueger',
     badge: 'Clásico del Terror',
     tagline: 'Freddy con su sombrero clásico y guante de cuchillas afiladas',
     description: 'Arte hiperrealista del señor de las pesadillas con destellos verdes y rojos sobre tela negra premium de la colección Umbría.',
@@ -711,7 +711,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h06',
     seasonId: 'halloween',
-    name: 'Modelo H06 · Gato Brujo Místico & Calavera Dorada',
+    name: 'Polera Gato Brujo',
     badge: 'Tendencia Halloween',
     tagline: 'Felino hechicero con sombrero violeta, aura eléctrica y dije de cráneo',
     description: 'Diseño místico y cautivador que combina la magia de Noche de Brujas con destellos neón púrpura y detalles en oro.',
@@ -730,7 +730,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h07',
     seasonId: 'halloween',
-    name: 'Modelo H07 · Ghostface Scream bajo Luna de Sangre',
+    name: 'Polera Ghostface Scream',
     badge: 'Más Cotizado',
     tagline: 'El ícono del slasher con luna roja, relámpagos violetas y puñal carmesí',
     description: 'Composición atmosférica de Ghostface emergiendo entre la tormenta y la luna roja. Uno de los modelos más solicitados de la temporada.',
@@ -749,7 +749,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h08',
     seasonId: 'halloween',
-    name: 'Modelo H08 · Pennywise IT El Payaso Bailarín',
+    name: 'Polera Pennywise IT',
     badge: 'Catálogo H08',
     tagline: 'Mirada siniestra y sonrisa macabra sobre aura de fuego rojo',
     description: 'Retrato frontal impactante de Pennywise con maquillaje agrietado, ojos amarillos brillantes y cuello victoriano desgastado.',
@@ -768,7 +768,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h09',
     seasonId: 'halloween',
-    name: 'Modelo H09 · Jason Voorhees Máscara Viernes 13',
+    name: 'Polera Jason Voorhees',
     badge: 'Catálogo H09',
     tagline: 'La legendaria máscara de hockey con mirada roja e iluminación neón',
     description: 'Diseño imponente de Jason Voorhees con textura desgastada de batalla y contra-luz fucsia y azul eléctrico.',
@@ -787,7 +787,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h10',
     seasonId: 'halloween',
-    name: 'Modelo H10 · Tiffany "La Novia de Chucky" Neón',
+    name: 'Polera Tiffany Neón',
     badge: 'Especial Parejas',
     tagline: 'Estética glam rock con letras de neón fucsia/azul y ojos verdes',
     description: 'El complemento ideal del modelo Chucky (H03) para parejas en Halloween o para lucir un estilo dark pop inconfundible.',
@@ -806,7 +806,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h11',
     seasonId: 'halloween',
-    name: 'Modelo H11 · Art the Clown "Terrifier" Edición Gore',
+    name: 'Polera Art Terrifier',
     badge: 'Tendencia 2026',
     tagline: 'El nuevo ícono del cine de terror moderno en máxima crudeza visual',
     description: 'Estampado frontal de Art the Clown con tipografía roja sangrienta "TERRIFIER" y fondo de brasas ardientes.',
@@ -825,7 +825,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h12',
     seasonId: 'halloween',
-    name: 'Modelo H12 · Blanka Street Fighter Bestia Eléctrica',
+    name: 'Polera Blanka Dark',
     badge: 'Edición Gamer Dark',
     tagline: 'Versión monstruosa hiperrealista rodeada de relámpagos y fuego',
     description: 'Fusión perfecta entre cultura gamer y terror: Blanka desatando su descarga eléctrica en una ilustración llena de energía.',
@@ -844,7 +844,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h13',
     seasonId: 'halloween',
-    name: 'Modelo H13 · Calavera Mexicana Catrina Floral 3D',
+    name: 'Polera Catrina Floral',
     badge: 'Arte & Tradición',
     tagline: 'Cráneo bordado en flores multicolores con relieve visual',
     description: 'Homenaje al Día de los Muertos con una calavera artística repleta de pétalos vibrantes, pedrería simulada y contraste espectacular sobre negro.',
@@ -863,7 +863,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h14',
     seasonId: 'halloween',
-    name: 'Modelo H14 · Freezer Dragon Ball Aura Oscura',
+    name: 'Polera Freezer Dark',
     badge: 'Edición Anime Dark',
     tagline: 'El emperador del mal envuelto en llamas de ki púrpura y lettering',
     description: 'Para los fanáticos del anime en versión oscura: Freezer en pose desafiante con aura violeta incandescente y tipografía urbana.',
@@ -882,7 +882,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'halloween-modelo-h15',
     seasonId: 'halloween',
-    name: 'Modelo H15 · Guerrero Vikingo Ragnar Ensangrentado',
+    name: 'Polera Vikingo Ragnar',
     badge: 'Catálogo H15',
     tagline: 'Mirada azul penetrante tras la batalla en estética brutal dark',
     description: 'Retrato fotorrealista de guerrero nórdico cubierto de sangre de combate con ojos azules hipnóticos sobre fondo negro.',
@@ -903,7 +903,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'amor-combo-parejas-perfect-match',
     seasonId: 'dia-del-amor',
-    name: 'Combo Parejas "Perfect Match" (2 Poleras + 2 Tazas Mágicas)',
+    name: 'Combo Pareja Poleras y Tazas',
     badge: 'Top Día del Amor',
     tagline: 'Poleras complementarias + Tazas mágicas que revelan foto con calor',
     description: 'El kit más vendido para enamorados: 2 poleras combinadas con diseños sincronizados + 2 tazas mágicas termosensibles con su foto favorita.',
@@ -922,7 +922,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'amor-duo-poleras-pareja',
     seasonId: 'dia-del-amor',
-    name: 'Dúo de Poleras Pareja "King & Queen / Amor Eterno"',
+    name: 'Poleras Dúo King & Queen',
     badge: 'Especial Parejas',
     tagline: '2 Poleras de algodón peinado con estampado DTF de alta definición',
     description: 'Set de 2 poleras personalizadas para novios y esposos con ilustraciones conectadas, fechas especiales o frases de pareja.',
@@ -941,7 +941,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'amor-cojin-cuadro-spotify',
     seasonId: 'dia-del-amor',
-    name: 'Set Cojín & Cuadro Spotify con Código de Canción',
+    name: 'Set Cojín y Cuadro Spotify',
     badge: 'Recuerdo Eterno',
     tagline: 'Su foto favorita y el código escaneable de su canción especial',
     description: 'Cojín de felpa suave sublimado en alta resolución + Cuadro decorativo con código de canción de Spotify y fecha de aniversario.',
@@ -959,7 +959,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'amor-duo-hoodies-bordados',
     seasonId: 'dia-del-amor',
-    name: 'Dúo Canguros Hoodie "Together Since" con Fecha Bordada',
+    name: 'Canguros Dúo Bordados',
     badge: 'Edición Premium',
     tagline: '2 Canguros abrigados con bordado de fecha en números romanos',
     description: 'Pareja de canguros hoodie en algodón frisado de alto gramaje con su fecha especial bordada en el pecho e iniciales en la manga.',
@@ -978,7 +978,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'amor-par-tazas-magicas',
     seasonId: 'dia-del-amor',
-    name: 'Dúo Tazas Mágicas Termosensibles "Nuestro Amor"',
+    name: 'Dúo Tazas Mágicas',
     badge: 'Efecto Sorpresa',
     tagline: 'Negras en frío y revelan sus fotos al servir café o té caliente',
     description: 'Par de tazas mágicas importadas de 11 onzas personalizadas con collage fotográfico y dedicatoria romántica.',
@@ -996,7 +996,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'amor-rompecabezas-fotografico',
     seasonId: 'dia-del-amor',
-    name: 'Rompecabezas Fotográfico con Mensaje Secreto',
+    name: 'Rompecabezas con Foto',
     badge: 'Detalle Creativo',
     tagline: 'Armen juntos su mejor recuerdo fotográfico',
     description: 'Rompecabezas brillante de alta rigidez sublimado con su fotografía favorita y frase oculta para descubrir al armarlo.',
@@ -1014,7 +1014,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'amor-portarretrato-laser',
     seasonId: 'dia-del-amor',
-    name: 'Portarretrato & Placa Fotográfica de Aniversario',
+    name: 'Portarretrato Aniversario',
     badge: 'Diseño Elegante',
     tagline: 'Fotografía transferida en alta definición con soporte de mesa',
     description: 'Pieza decorativa ideal para el velador o escritorio con fotografía de pareja y grabado de nombres.',
@@ -1032,7 +1032,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'amor-pack-termo-taza',
     seasonId: 'dia-del-amor',
-    name: 'Box Enamorados Termo Acero + Taza Bicolor + Llavero',
+    name: 'Box Termo, Taza y Llavero',
     badge: 'Kit Completo',
     tagline: 'Un regalo práctico y romántico para acompañarlo todo el día',
     description: 'Combinación de termo de acero grabado a láser con su nombre, taza bicolor sublimada y llavero personalizado.',
@@ -1053,7 +1053,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'padre-kit-ejecutivo-termo-libreta',
     seasonId: 'dia-del-padre',
-    name: 'Kit Papá Ejecutivo (Termo Digital + Libreta Cuero + Bolígrafo)',
+    name: 'Kit Papá Ejecutivo',
     badge: 'Top Día del Padre',
     tagline: 'El regalo más elegante para el escritorio o vehículo de papá',
     description: 'Caja rígida con termo inteligente LED de acero inoxidable grabado a láser con el nombre de papá + libreta ejecutiva y bolígrafo metálico.',
@@ -1072,7 +1072,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'padre-combo-parrillero-asador',
     seasonId: 'dia-del-padre',
-    name: 'Combo Parrillero "Rey del Asado" (Mandil Bordado + Vaso Térmico)',
+    name: 'Combo Papá Parrillero',
     badge: 'Favorito de Papá',
     tagline: 'Para los papás que dominan la parrilla el fin de semana',
     description: 'Mandil parrillero en gabardina pesada con aplicaciones de cuero y bordado personalizado + vaso térmico grabado en láser.',
@@ -1090,7 +1090,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'padre-polera-mejor-papa',
     seasonId: 'dia-del-padre',
-    name: 'Polera Edición Papá "El Mejor Papá de Bolivia" DTF',
+    name: 'Polera El Mejor Papá',
     badge: 'Clásico para Papá',
     tagline: 'Algodón peinado 20/1 con diseño personalizado e hijos',
     description: 'Polera confeccionada en suave algodón peinado con estampado DTF de alta durabilidad: personalízala con los nombres de sus hijos o su hobby favorito.',
@@ -1108,7 +1108,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'padre-canguro-hoodie-bordado',
     seasonId: 'dia-del-padre',
-    name: 'Canguro Hoodie Abrigado "Legend Dad" con Bordado',
+    name: 'Canguro Papá Bordado',
     badge: 'Invierno & Confort',
     tagline: 'Sudadera pesada con capucha ideal para el frío de junio/marzo',
     description: 'Canguro hoodie de frisa gruesa y suave con diseño sobrio bordado o estampado en DTF para papá.',
@@ -1126,7 +1126,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'padre-gorra-trucker-3d',
     seasonId: 'dia-del-padre',
-    name: 'Gorra Trucker / Snapback Papá con Bordado 3D',
+    name: 'Gorra Papá Bordado 3D',
     badge: 'Estilo & Sol',
     tagline: 'Gorra estructurada con parche o bordado en alto relieve',
     description: 'Gorra personalizada con las iniciales de papá, su equipo, marca de autos o frase favorita en bordado 3D o parche grabado.',
@@ -1144,7 +1144,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'padre-tomatodo-deportivo-laser',
     seasonId: 'dia-del-padre',
-    name: 'Tomatodo Térmico Deportivo Grabado para Papá',
+    name: 'Tomatodo Térmico Papá',
     badge: 'Sport & Gym',
     tagline: 'Hidratación térmica para el gimnasio, oficina o viajes',
     description: 'Botella deportiva metálica de alta resistencia con tapa antiderrame y grabado láser permanente.',
@@ -1162,7 +1162,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'padre-agenda-ejecutiva-grabada',
     seasonId: 'dia-del-padre',
-    name: 'Agenda Ejecutiva Anual en Cuero Grabada a Láser',
+    name: 'Agenda Ejecutiva Papá',
     badge: 'Organización VIP',
     tagline: 'Tapa en eco-cuero cosido con grabado bajo relieve',
     description: 'Agenda diaria para el trabajo y proyectos de papá, personalizada con su nombre, profesión y dedicatoria en la portada.',
@@ -1182,7 +1182,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'madre-kit-homenaje-termo-libreta',
     seasonId: 'dia-de-la-madre',
-    name: 'Kit Homenaje Mamá (Termo Digital + Libreta + Caja de Lujo)',
+    name: 'Kit Homenaje Mamá',
     badge: 'Top Día de la Madre',
     tagline: 'Un obsequio fino con dedicatoria grabada para mamá',
     description: 'Termo inteligente de acero inoxidable grabado a láser con el nombre de mamá y flores + libreta ejecutiva y bolígrafo a juego.',
@@ -1201,7 +1201,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'madre-set-cojin-taza-floral',
     seasonId: 'dia-de-la-madre',
-    name: 'Set Cojín Decorativo + Taza Floral "Te Amo Mamá"',
+    name: 'Set Cojín y Taza Mamá',
     badge: 'Más Regalado',
     tagline: 'Sus mejores fotos familiares en un dúo lleno de cariño',
     description: 'Cojín suave de 40x40 cm sublimado con collage familiar y dedicatoria + taza cerámica de 11oz con interior de color a juego.',
@@ -1219,7 +1219,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'madre-combo-reina-cocina',
     seasonId: 'dia-de-la-madre',
-    name: 'Combo "Reina de la Cocina" (Mandil Bordado + Taza)',
+    name: 'Combo Mandil y Taza Mamá',
     badge: 'Favorito Familiar',
     tagline: 'Mandil de gabardina con bordado floral y nombre de mamá',
     description: 'Delantal de cocina en tela antimanchas de alta durabilidad con bordado computarizado fino + taza personalizada.',
@@ -1237,7 +1237,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'madre-cuadro-familiar-personalizado',
     seasonId: 'dia-de-la-madre',
-    name: 'Cuadro Fotográfico Familiar Conmemorativo "Mamá"',
+    name: 'Cuadro Familiar Mamá',
     badge: 'Recuerdo para Siempre',
     tagline: 'Retrato familiar en acabado brillante de galería',
     description: 'Cuadro decorativo de alta resolución con las fotografías más emotivas de mamá junto a toda la familia.',
@@ -1255,7 +1255,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'madre-polera-mama-increible',
     seasonId: 'dia-de-la-madre',
-    name: 'Polera Algodón Peinado "Mamá Increíble" DTF Dorado',
+    name: 'Polera Mamá Increíble',
     badge: 'Edición Mamá',
     tagline: 'Prenda suave con estampado floral y detalles dorados',
     description: 'Polera femenina o unisex en algodón peinado 20/1 con diseño exclusivo para el Día de la Madre y los nombres de sus hijos.',
@@ -1273,7 +1273,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'madre-tote-bag-ecologica',
     seasonId: 'dia-de-la-madre',
-    name: 'Bolsa Tote Bag de Tocuyo Premium Estampada para Mamá',
+    name: 'Bolsa Tote Bag Mamá',
     badge: 'Práctica & Eco',
     tagline: 'Bolso de tela resistente con ilustración botánica y frase',
     description: 'Tote bag confeccionada en tocuyo grueso de primera calidad con asas reforzadas y estampado DTF de alta definición.',
@@ -1291,7 +1291,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'madre-plato-ceramica-decorativa',
     seasonId: 'dia-de-la-madre',
-    name: 'Plato & Cerámica Decorativa Conmemorativa con Soporte',
+    name: 'Plato Decorativo Mamá',
     badge: 'Edición Clásica',
     tagline: 'Pieza de porcelana sublimada con borde dorado y foto familiar',
     description: 'Clásico plato decorativo de cerámica brillante ideal para vitrinas y salas, personalizado con fotografía y homenaje a mamá.',
@@ -1309,7 +1309,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'madre-taza-magica-collage',
     seasonId: 'dia-de-la-madre',
-    name: 'Taza Mágica Termosensible "La Mejor Mamá del Mundo"',
+    name: 'Taza Mágica Mamá',
     badge: 'Detalle Sorpresa',
     tagline: 'Revela las fotos de sus hijos al verter agua caliente',
     description: 'Taza mágica de 11 onzas con recubrimiento sensible al calor que descubre un hermoso diseño familiar en segundos.',
@@ -1329,7 +1329,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'bolivia-pack-civico-orgullo',
     seasonId: 'identidad-boliviana',
-    name: 'Pack Cívico "Orgullo Boliviano" (Gorra Bordado 3D + Polo Piqué)',
+    name: 'Pack Orgullo Boliviano',
     badge: 'Top Bolivia',
     tagline: 'Indumentaria de gala con escudo, tricolor o emblema departamental',
     description: 'Gorra estructurada con bordado en alto relieve 3D de Bolivia + polera polo piqué con bordado en pecho y pin metálico.',
@@ -1347,7 +1347,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'bolivia-polera-llama-andina',
     seasonId: 'identidad-boliviana',
-    name: 'Polera "Llama Andina Cool" en Algodón Peinado DTF',
+    name: 'Polera Llama Andina',
     badge: 'Diseño Exclusivo',
     tagline: 'Ilustración original de llama boliviana con chullo, chalina y gafas',
     description: 'Uno de los diseños más queridos por bolivianos y turistas: polera en algodón peinado 20/1 con arte andino moderno en DTF full color.',
@@ -1365,7 +1365,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'bolivia-polera-cultura-departamentos',
     seasonId: 'identidad-boliviana',
-    name: 'Polera Colección "Bolivia & Sus 9 Departamentos" DTF',
+    name: 'Polera Cultura de Bolivia',
     badge: 'Identidad Nacional',
     tagline: 'Arte gráfico inspirado en La Paz, Santa Cruz, Cochabamba y toda Bolivia',
     description: 'Polera conmemorativa con ilustraciones del Illimani, Salar de Uyuni, Cristo de la Concordia, Chiquitanía o carnaval boliviano.',
@@ -1383,7 +1383,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'bolivia-termo-acero-escudo',
     seasonId: 'identidad-boliviana',
-    name: 'Termo de Acero Grabado a Láser "Bolivia & Mapa Andino"',
+    name: 'Termo de Acero Bolivia',
     badge: 'Souvenir Premium',
     tagline: 'Grabado láser permanente con símbolos patrios y tu nombre',
     description: 'Termo de acero inoxidable de 500ml grabado con el mapa de Bolivia, tejidos andinos o escudo nacional junto a tu nombre.',
@@ -1401,7 +1401,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'bolivia-taza-tradiciones',
     seasonId: 'identidad-boliviana',
-    name: 'Taza Colección "Tradiciones, Salar & Folklore de Bolivia"',
+    name: 'Taza Folklore de Bolivia',
     badge: 'Recuerdo de Bolivia',
     tagline: 'Taza bicolor 11oz con arte folklórico, diablada, morenada y paisajes',
     description: 'Taza de cerámica sublimada a todo color con motivos culturales bolivianos, ideal para el desayuno o para obsequiar a visitantes.',
@@ -1419,7 +1419,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'bolivia-pack-panoletas-escarapelas',
     seasonId: 'identidad-boliviana',
-    name: 'Pack 20 Pañoletas & Escarapelas Sublimadas para Desfiles',
+    name: 'Pack Pañoletas y Escarapelas',
     badge: 'Mayorista Institucional',
     tagline: 'Para colegios, fraternidades, comparsas e instituciones públicas',
     description: 'Set institucional de 20 pañoletas en satén brillante sublimadas a todo color con la tricolor o bandera departamental.',
@@ -1437,7 +1437,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'bolivia-pines-escarapelas-metal',
     seasonId: 'identidad-boliviana',
-    name: 'Set 12 Pines Metálicos & Escudos Institucionales de Bolivia',
+    name: 'Set 12 Pines de Bolivia',
     badge: 'Protocolo & Gala',
     tagline: 'Pines de solapa con acabado brillante en resina epóxica UV',
     description: 'Docena de pines metálicos personalizados con la bandera boliviana, escudo o emblema de tu institución para trajes y uniformes.',
@@ -1455,7 +1455,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
   {
     id: 'bolivia-tote-bag-arte-andino',
     seasonId: 'identidad-boliviana',
-    name: 'Bolsa Tote Bag de Tocuyo "Hecho en Bolivia" con Arte Andino',
+    name: 'Bolsa Tote Bag Bolivia',
     badge: 'Eco & Cultural',
     tagline: 'Tocuyo 100% algodón boliviano con ilustración cultural a todo color',
     description: 'Bolso ecológico reutilizable de tocuyo grueso estampado con motivos de aguayo, fauna andina y frases bolivianas.',

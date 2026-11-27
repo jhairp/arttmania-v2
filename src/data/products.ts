@@ -25,7 +25,7 @@ export const PRODUCTS: Product[] = [
   // ================= TEXTILES & POLERAS & GORRAS =================
   {
       id: 'polera-personalizada',
-      name: 'Polera Personalizada Cuello Redondo',
+      name: 'Polera Clásica',
       category: 'poleras',
       categoryName: 'Poleras',
       shortDescription: 'Algodón peinado 100% 20/1 de alta suavidad. Estampado en DTF textil de máxima definición y elasticidad.',
@@ -57,7 +57,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'sudadera-hoodie',
-      name: 'Canguro Hoodie con Capucha y Bolsillo Frontal',
+      name: 'Canguro con Capucha',
       category: 'poleras',
       categoryName: 'Poleras',
       shortDescription: 'Algodón frizado perchado grueso de 320g, ojalillos metálicos y forro interno suave.',
@@ -86,7 +86,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'uniformes-empresariales',
-      name: 'Polo Piqué Corporativo Ejecutivo',
+      name: 'Polo Piqué',
       category: 'textiles',
       categoryName: 'Textiles',
       shortDescription: 'Tejido piqué 60% algodón 40% poliéster que no encoge ni desteñe con bordado en pecho.',
@@ -114,7 +114,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'polera-oversize',
-      name: 'Polera Streetwear Heavyweight Oversize',
+      name: 'Polera Oversize',
       category: 'poleras',
       categoryName: 'Poleras',
       shortDescription: 'Corte amplio drop-shoulder en algodón premium de 240g con cuello grueso de 3cm.',
@@ -144,7 +144,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'poleron-crewneck',
-      name: 'Sudadera Clásica Cuello Redondo (Crewneck)',
+      name: 'Sudadera Cuello Redondo',
       category: 'poleras',
       categoryName: 'Poleras',
       shortDescription: 'Franela de algodón perchado 280g con interior suave y puños acanalados. Perfecto para bordado y DTF.',
@@ -174,7 +174,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'gorras',
-      name: 'Gorra Snapback 6 Paneles Estructurada',
+      name: 'Gorra Snapback',
       category: 'gorras',
       categoryName: 'Gorras',
       shortDescription: 'Corona alta armada con entretela dura, visera plana o semi-curva y bordado 3D de alto relieve.',
@@ -202,7 +202,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'gorra-trucker',
-      name: 'Gorra Trucker con Malla Transpirable',
+      name: 'Gorra Trucker',
       category: 'gorras',
       categoryName: 'Gorras',
       shortDescription: 'Frontal acolchado de esponja o twill y malla trasera de alta ventilación con broche plástico snapback.',
@@ -231,7 +231,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'polera-deportiva',
-      name: 'Polera Deportiva Dry-Fit',
+      name: 'Polera Deportiva',
       category: 'poleras',
       categoryName: 'Poleras',
       shortDescription: 'Tejido técnico microperforado de secado rápido con protección UV y sublimación full print.',
@@ -260,7 +260,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'polera-manga-larga',
-      name: 'Polera Manga Larga de Algodón Peinado',
+      name: 'Polera Manga Larga',
       category: 'poleras',
       categoryName: 'Poleras',
       shortDescription: 'Algodón 100% 20/1 con puños rib elásticos. Excelente para media estación y uniformes de personal.',
@@ -288,7 +288,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'cortavientos-windbreaker',
-      name: 'Chaqueta Cortavientos Impermeable (Windbreaker)',
+      name: 'Chaqueta Cortavientos',
       category: 'textiles',
       categoryName: 'Textiles',
       shortDescription: 'Tela taslán microfibra repelente al agua con forro interior de malla transpirable y capucha oculta.',
@@ -315,7 +315,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'chaleco-corporativo',
-      name: 'Chaleco Corporativo Acolchado Térmico',
+      name: 'Chaleco Térmico',
       category: 'textiles',
       categoryName: 'Textiles',
       shortDescription: 'Cierre completo, cuello alto y relleno térmico ligero. Ideal para ejecutivos y personal de campo.',
@@ -342,7 +342,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'mandiles',
-      name: 'Mandil de Barista & Chef en Denim y Cuero',
+      name: 'Mandil Profesional',
       category: 'textiles',
       categoryName: 'Textiles',
       shortDescription: 'Denim negro pesado con correas de cuero genuino regulables y remaches metálicos de latón.',
@@ -369,7 +369,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'musculosa-deportiva',
-      name: 'Musculosa Deportiva / Bividí Dry-Fit',
+      name: 'Musculosa Deportiva',
       category: 'poleras',
       categoryName: 'Poleras',
       shortDescription: 'Sisa amplia y costuras reforzadas para máxima libertad de movimiento. Tejido técnico anti-humedad.',
@@ -397,7 +397,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'chaleco-seguridad',
-      name: 'Chaleco de Seguridad Reflectivo Brigadista',
+      name: 'Chaleco Reflectivo',
       category: 'textiles',
       categoryName: 'Textiles',
       shortDescription: 'Tela dril o gabardina de alta visibilidad con múltiples bolsillos y cintas reflectivas 3M homologadas.',
@@ -426,7 +426,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'ropa-trabajo',
-      name: 'Chaqueta de Trabajo de Alta Resistencia con Bandas 3M',
+      name: 'Chaqueta Industrial',
       category: 'textiles',
       categoryName: 'Textiles',
       shortDescription: 'Dril de alta densidad con refuerzos en codos y cinta reflectiva para faenas industriales.',
@@ -453,7 +453,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'overol-industrial',
-      name: 'Overol Industrial de Trabajo Tipo Mameluco',
+      name: 'Overol Industrial',
       category: 'textiles',
       categoryName: 'Textiles',
       shortDescription: 'Dril 100% algodón pesado de uso rudo con doble cierre frontal, múltiples bolsillos y cintas reflectivas 3M.',
@@ -482,7 +482,7 @@ export const PRODUCTS: Product[] = [
   // ================= TAZAS & SUBLIMACIÓN =================
   {
       id: 'taza-blanca',
-      name: 'Taza de Cerámica Blanca Sublimada 11oz',
+      name: 'Taza Blanca 11oz',
       category: 'tazas',
       categoryName: 'Tazas',
       shortDescription: 'Cerámica AAA de alto brillo con polímero uniforme apta para microondas y lavavajillas.',
@@ -508,7 +508,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'taza-magica',
-      name: 'Taza Mágica Termosensible Mate',
+      name: 'Taza Mágica',
       category: 'tazas',
       categoryName: 'Tazas',
       shortDescription: 'Negra mate en frío; al verter líquido caliente revela el diseño oculto a todo color.',
@@ -534,7 +534,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'termos',
-      name: 'Termo Tumbler de Acero Inoxidable Doble Pared',
+      name: 'Termo de Acero',
       category: 'sublimacion',
       categoryName: 'Sublimación',
       shortDescription: 'Mantiene bebidas frías por 24 horas y calientes por 12 horas. Tapa hermética y grabado láser o DTF UV.',
@@ -563,7 +563,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'tomatodos',
-      name: 'Tomatodo Deportivo de Aluminio con Mosquetón',
+      name: 'Tomatodo Deportivo',
       category: 'sublimacion',
       categoryName: 'Sublimación',
       shortDescription: 'Botella ligera de 600ml con tapa de rosca a prueba de fugas y gancho mosquetón.',
@@ -590,7 +590,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'taza-colores',
-      name: 'Taza Bicolor con Interior y Asa de Color',
+      name: 'Taza Bicolor',
       category: 'tazas',
       categoryName: 'Tazas',
       shortDescription: 'Exterior blanco brillante con asa e interior esmaltados en colores vivos a elección.',
@@ -619,7 +619,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'mousepads',
-      name: 'Mousepad Gamer XL de Precisión',
+      name: 'Mousepad Gamer',
       category: 'sublimacion',
       categoryName: 'Sublimación',
       shortDescription: 'Superficie de tela micro-texturizada con base de goma antideslizante y bordes cosidos reforzados.',
@@ -643,7 +643,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'almohadas',
-      name: 'Cojín Decorativo Personalizado con Relleno',
+      name: 'Cojín Personalizado',
       category: 'sublimacion',
       categoryName: 'Sublimación',
       shortDescription: 'Funda desmontable con cremallera oculta en tela lino o satén con relleno de fibra siliconada.',
@@ -669,7 +669,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'portarretratos',
-      name: 'Portarretrato de Piedra / Roca Fotográfica Natural',
+      name: 'Portarretrato de Roca',
       category: 'sublimacion',
       categoryName: 'Sublimación',
       shortDescription: 'Laja de roca sedimentaria chiseled con bordes rústicos y cara pulida de alto brillo.',
@@ -693,7 +693,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'rompecabezas',
-      name: 'Rompecabezas Personalizado de Cartón Rígido',
+      name: 'Rompecabezas Personalizado',
       category: 'sublimacion',
       categoryName: 'Sublimación',
       shortDescription: 'Piezas troqueladas con precisión y acabado brillante, entregado en caja personalizada.',
@@ -716,7 +716,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'platos-decorativos',
-      name: 'Plato Conmemorativo de Porcelana con Borde Dorado',
+      name: 'Plato Decorativo',
       category: 'sublimacion',
       categoryName: 'Sublimación',
       shortDescription: 'Porcelana vitrificada con ribete metálico y soporte acrílico de exhibición.',
@@ -740,7 +740,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'ceramicas-personalizadas',
-      name: 'Azulejo Cerámico Esmaltado Decorativo',
+      name: 'Azulejo Cerámico',
       category: 'sublimacion',
       categoryName: 'Sublimación',
       shortDescription: 'Baldosa cerámica brillante de 20x20 cm para murales, cuadros y recuerdos conmemorativos.',
@@ -764,7 +764,7 @@ export const PRODUCTS: Product[] = [
   // ================= REGALOS Y ACCESORIOS (7) =================
   {
       id: 'llaveros-mdf',
-      name: 'Llaveros de Madera MDF con Corte y Grabado Láser',
+      name: 'Llavero en MDF',
       category: 'regalos',
       categoryName: 'Regalos y Accesorios',
       shortDescription: 'Madera MDF de 3mm con corte de silueta personalizada, argolla de cadena y grabado indeleble.',
@@ -791,7 +791,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'chapitas',
-      name: 'Chapitas / Botones Publicitarios con Alfiler',
+      name: 'Chapita Publicitaria',
       category: 'regalos',
       categoryName: 'Regalos y Accesorios',
       shortDescription: 'Chapitas redondas de 55mm con base metálica, papel fotográfico y mica protectora de mylar.',
@@ -815,7 +815,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'pines',
-      name: 'Pines Metálicos Esmaltados Personalizados',
+      name: 'Pin Metálico',
       category: 'regalos',
       categoryName: 'Regalos y Accesorios',
       shortDescription: 'Aleación de zinc con baño níquel o dorado, relieve nítido y cierre de mariposa.',
@@ -844,7 +844,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'bolsas-ecologicas',
-      name: 'Bolsa Ecológica Tote Bag de Tocuyo de Algodón',
+      name: 'Bolsa Tote Bag',
       category: 'regalos',
       categoryName: 'Regalos y Accesorios',
       shortDescription: 'Lienzo de algodón natural crudo con asas largas reforzadas y estampado serigráfico o DTF.',
@@ -871,7 +871,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'libretas',
-      name: 'Libreta Ecológica con Bolígrafo de Cartón Reciclado',
+      name: 'Libreta Ecológica',
       category: 'regalos',
       categoryName: 'Regalos y Accesorios',
       shortDescription: 'Tapa de cartón kraft rígido, anillado doble cero metálico y bolígrafo ecológico a juego.',
@@ -899,7 +899,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'agendas',
-      name: 'Agenda Ejecutiva con Tapa Dura de Cuero PU',
+      name: 'Agenda Ejecutiva',
       category: 'regalos',
       categoryName: 'Regalos y Accesorios',
       shortDescription: 'Encuadernación de lujo con cinta separadora, banda elástica y grabado bajo relieve o láser.',
@@ -928,7 +928,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'cuadros-personalizados',
-      name: 'Cuadro en Lienzo Canvas sobre Bastidor de Madera',
+      name: 'Cuadro en Lienzo',
       category: 'regalos',
       categoryName: 'Regalos y Accesorios',
       shortDescription: 'Lienzo de algodón 360g montado sobre bastidor oculto de pino cepillado de 3 cm.',
@@ -954,7 +954,7 @@ export const PRODUCTS: Product[] = [
   // ================= MERCHANDISING EMPRESARIAL (7) =================
   {
       id: 'lapiceros',
-      name: 'Bolígrafo Ejecutivo Metálico Rollerball',
+      name: 'Bolígrafo Metálico',
       category: 'merchandising',
       categoryName: 'Merchandising Empresarial',
       shortDescription: 'Cuerpo metálico negro mate con clip plateado cromado y grabado láser de alta precisión.',
@@ -983,7 +983,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'credenciales',
-      name: 'Credenciales de PVC Tipo Tarjeta Bancaria con Lanyard',
+      name: 'Credencial PVC + Cinta',
       category: 'merchandising',
       categoryName: 'Merchandising Empresarial',
       shortDescription: 'PVC rígido calibre 30 mil con impresión fotográfica doble cara y cinta colgante sublimada.',
@@ -1007,7 +1007,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'bolsas-corporativas',
-      name: 'Bolsas de Lujo en Papel Kraft Negro con Hot Stamping',
+      name: 'Bolsa Corporativa',
       category: 'merchandising',
       categoryName: 'Merchandising Empresarial',
       shortDescription: 'Papel couché pesado de 250g con plastificado mate, asas de cinta grosgrain y detalles en foil plata.',
@@ -1033,7 +1033,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'articulos-publicitarios',
-      name: 'Pack Promocional para Ferias y Congresos',
+      name: 'Pack para Ferias',
       category: 'merchandising',
       categoryName: 'Merchandising Empresarial',
       shortDescription: 'Combo optimizado para stands: bolsa ecológica, bolígrafo, cuaderno de notas y llavero acrílico.',
@@ -1056,7 +1056,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'kits-empresariales',
-      name: 'Kit Onboarding VIP de Bienvenida Corporativa',
+      name: 'Kit Ejecutivo VIP',
       category: 'merchandising',
       categoryName: 'Merchandising Empresarial',
       shortDescription: 'Caja rígida imantada con termo metálico, libreta de cuero, bolígrafo láser y memoria USB.',
@@ -1085,7 +1085,7 @@ export const PRODUCTS: Product[] = [
     },
   {
       id: 'regalos-promocionales',
-      name: 'Power Bank Inalámbrico y Memorias USB Personalizadas',
+      name: 'Cargador Portátil + USB',
       category: 'merchandising',
       categoryName: 'Merchandising Empresarial',
       shortDescription: 'Batería portátil de 10.000 mAh con carga Qi inalámbrica y puertos USB-C de carga rápida.',
