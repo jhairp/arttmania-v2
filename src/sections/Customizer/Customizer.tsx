@@ -38,8 +38,8 @@ const CUSTOMIZABLE_PRODUCTS: MockupProduct[] = [
     category: 'textiles',
     basePrice: 65,
     image: '/images/products/polera-personalizada.jpg',
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-    techniques: ['DTF Textil', 'Serigrafía', 'Bordado'],
+    sizes: ['S', 'M', 'L'],
+    techniques: ['DTF Textil (65 Bs. / 120 Bs. par)', 'Logo Mediano (38 Bs.)', 'Serigrafía', 'Bordado'],
     colors: [
       { name: 'Negro Grafito', hex: '#141517' },
       { name: 'Blanco Suave', hex: '#F1F1F1' },
@@ -53,7 +53,7 @@ const CUSTOMIZABLE_PRODUCTS: MockupProduct[] = [
     category: 'textiles',
     basePrice: 145,
     image: '/images/products/sudadera-hoodie.jpg',
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    sizes: ['S', 'M', 'L'],
     techniques: ['DTF Textil', 'Bordado Computarizado'],
     colors: [
       { name: 'Negro Profundo', hex: '#0D0E10' },
@@ -129,9 +129,11 @@ export const Customizer: React.FC = () => {
   const [customText, setCustomText] = useState<string>('');
   const [textColor, setTextColor] = useState<string>('#FFFFFF');
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
+  const [uploadError, setUploadError] = useState<string>('');
   const [quantity, setQuantity] = useState<number>(12);
 
-  const pricing = calculateDiscountedPrice(selectedProduct.basePrice, quantity);
+  const safeQuantity = Math.min(10000, Math.max(1, quantity));
+  const pricing = calculateDiscountedPrice(selectedProduct.basePrice, safeQuantity, selectedTechnique);
 
   const handleProductChange = (prod: MockupProduct) => {
     setSelectedProduct(prod);
@@ -142,17 +144,33 @@ export const Customizer: React.FC = () => {
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        setUploadedImage(event.target?.result as string);
-      };
-      reader.readAsDataURL(file);
+    if (!file) return;
+
+    const validTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'image/svg+xml'];
+    if (!validTypes.includes(file.type)) {
+      setUploadError('Formato no permitido. Sube un archivo PNG, JPG, WEBP o SVG.');
+      e.target.value = '';
+      return;
     }
+
+    const maxBytes = 15 * 1024 * 1024; // 15MB
+    if (file.size > maxBytes) {
+      setUploadError('El archivo supera el límite máximo de 15MB. Elige una imagen más liviana.');
+      e.target.value = '';
+      return;
+    }
+
+    setUploadError('');
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      setUploadedImage(event.target?.result as string);
+    };
+    reader.readAsDataURL(file);
   };
 
   const handleReset = () => {
     setUploadedImage(null);
+    setUploadError('');
     setCustomText('');
     setQuantity(12);
   };
@@ -162,7 +180,7 @@ export const Customizer: React.FC = () => {
     addItem({
       productId: selectedProduct.id,
       product: matchedProduct,
-      quantity,
+      quantity: safeQuantity,
       selectedColor,
       selectedSize,
       selectedTechnique,
@@ -174,12 +192,12 @@ export const Customizer: React.FC = () => {
 
   const handleWhatsAppQuote = () => {
     const details = `Ubicación: ${printLocation}, Color: ${selectedColor}, Talla: ${selectedSize}, Técnica: ${selectedTechnique}${
-      customText ? `, Texto: "${customText}"` : ''
+      customText.trim() ? `, Texto: "${customText.trim()}"` : ''
     }${uploadedImage ? ', [Diseño/Logo adjunto]' : ''}`;
 
     const url = buildDirectProductQuoteUrl(
       selectedProduct.name,
-      quantity,
+      safeQuantity,
       `${selectedTechnique} - ${details}`
     );
     window.open(url, '_blank', 'noopener,noreferrer');
@@ -323,6 +341,11 @@ export const Customizer: React.FC = () => {
                   </button>
                 ))}
               </div>
+              {selectedProduct.sizes.includes('S') && (
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.4rem' }}>
+                  * Se manejan tallas <strong>S, M y L</strong>. Tallas superiores (XL, XXL) se deben consultar para cotizar.
+                </div>
+              )}
             </div>
 
             {/* 4. Print Technique & Location */}
@@ -401,11 +424,16 @@ export const Customizer: React.FC = () => {
                 <input
                   ref={fileInputRef}
                   type="file"
-                  accept="image/*"
+                  accept="image/png,image/jpeg,image/webp,image/svg+xml"
                   onChange={handleFileUpload}
                   style={{ display: 'none' }}
                 />
               </div>
+              {uploadError && (
+                <p style={{ color: '#FF6B6B', fontSize: '0.78rem', marginTop: '0.45rem', marginBottom: 0, fontWeight: 600 }}>
+                  {uploadError}
+                </p>
+              )}
             </div>
 
             {/* 6. Custom Text Input */}
@@ -445,14 +473,18 @@ export const Customizer: React.FC = () => {
                   <input
                     type="number"
                     min={1}
+                    max={10000}
                     value={quantity}
-                    onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                    onChange={(e) => {
+                      const val = parseInt(e.target.value, 10);
+                      setQuantity(Number.isNaN(val) ? 1 : Math.min(10000, Math.max(1, val)));
+                    }}
                     className="qty-input"
                   />
                   <button
                     type="button"
                     className="qty-btn"
-                    onClick={() => setQuantity(quantity + 1)}
+                    onClick={() => setQuantity(Math.min(10000, quantity + 1))}
                   >
                     <Plus size={16} />
                   </button>

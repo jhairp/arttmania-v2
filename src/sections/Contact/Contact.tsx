@@ -21,17 +21,42 @@ export const Contact: React.FC = () => {
   });
 
   const [sentSuccess, setSentSuccess] = useState(false);
+  const [formError, setFormError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const cleanName = formData.name.trim();
+    const cleanPhone = formData.phone.trim();
+    const cleanEmail = formData.email.trim();
+    const cleanSubject = formData.subject.trim();
+    const cleanMessage = formData.message.trim();
+
+    if (cleanName.length < 2) {
+      setFormError('Por favor, ingresa tu nombre completo (mínimo 2 caracteres).');
+      return;
+    }
+    if (!/^\+?[0-9\s-]{7,15}$/.test(cleanPhone)) {
+      setFormError('Por favor, ingresa un número de teléfono o WhatsApp válido (7 a 15 dígitos).');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+      setFormError('Por favor, ingresa un correo electrónico válido.');
+      return;
+    }
+    if (cleanMessage.length < 5) {
+      setFormError('Por favor, escribe tu mensaje o requerimiento (mínimo 5 caracteres).');
+      return;
+    }
+
+    setFormError('');
     const text =
-      `*MENSAJE DE CONTACTO WEB - ART MANIA*\n` +
+      `*MENSAJE DE CONTACTO WEB - ARTTMANIA*\n` +
       `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-      `Nombre: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Teléfono: ${formData.phone}\n` +
-      `Asunto: ${formData.subject}\n` +
-      `Mensaje: ${formData.message}\n` +
+      `Nombre: ${cleanName}\n` +
+      `Email: ${cleanEmail}\n` +
+      `Teléfono: ${cleanPhone}\n` +
+      `Asunto: ${cleanSubject || 'Consulta General'}\n` +
+      `Mensaje: ${cleanMessage}\n` +
       `━━━━━━━━━━━━━━━━━━━━━━━━`;
 
     const url = `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(text)}`;
@@ -67,7 +92,7 @@ export const Contact: React.FC = () => {
             {/* Quick Contact Chips for Mobile */}
             <div className="contact-quick-mobile-row">
               <a
-                href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hola%20ART%20MANIA`}
+                href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hola%20ARTTMANIA`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-quick-chip"
@@ -106,7 +131,7 @@ export const Contact: React.FC = () => {
                 <div>
                   <span className="channel-label">WhatsApp Comercial:</span>
                   <a
-                    href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hola%20ART%20MANIA`}
+                    href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hola%20ARTTMANIA`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="channel-value"
@@ -288,12 +313,19 @@ export const Contact: React.FC = () => {
                   <textarea
                     required
                     rows={3}
+                    maxLength={500}
                     placeholder="Técnica de interés, cantidades estimadas, fecha de entrega..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="form-textarea"
                   />
                 </div>
+
+                {formError && (
+                  <p style={{ color: '#FF6B6B', fontSize: '0.82rem', fontWeight: 600, margin: '0 0 0.75rem 0' }}>
+                    {formError}
+                  </p>
+                )}
 
                 <button
                   type="submit"

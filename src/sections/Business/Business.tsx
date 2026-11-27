@@ -27,10 +27,41 @@ export const Business: React.FC<BusinessSectionProps> = ({ onOpenCorporateModal 
   });
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [b2bError, setB2bError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const url = buildCorporateQuoteUrl(formData);
+    const cleanCompany = formData.companyName.trim();
+    const cleanContact = formData.contactName.trim();
+    const cleanPhone = formData.phone.trim();
+    const parsedQty = parseInt(formData.quantity, 10);
+
+    if (cleanCompany.length < 2) {
+      setB2bError('Por favor, ingresa el nombre de la empresa o institución.');
+      return;
+    }
+    if (cleanContact.length < 2) {
+      setB2bError('Por favor, ingresa el nombre de la persona de contacto.');
+      return;
+    }
+    if (!/^\+?[0-9\s-]{7,15}$/.test(cleanPhone)) {
+      setB2bError('Por favor, ingresa un número de teléfono o WhatsApp válido (7 a 15 dígitos).');
+      return;
+    }
+    if (Number.isNaN(parsedQty) || parsedQty < 1 || parsedQty > 100000) {
+      setB2bError('Por favor, ingresa una cantidad estimada válida (mínimo 1 unidad).');
+      return;
+    }
+
+    setB2bError('');
+    const url = buildCorporateQuoteUrl({
+      companyName: cleanCompany,
+      contactName: cleanContact,
+      phone: cleanPhone,
+      itemType: formData.itemType,
+      quantity: String(parsedQty),
+      details: formData.details.trim() || 'Solicitud de cotización corporativa'
+    });
     window.open(url, '_blank', 'noopener,noreferrer');
     setModalOpen(false);
   };
@@ -284,6 +315,7 @@ export const Business: React.FC<BusinessSectionProps> = ({ onOpenCorporateModal 
                 </label>
                 <textarea
                   rows={3}
+                  maxLength={500}
                   placeholder="Colores, si disponen de logo vectorizado, fecha límite de entrega..."
                   value={formData.details}
                   onChange={(e) => setFormData({ ...formData, details: e.target.value })}
@@ -291,6 +323,12 @@ export const Business: React.FC<BusinessSectionProps> = ({ onOpenCorporateModal 
                   style={{ resize: 'vertical' }}
                 />
               </div>
+
+              {b2bError && (
+                <p style={{ color: '#FF6B6B', fontSize: '0.82rem', fontWeight: 600, margin: '0 0 0.75rem 0' }}>
+                  {b2bError}
+                </p>
+              )}
 
               <div className="b2b-actions-row">
                 <button

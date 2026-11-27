@@ -30,11 +30,23 @@ export const CartDrawer: React.FC = () => {
   const [customerName, setCustomerName] = useState('');
   const [customerCity, setCustomerCity] = useState('');
   const [customerNotes, setCustomerNotes] = useState('');
-  const [showCustomerFields, setShowCustomerFields] = useState(false);
+  const [showCustomerFields, setShowCustomerFields] = useState(true);
+  const [nameError, setNameError] = useState('');
+  const nameInputRef = React.useRef<HTMLInputElement>(null);
   const { isChristmas } = useSeasonalTheme();
 
   const handleSendWhatsAppQuote = () => {
     if (items.length === 0) return;
+
+    const trimmedName = customerName.trim();
+    if (trimmedName.length < 2) {
+      setShowCustomerFields(true);
+      setNameError('Por favor, ingresa tu nombre (obligatorio) para enviar el pedido.');
+      setTimeout(() => nameInputRef.current?.focus(), 60);
+      return;
+    }
+
+    setNameError('');
 
     const url = buildWhatsAppQuoteUrl({
       items: items.map((i) => ({
@@ -48,7 +60,7 @@ export const CartDrawer: React.FC = () => {
         customNote: i.customDesignPreview ? 'Adjunta archivo gráfico en el chat' : undefined
       })),
       total: cartTotal,
-      customerName: customerName.trim() || undefined,
+      customerName: trimmedName,
       customerCity: customerCity.trim() || undefined,
       notes: customerNotes.trim() || undefined
     });
@@ -175,7 +187,7 @@ export const CartDrawer: React.FC = () => {
                 </div>
               ))}
 
-              {/* Collapsible Customer Contact Fields */}
+              {/* Datos del Cliente (Nombre obligatorio) */}
               <div className="cart-customer-box">
                 <button
                   type="button"
@@ -183,24 +195,50 @@ export const CartDrawer: React.FC = () => {
                   onClick={() => setShowCustomerFields(!showCustomerFields)}
                   aria-expanded={showCustomerFields}
                 >
-                  <span>Datos del cliente (Opcional)</span>
+                  <span>Datos del cliente (Nombre obligatorio *)</span>
                   {showCustomerFields ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
                 </button>
 
                 {showCustomerFields && (
                   <div className="cart-customer-inputs">
+                    <div>
+                      <input
+                        ref={nameInputRef}
+                        type="text"
+                        required
+                        maxLength={80}
+                        placeholder="Tu Nombre o Empresa *"
+                        value={customerName}
+                        onChange={(e) => {
+                          setCustomerName(e.target.value);
+                          if (nameError && e.target.value.trim().length >= 2) {
+                            setNameError('');
+                          }
+                        }}
+                        className="search-input cart-input"
+                        style={nameError ? { borderColor: '#FF4D4F', boxShadow: '0 0 0 2px rgba(255, 77, 79, 0.2)' } : undefined}
+                        aria-invalid={!!nameError}
+                      />
+                      {nameError && (
+                        <p style={{ color: '#FF6B6B', fontSize: '0.76rem', marginTop: '0.35rem', marginBottom: 0, fontWeight: 600 }}>
+                          {nameError}
+                        </p>
+                      )}
+                    </div>
                     <input
                       type="text"
-                      placeholder="Tu Nombre o Empresa"
-                      value={customerName}
-                      onChange={(e) => setCustomerName(e.target.value)}
+                      maxLength={80}
+                      placeholder="Ciudad / Destino (Opcional)"
+                      value={customerCity}
+                      onChange={(e) => setCustomerCity(e.target.value)}
                       className="search-input cart-input"
                     />
                     <input
                       type="text"
-                      placeholder="Ciudad / Destino (Ej: La Paz, Santa Cruz)"
-                      value={customerCity}
-                      onChange={(e) => setCustomerCity(e.target.value)}
+                      maxLength={200}
+                      placeholder="Nota u observación adicional (Opcional)"
+                      value={customerNotes}
+                      onChange={(e) => setCustomerNotes(e.target.value)}
                       className="search-input cart-input"
                     />
                   </div>
