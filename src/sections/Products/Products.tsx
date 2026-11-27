@@ -95,10 +95,6 @@ export const Products: React.FC = () => {
           <h2 className="section-title">
             Catálogo Oficial de <span className="text-metallic">Personalización</span>
           </h2>
-          <p className="section-description">
-            Artículos textiles, sublimación, merchandising corporativo y regalos
-            con precios en Bolivianos (Bs.) y descuentos por volumen.
-          </p>
         </div>
 
         {/* Sticky Toolbar: Search, Filters & Categories */}

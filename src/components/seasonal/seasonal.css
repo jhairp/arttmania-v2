@@ -256,29 +256,58 @@
 }
 
 /* ==========================================================================
-   6. RESPONSIVIDAD & SUBFILTRO NAVIDEÑO
+   6. RESPONSIVIDAD & SUBFILTRO NAVIDEÑO Y HALLOWEEN (SCROLL LATERAL 1 FILA)
    ========================================================================== */
 .xmas-filter-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-  margin: 1.5rem auto 2.5rem auto;
-  max-width: 960px;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0.3rem 0.25rem 0.6rem;
+  margin: 1.25rem auto 2rem auto;
+  max-width: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+@media (min-width: 769px) {
+  .xmas-filter-bar {
+    justify-content: center;
+  }
+}
+
+.xmas-filter-bar::-webkit-scrollbar {
+  height: 3px;
+}
+
+.xmas-filter-bar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
 }
 
 .xmas-pill-btn {
-  padding: 0.45rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.95rem;
   border-radius: var(--radius-full);
-  background: var(--bg-surface-elevated, #242629);
+  background: var(--bg-surface, #16181A);
   border: 1px solid rgba(212, 175, 55, 0.3);
   color: var(--text-secondary, #C6C8CB);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
   transition: all var(--transition-fast);
   white-space: nowrap;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  min-height: 36px;
+  touch-action: manipulation;
 }
 
 .xmas-pill-btn:hover {

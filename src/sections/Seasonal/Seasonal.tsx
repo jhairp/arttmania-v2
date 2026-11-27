@@ -65,7 +65,7 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
   const { isChristmas, config } = useSeasonalTheme();
   const [activeSeasonId, setActiveSeasonId] = useState<SeasonCategory['id']>(seasonId ?? 'navidad');
   useEffect(() => { if (seasonId) setActiveSeasonId(seasonId); }, [seasonId]);
-  const [xmasCategoryFilter, setXmasCategoryFilter] = useState<'all' | 'destacados' | 'canguros' | 'divertida' | 'elegante' | 'packs'>('all');
+  const [xmasCategoryFilter, setXmasCategoryFilter] = useState<'all' | 'poleras' | 'poleras-duo' | 'canguros'>('all');
   const [halloweenCategoryFilter, setHalloweenCategoryFilter] = useState<'all' | 'destacados' | 'terror' | 'mistico' | 'gamer'>('all');
   const [detailProduct, setDetailProduct] = useState<Product | null>(null);
   const [addedItems, setAddedItems] = useState<{ [id: string]: boolean }>({});
@@ -110,20 +110,20 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
   const itemsInActiveSeason = SEASONAL_ITEMS.filter((item) => {
     if (item.seasonId !== activeSeasonId) return false;
     if (activeSeasonId === 'navidad') {
-      if (xmasCategoryFilter === 'destacados') {
-        return item.id.includes('mockup') || item.id.includes('canguro') || !!item.featured;
+      const isCanguro = item.id.includes('canguro');
+      const isDuoOrPack =
+        item.id === 'navidad-mockup-mickey-minnie' ||
+        item.id === 'navidad-modelo-n18' ||
+        item.id.includes('familia') ||
+        item.id.includes('pack');
+      if (xmasCategoryFilter === 'poleras') {
+        return !isCanguro && !isDuoOrPack;
+      }
+      if (xmasCategoryFilter === 'poleras-duo') {
+        return isDuoOrPack;
       }
       if (xmasCategoryFilter === 'canguros') {
-        return item.id.includes('canguro');
-      }
-      if (xmasCategoryFilter === 'divertida') {
-        return /modelo-n(0[1-9]|10)/.test(item.id);
-      }
-      if (xmasCategoryFilter === 'elegante') {
-        return /modelo-n(1[1-8])/.test(item.id) || item.id === 'navidad-mockup-arbol-dorado' || item.id === 'navidad-mockup-nacimiento-sagrado';
-      }
-      if (xmasCategoryFilter === 'packs') {
-        return item.id.includes('pack') || item.id.includes('combo') || item.id.includes('mickey') || item.id.includes('familia') || item.id.includes('set') || item.id === 'navidad-modelo-n18';
+        return isCanguro;
       }
     }
     if (activeSeasonId === 'halloween') {
@@ -238,9 +238,6 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
           <h2 className="section-title">
             Catálogo <span className="seasonal-text-highlight">{currentSeason.shortName}</span>
           </h2>
-          <p className="section-description seasonal-header-desc">
-            {currentSeason.description}
-          </p>
         </div>
 
         {/* Season Selector Tabs */}
@@ -321,42 +318,28 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
               className={`xmas-pill-btn ${xmasCategoryFilter === 'all' ? 'active' : ''}`}
               onClick={() => setXmasCategoryFilter('all')}
             >
-              Todos los Modelos ({SEASONAL_ITEMS.filter((i) => i.seasonId === 'navidad').length})
+              Todos ({SEASONAL_ITEMS.filter((i) => i.seasonId === 'navidad').length})
             </button>
             <button
               type="button"
-              className={`xmas-pill-btn ${xmasCategoryFilter === 'destacados' ? 'active' : ''}`}
-              onClick={() => setXmasCategoryFilter('destacados')}
+              className={`xmas-pill-btn ${xmasCategoryFilter === 'poleras' ? 'active' : ''}`}
+              onClick={() => setXmasCategoryFilter('poleras')}
             >
-              ★ Mockups & Destacados
+              Poleras
+            </button>
+            <button
+              type="button"
+              className={`xmas-pill-btn ${xmasCategoryFilter === 'poleras-duo' ? 'active' : ''}`}
+              onClick={() => setXmasCategoryFilter('poleras-duo')}
+            >
+              Poleras Dúo
             </button>
             <button
               type="button"
               className={`xmas-pill-btn ${xmasCategoryFilter === 'canguros' ? 'active' : ''}`}
               onClick={() => setXmasCategoryFilter('canguros')}
             >
-              Canguros (168 Bs.)
-            </button>
-            <button
-              type="button"
-              className={`xmas-pill-btn ${xmasCategoryFilter === 'divertida' ? 'active' : ''}`}
-              onClick={() => setXmasCategoryFilter('divertida')}
-            >
-              Navidad Divertida (N01–N10)
-            </button>
-            <button
-              type="button"
-              className={`xmas-pill-btn ${xmasCategoryFilter === 'elegante' ? 'active' : ''}`}
-              onClick={() => setXmasCategoryFilter('elegante')}
-            >
-              Navidad Elegante (N11–N18)
-            </button>
-            <button
-              type="button"
-              className={`xmas-pill-btn ${xmasCategoryFilter === 'packs' ? 'active' : ''}`}
-              onClick={() => setXmasCategoryFilter('packs')}
-            >
-              Packs & Parejas
+              Canguros
             </button>
           </div>
         )}
