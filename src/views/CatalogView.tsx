@@ -1,11 +1,34 @@
 import React from 'react';
-import { LayoutGrid, TreePine, Ghost, Heart, Flower2, Flag } from 'lucide-react';
+import {
+  LayoutGrid,
+  TreePine,
+  Ghost,
+  Heart,
+  Award,
+  Flower2,
+  Coffee,
+  Shirt,
+  Crown,
+  Gift,
+  Flag
+} from 'lucide-react';
 import { SEASONS } from '../data/seasonal';
 import { Products } from '../sections/Products/Products';
 import { Seasonal } from '../sections/Seasonal/Seasonal';
 import './views.css';
 
-const ICONS = { TreePine, Ghost, Heart, Flower2, Flag } as const;
+const ICONS = {
+  TreePine,
+  Ghost,
+  Heart,
+  Award,
+  Flower2,
+  Coffee,
+  Shirt,
+  Crown,
+  Gift,
+  Flag
+} as const;
 
 interface Props { collection: string; onChange: (col: string) => void; }
 
@@ -17,7 +40,7 @@ export const CatalogView: React.FC<Props> = ({ collection, onChange }) => {
         <button type="button" role="tab" aria-selected={!season}
           className={`collection-chip ${!season ? 'active' : ''}`}
           style={{ ['--chip' as string]: '#0759E8' }} onClick={() => onChange('normal')}>
-          <LayoutGrid size={16} /><span>Catálogo Oficial</span>
+          <LayoutGrid size={16} /><span>Oficial</span>
         </button>
         {SEASONS.map((s) => {
           const Icon = ICONS[s.iconName];

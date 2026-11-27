@@ -11,7 +11,12 @@ import {
   TreePine,
   Ghost,
   Heart,
+  Award,
   Flower2,
+  Coffee,
+  Shirt,
+  Crown,
+  Gift,
   Flag,
   Sparkles,
   ArrowRight,
@@ -47,7 +52,12 @@ const SEASON_ICONS: Record<SeasonCategory['iconName'], React.ComponentType<{ siz
   TreePine,
   Ghost,
   Heart,
+  Award,
   Flower2,
+  Coffee,
+  Shirt,
+  Crown,
+  Gift,
   Flag
 };
 
@@ -59,8 +69,16 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
   const [halloweenCategoryFilter, setHalloweenCategoryFilter] = useState<'all' | 'destacados' | 'terror' | 'mistico' | 'gamer'>('all');
   const [detailProduct, setDetailProduct] = useState<Product | null>(null);
   const [addedItems, setAddedItems] = useState<{ [id: string]: boolean }>({});
-  const [expandedIncludes, setExpandedIncludes] = useState<{ [id: string]: boolean }>({});
-  const { addItem } = useCart();
+  const { addItem, setIsCartOpen } = useCart();
+
+  // Mismo formato de paginación progresiva que el Catálogo Oficial (8 móvil, 12 desktop)
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const PAGE_SIZE = isMobile ? 8 : 12;
+  const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
+
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [activeSeasonId, xmasCategoryFilter, halloweenCategoryFilter, PAGE_SIZE]);
 
   const currentSeason = SEASONS.find((s) => s.id === activeSeasonId) || SEASONS[0];
 
@@ -74,10 +92,7 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
         return /modelo-n(0[1-9]|10)/.test(item.id);
       }
       if (xmasCategoryFilter === 'elegante') {
-        return /modelo-n(1[1-9]|20)/.test(item.id) || item.id === 'navidad-mockup-arbol-dorado' || item.id === 'navidad-mockup-nacimiento-sagrado';
-      }
-      if (xmasCategoryFilter === 'urbana') {
-        return /modelo-n(2[1-9]|30)/.test(item.id);
+        return /modelo-n(1[1-8])/.test(item.id) || item.id === 'navidad-mockup-arbol-dorado' || item.id === 'navidad-mockup-nacimiento-sagrado';
       }
       if (xmasCategoryFilter === 'packs') {
         return item.id.includes('pack') || item.id.includes('combo') || item.id.includes('mickey') || item.id.includes('familia') || item.id.includes('set') || item.id === 'navidad-modelo-n18';
@@ -99,6 +114,13 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
     }
     return true;
   });
+
+  const visibleItems = itemsInActiveSeason.slice(0, visibleCount);
+  const remainingCount = itemsInActiveSeason.length - visibleCount;
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + PAGE_SIZE);
+  };
 
   // Live Countdown logic
   const [countdown, setCountdown] = useState<CountdownState>({
@@ -133,29 +155,23 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
     return () => clearInterval(timer);
   }, [currentSeason]);
 
-  const toggleIncludes = (itemId: string) => {
-    setExpandedIncludes((prev) => ({
-      ...prev,
-      [itemId]: !prev[itemId]
-    }));
-  };
-
   const handleAddToCart = (item: SeasonalItem) => {
     const product = seasonalItemToProduct(item);
     addItem({
       productId: product.id,
       product: product,
-      quantity: 1,
-      selectedColor: 'Edición Temporada',
-      selectedSize: 'Estándar',
+      quantity: product.minQuantity || 1,
+      selectedColor: product.colors[0]?.name || 'Edición Temporada',
+      selectedSize: product.sizes[0] || 'Estándar',
       selectedTechnique: item.techniques[0],
       unitPrice: item.promoPrice
     });
+    setIsCartOpen(true);
 
     setAddedItems((prev) => ({ ...prev, [item.id]: true }));
     setTimeout(() => {
       setAddedItems((prev) => ({ ...prev, [item.id]: false }));
-    }, 2000);
+    }, 1500);
   };
 
   return (
@@ -189,14 +205,13 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
           )}
           <div className="section-tag seasonal-tag">
             <span className="dot" />
-            <span>Edición Limitada & Campañas</span>
+            <span>{currentSeason.badgeText}</span>
           </div>
           <h2 className="section-title">
-            Ofertas por <span className="seasonal-text-highlight">Temporada</span>
+            Catálogo <span className="seasonal-text-highlight">{currentSeason.shortName}</span>
           </h2>
           <p className="section-description seasonal-header-desc">
-            Colecciones temáticas y packs con precio promocional por fechas clave.
-            Producción en serie con cupos limitados y acabados certificados.
+            {currentSeason.description}
           </p>
         </div>
 
@@ -225,48 +240,50 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
           </div>
         </div>
 
-        {/* Countdown Banner */}
-        <div className="seasonal-countdown-banner" role="region" aria-label="Cuenta regresiva de la campaña">
-          <div className="countdown-info">
-            <div className="countdown-badge">
-              <Clock size={14} strokeWidth={2} />
-              <span>{currentSeason.badgeText}</span>
+        {/* Countdown Banner (Solo para temporadas con fecha específica; oculto en las últimas 5 colecciones) */}
+        {currentSeason.hasCountdown !== false && (
+          <div className="seasonal-countdown-banner" role="region" aria-label="Cuenta regresiva de la campaña">
+            <div className="countdown-info">
+              <div className="countdown-badge">
+                <Clock size={14} strokeWidth={2} />
+                <span>{currentSeason.badgeText}</span>
+              </div>
+              <p className="countdown-deadline-text">
+                <strong>Cierre de pedidos:</strong> {currentSeason.deadlineLabel.replace('Cierre de pedidos ', '')}
+              </p>
             </div>
-            <p className="countdown-deadline-text">
-              <strong>Cierre de pedidos:</strong> {currentSeason.deadlineLabel.replace('Cierre de pedidos ', '')}
-            </p>
-          </div>
 
-          {countdown.isExpired ? (
-            <div className="countdown-expired-state">
-              <span className="countdown-expired-tag">Campaña finalizada</span>
-            </div>
-          ) : (
-            <div className="countdown-right-group">
-              <div className="countdown-timer-group" aria-label="Tiempo restante">
-                <div className="countdown-box">
-                  <span className="countdown-num">{String(countdown.days).padStart(2, '0')}</span>
-                  <span className="countdown-unit">Días</span>
-                </div>
-                <span className="countdown-colon">:</span>
-                <div className="countdown-box">
-                  <span className="countdown-num">{String(countdown.hours).padStart(2, '0')}</span>
-                  <span className="countdown-unit">Hrs</span>
-                </div>
-                <span className="countdown-colon">:</span>
-                <div className="countdown-box">
-                  <span className="countdown-num">{String(countdown.minutes).padStart(2, '0')}</span>
-                  <span className="countdown-unit">Min</span>
-                </div>
-                <span className="countdown-colon">:</span>
-                <div className="countdown-box">
-                  <span className="countdown-num">{String(countdown.seconds).padStart(2, '0')}</span>
-                  <span className="countdown-unit">Seg</span>
+            {countdown.isExpired ? (
+              <div className="countdown-expired-state">
+                <span className="countdown-expired-tag">Campaña finalizada</span>
+              </div>
+            ) : (
+              <div className="countdown-right-group">
+                <div className="countdown-timer-group" aria-label="Tiempo restante">
+                  <div className="countdown-box">
+                    <span className="countdown-num">{String(countdown.days).padStart(2, '0')}</span>
+                    <span className="countdown-unit">Días</span>
+                  </div>
+                  <span className="countdown-colon">:</span>
+                  <div className="countdown-box">
+                    <span className="countdown-num">{String(countdown.hours).padStart(2, '0')}</span>
+                    <span className="countdown-unit">Hrs</span>
+                  </div>
+                  <span className="countdown-colon">:</span>
+                  <div className="countdown-box">
+                    <span className="countdown-num">{String(countdown.minutes).padStart(2, '0')}</span>
+                    <span className="countdown-unit">Min</span>
+                  </div>
+                  <span className="countdown-colon">:</span>
+                  <div className="countdown-box">
+                    <span className="countdown-num">{String(countdown.seconds).padStart(2, '0')}</span>
+                    <span className="countdown-unit">Seg</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
 
         {/* Sub-filtro de Colección Navideña 2026 */}
         {activeSeasonId === 'navidad' && (
@@ -297,14 +314,7 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
               className={`xmas-pill-btn ${xmasCategoryFilter === 'elegante' ? 'active' : ''}`}
               onClick={() => setXmasCategoryFilter('elegante')}
             >
-              Navidad Elegante (N11–N20)
-            </button>
-            <button
-              type="button"
-              className={`xmas-pill-btn ${xmasCategoryFilter === 'urbana' ? 'active' : ''}`}
-              onClick={() => setXmasCategoryFilter('urbana')}
-            >
-              Navidad Urbana (N21–N30)
+              Navidad Elegante (N11–N18)
             </button>
             <button
               type="button"
@@ -357,14 +367,14 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
           </div>
         )}
 
-        {/* Cards Grid / Carousel */}
+        {/* Cards Grid (mismo tamaño y formato de scroll vertical que Catálogo Oficial) */}
         <div
           id={`season-panel-${currentSeason.id}`}
           role="tabpanel"
           className="seasonal-cards-grid"
           key={activeSeasonId}
         >
-          {itemsInActiveSeason.map((item, index) => {
+          {visibleItems.map((item, index) => {
             const savings = item.originalPrice - item.promoPrice;
             const discountPercent = Math.round((savings / item.originalPrice) * 100);
             const isAdded = addedItems[item.id];
@@ -372,18 +382,26 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
             return (
               <article
                 key={item.id}
-                className={`seasonal-card ${item.featured ? 'featured-card' : ''}`}
-                style={{ animationDelay: `${index * 60}ms` }}
+                className="seasonal-card"
+                style={{ animationDelay: `${index * 45}ms` }}
               >
-                {/* Moño navideño sutil solo en Navidad */}
-                {isChristmas && activeSeasonId === 'navidad' && <GiftBow size="md" position="top-right" style={{ top: '8px', right: '8px', zIndex: 3 }} />}
+                {/* Moño navideño sutil */}
+                {isChristmas && activeSeasonId === 'navidad' && (
+                  <GiftBow size="md" position="top-right" style={{ top: '8px', right: '8px', zIndex: 3 }} />
+                )}
 
-                {/* Image Box Grande & Protagónica */}
+                {/* 1. Foto del Producto (al tocar abre modal de detalle) */}
                 <div
                   className="seasonal-card-image-wrapper"
                   onClick={() => setDetailProduct(seasonalItemToProduct(item))}
                   role="button"
                   tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setDetailProduct(seasonalItemToProduct(item));
+                    }
+                  }}
                   aria-label={`Ver detalles de ${item.name}`}
                 >
                   <span className="seasonal-badge-pill">{item.badge}</span>
@@ -413,25 +431,16 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
                   </div>
                 </div>
 
-                {/* Contenido Limpio: Técnica, Nombre, Precio y Botón Detalles */}
+                {/* Cuerpo minimalista: Tipo de trabajo, Precio, botón Comprar + Ver Detalles */}
                 <div className="seasonal-card-content">
-                  {/* Técnica de Personalización */}
+                  {/* 2. Tipo de trabajo (Técnica) */}
                   <div className="seasonal-techniques-list">
                     <span className="seasonal-tech-tag">
                       {item.techniques[0]}
                     </span>
                   </div>
 
-                  {/* Nombre */}
-                  <h3
-                    className="seasonal-card-title"
-                    onClick={() => setDetailProduct(seasonalItemToProduct(item))}
-                    title={item.name}
-                  >
-                    {item.name}
-                  </h3>
-
-                  {/* Pricing */}
+                  {/* 3. Precio */}
                   <div className="seasonal-price-row">
                     <div className="seasonal-price-main">
                       <span className="seasonal-promo-price">Bs. {item.promoPrice}</span>
@@ -439,32 +448,38 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
                         <span className="seasonal-original-price">Bs. {item.originalPrice}</span>
                       )}
                     </div>
-                    <span className="seasonal-unit-label">por menor / mayor</span>
                   </div>
 
-                  {/* Actions: Botón Ver Detalles y Compra Rápida */}
-                  <div className="seasonal-actions-grid">
+                  {/* 4. Botón Comprar (principal) + Botón Ver Detalles (un poco más pequeño) */}
+                  <div className="seasonal-actions-row-dual">
                     <button
                       type="button"
-                      className="btn-seasonal-details"
-                      onClick={() => setDetailProduct(seasonalItemToProduct(item))}
+                      className={`btn-seasonal-buy ${isAdded ? 'added' : ''}`}
+                      onClick={() => handleAddToCart(item)}
+                      aria-label={`Comprar ${item.name}`}
                     >
-                      <Eye size={15} />
-                      <span>Ver Detalles</span>
+                      {isAdded ? (
+                        <>
+                          <Check size={15} strokeWidth={2.2} />
+                          <span>¡Listo!</span>
+                        </>
+                      ) : (
+                        <>
+                          <ShoppingBag size={15} strokeWidth={1.8} />
+                          <span>Comprar</span>
+                        </>
+                      )}
                     </button>
 
                     <button
                       type="button"
-                      className={`btn-seasonal-cart-quick ${isAdded ? 'added' : ''}`}
-                      onClick={() => handleAddToCart(item)}
-                      aria-label={`Añadir ${item.name} al carrito`}
-                      title="Añadir al carrito"
+                      className="btn-seasonal-details-sm"
+                      onClick={() => setDetailProduct(seasonalItemToProduct(item))}
+                      aria-label={`Ver detalles de ${item.name}`}
+                      title="Ver detalles del producto"
                     >
-                      {isAdded ? (
-                        <Check size={16} strokeWidth={2.2} />
-                      ) : (
-                        <ShoppingBag size={16} strokeWidth={1.8} />
-                      )}
+                      <Eye size={14} strokeWidth={1.8} />
+                      <span>Ver Detalles</span>
                     </button>
                   </div>
                 </div>
@@ -472,6 +487,20 @@ export const Seasonal: React.FC<{ seasonId?: SeasonCategory['id']; hideTabs?: bo
             );
           })}
         </div>
+
+        {/* Botón de paginación progresiva igual al Catálogo Oficial */}
+        {remainingCount > 0 && (
+          <div className="catalog-load-more-row" style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem', marginBottom: '2.5rem' }}>
+            <button
+              type="button"
+              className="btn btn-secondary btn-load-more"
+              onClick={handleLoadMore}
+            >
+              <span>Ver más productos ({remainingCount} restantes)</span>
+              <ChevronDown size={16} />
+            </button>
+          </div>
+        )}
 
         {/* Modal de Detalle Completo para Productos de Temporada */}
         <ProductDetailModal

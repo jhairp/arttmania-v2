@@ -1,9 +1,21 @@
 import { Product } from './products';
 import { COMPANY_INFO } from './company';
 
+export type SeasonId =
+  | 'navidad'
+  | 'halloween'
+  | 'dia-del-amor'
+  | 'dia-del-padre'
+  | 'dia-de-la-madre'
+  | 'tazas'
+  | 'poleras'
+  | 'gorras'
+  | 'regalos'
+  | 'identidad-boliviana';
+
 export interface SeasonalItem {
   id: string;
-  seasonId: 'navidad' | 'halloween' | 'san-valentin' | 'dia-madre-padre' | 'fiestas-patrias';
+  seasonId: SeasonId;
   name: string;
   badge: string;
   tagline: string;
@@ -17,10 +29,21 @@ export interface SeasonalItem {
 }
 
 export interface SeasonCategory {
-  id: 'navidad' | 'halloween' | 'san-valentin' | 'dia-madre-padre' | 'fiestas-patrias';
+  id: SeasonId;
   name: string;
   shortName: string;
-  iconName: 'TreePine' | 'Ghost' | 'Heart' | 'Flower2' | 'Flag';
+  iconName:
+    | 'TreePine'
+    | 'Ghost'
+    | 'Heart'
+    | 'Award'
+    | 'Flower2'
+    | 'Coffee'
+    | 'Shirt'
+    | 'Crown'
+    | 'Gift'
+    | 'Flag';
+  hasCountdown?: boolean;
   deadlineLabel: string;
   targetDate: string; // ISO date for countdown
   accentColor: string; // Keep for compatibility
@@ -38,6 +61,7 @@ export const SEASONS: SeasonCategory[] = [
     name: 'Navidad & Fin de Año',
     shortName: 'Navidad',
     iconName: 'TreePine',
+    hasCountdown: true,
     deadlineLabel: 'Cierre de pedidos con entrega garantizada antes del 24 de Diciembre:',
     targetDate: '2026-12-20T23:59:59',
     accentColor: '#D32F2F',
@@ -53,6 +77,7 @@ export const SEASONS: SeasonCategory[] = [
     name: 'Halloween & Noche de Brujas · Línea Umbría',
     shortName: 'Halloween',
     iconName: 'Ghost',
+    hasCountdown: true,
     deadlineLabel: 'Cierre de pedidos con entrega garantizada antes del 31 de Octubre:',
     targetDate: '2027-10-27T23:59:59',
     accentColor: '#E8590C',
@@ -64,49 +89,132 @@ export const SEASONS: SeasonCategory[] = [
     description: 'Colección exclusiva "Umbría de Arttmania": poleras negras de algodón peinado premium con estampados DTF de alta definición de íconos del terror, cultura dark y edición Halloween.'
   },
   {
-    id: 'san-valentin',
-    name: 'San Valentín & Amor/Amistad',
-    shortName: 'San Valentín',
+    id: 'dia-del-amor',
+    name: 'Día del Amor & la Amistad',
+    shortName: 'Día del amor',
     iconName: 'Heart',
-    deadlineLabel: 'Cierre de pedidos para el 14 de Febrero:',
+    hasCountdown: true,
+    deadlineLabel: 'Cierre de pedidos especiales para el Día del Amor:',
     targetDate: '2027-02-12T23:59:59',
-    accentColor: '#C2185B',
-    accent: '#C2185B',
-    accentSoft: 'rgba(194, 24, 91, 0.16)',
-    surfaceTint: 'rgba(194, 24, 91, 0.09)',
-    gradient: 'linear-gradient(135deg, #C2185B 0%, #F06292 100%)',
-    badgeText: 'Especial Parejas',
-    description: 'Packs dobles combinados, tazas mágicas sensibles a la temperatura, llaveros magnéticos en madera y cojines personalizados.'
+    accentColor: '#E91E63',
+    accent: '#E91E63',
+    accentSoft: 'rgba(233, 30, 99, 0.16)',
+    surfaceTint: 'rgba(233, 30, 99, 0.10)',
+    gradient: 'linear-gradient(135deg, #C2185B 0%, #FF6090 100%)',
+    badgeText: 'Especial Parejas & Amistad',
+    description: 'Packs dobles de poleras y canguros para parejas, tazas mágicas termosensibles, cojines con código Spotify y regalos románticos personalizados.'
   },
   {
-    id: 'dia-madre-padre',
-    name: 'Día de la Madre & del Padre',
-    shortName: 'Mamá y Papá',
+    id: 'dia-del-padre',
+    name: 'Especial Día del Padre',
+    shortName: 'Día del padre',
+    iconName: 'Award',
+    hasCountdown: true,
+    deadlineLabel: 'Cierre de pedidos con entrega garantizada para el Día del Padre:',
+    targetDate: '2027-03-17T23:59:59',
+    accentColor: '#0B63E5',
+    accent: '#0B63E5',
+    accentSoft: 'rgba(11, 99, 229, 0.16)',
+    surfaceTint: 'rgba(11, 99, 229, 0.10)',
+    gradient: 'linear-gradient(135deg, #0B63E5 0%, #D4AF37 100%)',
+    badgeText: 'Homenaje a Papá',
+    description: 'Kits ejecutivos grabados a láser, combos parrilleros con mandil bordado, poleras edición papá, gorras 3D y vasos térmicos personalizados.'
+  },
+  {
+    id: 'dia-de-la-madre',
+    name: 'Especial Día de la Madre',
+    shortName: 'Día de la madre',
     iconName: 'Flower2',
-    deadlineLabel: 'Cierre de pedidos con anticipación sugerida (5 días antes):',
-    targetDate: '2027-05-22T23:59:59',
-    accentColor: '#0B8A6B',
-    accent: '#0B8A6B',
-    accentSoft: 'rgba(11, 138, 107, 0.16)',
-    surfaceTint: 'rgba(11, 138, 107, 0.09)',
-    gradient: 'linear-gradient(135deg, #0B8A6B 0%, #D4AF37 100%)',
-    badgeText: 'Kits Premium',
-    description: 'Termos grabados en láser, libretas de cuero, delantales de cocina reforzados y cajas rígidas listas para obsequiar.'
+    hasCountdown: true,
+    deadlineLabel: 'Cierre de pedidos con entrega garantizada para el Día de la Madre:',
+    targetDate: '2027-05-25T23:59:59',
+    accentColor: '#D81B60',
+    accent: '#D81B60',
+    accentSoft: 'rgba(216, 27, 96, 0.16)',
+    surfaceTint: 'rgba(216, 27, 96, 0.10)',
+    gradient: 'linear-gradient(135deg, #D81B60 0%, #D4AF37 100%)',
+    badgeText: 'Homenaje a Mamá',
+    description: 'Detalles únicos para mamá: termos digitales grabados, sets de cojín y taza floral, cuadros conmemorativos, mandiles bordados y cajas de regalo.'
   },
   {
-    id: 'fiestas-patrias',
-    name: 'Fiestas Patrias & Efemérides',
-    shortName: 'Patrias',
+    id: 'tazas',
+    name: 'Colección de Tazas Personalizadas',
+    shortName: 'Tazas',
+    iconName: 'Coffee',
+    hasCountdown: false,
+    deadlineLabel: '',
+    targetDate: '2027-12-31T23:59:59',
+    accentColor: '#00A878',
+    accent: '#00A878',
+    accentSoft: 'rgba(0, 168, 120, 0.16)',
+    surfaceTint: 'rgba(0, 168, 120, 0.09)',
+    gradient: 'linear-gradient(135deg, #00A878 0%, #38EF7D 100%)',
+    badgeText: 'Sublimación HD Permanente',
+    description: 'Tazas de cerámica AAA de 11oz, mágicas termosensibles, bicolor, glitter y packs corporativos con impresión fotográfica de alto brillo.'
+  },
+  {
+    id: 'poleras',
+    name: 'Colección de Poleras & Prendas Textiles',
+    shortName: 'Poleras',
+    iconName: 'Shirt',
+    hasCountdown: false,
+    deadlineLabel: '',
+    targetDate: '2027-12-31T23:59:59',
+    accentColor: '#0759E8',
+    accent: '#0759E8',
+    accentSoft: 'rgba(7, 89, 232, 0.16)',
+    surfaceTint: 'rgba(7, 89, 232, 0.09)',
+    gradient: 'linear-gradient(135deg, #0759E8 0%, #00C6FF 100%)',
+    badgeText: 'Línea Textil ARTTMANIA',
+    description: 'Poleras en algodón peinado 20/1, corte oversize, dry-fit deportivas, manga larga y sudaderas con estampado DTF textil, serigrafía o bordado.'
+  },
+  {
+    id: 'gorras',
+    name: 'Colección de Gorras & Bordados 3D',
+    shortName: 'Gorras',
+    iconName: 'Crown',
+    hasCountdown: false,
+    deadlineLabel: '',
+    targetDate: '2027-12-31T23:59:59',
+    accentColor: '#F59E0B',
+    accent: '#F59E0B',
+    accentSoft: 'rgba(245, 158, 11, 0.16)',
+    surfaceTint: 'rgba(245, 158, 11, 0.09)',
+    gradient: 'linear-gradient(135deg, #F59E0B 0%, #FDE047 100%)',
+    badgeText: 'Bordado & DTF de Precisión',
+    description: 'Gorras Snapback de 6 paneles, Trucker con malla, gabardina estructurada y gorros Beanie con bordado 3D computarizado y parches láser.'
+  },
+  {
+    id: 'regalos',
+    name: 'Colección de Regalos & Detalles Personalizados',
+    shortName: 'Regalos',
+    iconName: 'Gift',
+    hasCountdown: false,
+    deadlineLabel: '',
+    targetDate: '2027-12-31T23:59:59',
+    accentColor: '#9C27B0',
+    accent: '#9C27B0',
+    accentSoft: 'rgba(156, 39, 176, 0.16)',
+    surfaceTint: 'rgba(156, 39, 176, 0.09)',
+    gradient: 'linear-gradient(135deg, #9C27B0 0%, #E040FB 100%)',
+    badgeText: 'Obsequios Memorables',
+    description: 'Termos grabados a láser, cojines decorativos, cuadros, rompecabezas, kits ejecutivos VIP, llaveros y artículos únicos listos para regalar.'
+  },
+  {
+    id: 'identidad-boliviana',
+    name: 'Colección Identidad Boliviana',
+    shortName: 'Identidad Boliviana',
     iconName: 'Flag',
-    deadlineLabel: 'Pedidos masivos para comparsas, desfiles y colegios:',
-    targetDate: '2027-08-01T23:59:59',
-    accentColor: '#0B4FD0',
-    accent: '#0B4FD0',
-    accentSoft: 'rgba(11, 79, 208, 0.16)',
-    surfaceTint: 'rgba(11, 79, 208, 0.09)',
-    gradient: 'linear-gradient(135deg, #0B4FD0 0%, #D32F2F 100%)',
-    badgeText: 'Orgullo Nacional',
-    description: 'Gorras bordadas con el escudo o mapa, poleras conmemorativas, pañoletas de satén y escarapelas sublimadas para actos cívicos.'
+    hasCountdown: false,
+    deadlineLabel: '',
+    targetDate: '2027-12-31T23:59:59',
+    accentColor: '#D32F2F',
+    accent: '#D32F2F',
+    accentSoft: 'rgba(211, 47, 47, 0.16)',
+    surfaceTint: 'rgba(0, 168, 120, 0.10)',
+    gradient: 'linear-gradient(135deg, #D32F2F 0%, #F5B800 50%, #00A878 100%)',
+    badgeText: 'Orgullo & Cultura de Bolivia',
+    description: 'Diseños exclusivos inspirados en la cultura, fauna andina, símbolos patrios y tradiciones de Bolivia en poleras, gorras, termos y souvenirs.'
   }
 ];
 
@@ -121,15 +229,15 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     tagline: 'Algodón peinado premium con Papá Noel moderno y luces festivas',
     description: 'Confección en suave algodón peinado 20/1 con estampado en DTF textil de alta elasticidad. Un clásico moderno para celebraciones navideñas familiares y de amigos.',
     includes: [
-      'Polera algodón peinado 100% hipoalergénico',
-      'Estampado DTF textil de alta resistencia al lavado',
-      'Tallas disponibles: Infantil 2-14 y Adultos S a XXXL',
-      'Precios especiales por mayor a partir de 12 unidades (desde 25 Bs.)'
+      'Precio: 65 Bs. la unidad | 120 Bs. el par',
+      'Opción con Logo Mediano: 38 Bs.',
+      'Tallas estándar: S, M, L (tallas superiores consultar para cotizar)',
+      'Polera algodón peinado 100% con estampado DTF textil'
     ],
     originalPrice: 85,
     promoPrice: 65,
     image: '/images/seasonal/navidad/mockup_santa_cool_blanco.jpg',
-    techniques: ['DTF Textil', 'Sublimación'],
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
   {
@@ -140,15 +248,15 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     tagline: 'Composición sobria con pino en cinta dorada y reno',
     description: 'Diseño minimalista y elegante en tonos oro brillante sobre tela verde bosque. Ideal para cenas navideñas de fin de año o uniformes de temporada.',
     includes: [
-      'Tela verde bosque de alta durabilidad',
-      'Detalles en tinta dorada metálica de alta definición',
-      'Cuello rib reforzado anti-deformación',
-      'Empaque de regalo festivo individual'
+      'Precio: 65 Bs. la unidad | 120 Bs. el par',
+      'Opción con Logo Mediano: 38 Bs.',
+      'Tallas estándar: S, M, L (tallas superiores consultar para cotizar)',
+      'Detalles en tinta dorada de alta definición'
     ],
     originalPrice: 85,
     promoPrice: 65,
     image: '/images/seasonal/navidad/mockup_arbol_dorado_verde.jpg',
-    techniques: ['DTF Textil Dorado', 'Foil Metálico'],
+    techniques: ['DTF Textil Dorado', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
   {
@@ -159,15 +267,15 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     tagline: 'El personaje favorito de quienes viven la fiesta a su manera',
     description: 'Ilustración detallada y expresiva del Grinch con gorrito navideño y corona de luces brillantes sobre rojo carmesí.',
     includes: [
-      'Algodón reactivo que no despinta ni encoge',
-      'Estampado suave al tacto con colores vibrantes',
-      'Tallas completas para toda la familia',
-      'Descuento especial por volumen escolar o empresarial'
+      'Precio: 65 Bs. la unidad | 120 Bs. el par',
+      'Opción con Logo Mediano: 38 Bs.',
+      'Tallas estándar: S, M, L (tallas superiores consultar para cotizar)',
+      'Algodón reactivo que no despinta ni encoge'
     ],
     originalPrice: 85,
     promoPrice: 65,
     image: '/images/seasonal/navidad/mockup_grinch_luces_rojo.jpg',
-    techniques: ['DTF Textil Full Color', 'Sublimación'],
+    techniques: ['DTF Textil Full Color', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
   {
@@ -175,18 +283,18 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     seasonId: 'navidad',
     name: 'Dúo de Poleras Pareja "Mickey & Minnie Navideños"',
     badge: 'Especial Parejas',
-    tagline: '2 Poleras combinadas con diseño continuo y corazón rojo',
+    tagline: '2 Poleras combinadas con diseño continuo y corazón rojo (120 Bs. el par)',
     description: 'Set especial para novios y matrimonios. Ilustraciones sincronizadas de Mickey y Minnie dándose un beso con gorrito de Papá Noel.',
     includes: [
-      '2 Poleras de algodón peinado (tallas a elección para él y para ella)',
-      'Estampado DTF textil de máxima nitidez',
-      'Opción de añadir nombres o fecha en la espalda',
-      'Presentación en caja festiva lista para obsequiar'
+      'Precio Promocional: 120 Bs. el par (2 poleras) | 65 Bs. individual',
+      'Opción con Logo Mediano: 38 Bs.',
+      'Tallas estándar: S, M, L (tallas superiores consultar para cotizar)',
+      'Estampado DTF textil de máxima nitidez en algodón peinado'
     ],
     originalPrice: 160,
     promoPrice: 120,
     image: '/images/seasonal/navidad/mockup_pareja_mickey_minnie.jpg',
-    techniques: ['DTF Textil', 'Algodón Peinado'],
+    techniques: ['DTF Textil (Par 2 Poleras)', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
   {
@@ -197,10 +305,10 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     tagline: 'Set temático para papá, mamá e hijos con copos de nieve',
     description: 'Colección de poleras navideñas a juego para sesiones de fotos, nochebuena y recuerdos inolvidables en familia.',
     includes: [
-      '3 Poleras familiares (opción de agregar adicionales a precio mayorista)',
-      'Ilustración personalizada de muñecos de nieve con gorritos',
-      'Texto "Familia Navideña" con tipografía caligráfica dorada',
-      '2 Adornos de madera MDF grabados con láser para el árbol'
+      '3 Poleras familiares (180 Bs. el pack de 3 | 120 Bs. el par | 65 Bs. unidad)',
+      'Opción con Logo Mediano: 38 Bs.',
+      'Tallas estándar: S, M, L (tallas superiores consultar para cotizar)',
+      'Ilustración personalizada de muñecos de nieve con gorritos'
     ],
     originalPrice: 240,
     promoPrice: 180,
@@ -216,19 +324,19 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     tagline: 'El verdadero sentido de la Navidad en trazo fino dorado',
     description: 'Representación artística y solemne del pesebre de Belén con la estrella guía en acabado oro sobre fondo rojo navideño.',
     includes: [
-      'Estampado dorado mate de alta finura y elegancia',
-      'Prenda confeccionada en algodón premium de 180g',
-      'Diseño ideal para iglesias, colegios y celebraciones familiares',
-      'Precios de escala por mayor para instituciones'
+      'Precio: 65 Bs. la unidad | 120 Bs. el par',
+      'Opción con Logo Mediano: 38 Bs.',
+      'Tallas estándar: S, M, L (tallas superiores consultar para cotizar)',
+      'Estampado dorado mate de alta finura y elegancia'
     ],
     originalPrice: 85,
     promoPrice: 65,
     image: '/images/seasonal/navidad/mockup_nacimiento_sagrado_rojo.jpg',
-    techniques: ['DTF Textil Dorado', 'Serigrafía Textil'],
+    techniques: ['DTF Textil Dorado', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
 
-  // --- 2. MODELOS INDIVIDUALES CATÁLOGO DIGITAL 2026 (N01 - N30) ---
+  // --- 2. MODELOS INDIVIDUALES CATÁLOGO DIGITAL 2026 (N01 - N16 y N18) ---
   {
     id: 'navidad-modelo-n01',
     seasonId: 'navidad',
@@ -236,11 +344,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     badge: 'Catálogo N01',
     tagline: 'Papá Noel con actitud, gafas de sol y saludo de paz',
     description: 'Polera clásica blanca con el personaje festivo favorito en versión juvenil y fresca.',
-    includes: ['Polera suave cuello redondo', 'Estampado DTF textil', 'Tallas Infantil 2 a XXXL', 'Desde Bs. 25 por docena'],
-    originalPrice: 75,
-    promoPrice: 55,
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Estampado DTF textil en algodón peinado'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N01.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n02',
@@ -249,11 +357,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     badge: 'Catálogo N02',
     tagline: 'Tierno reno sonriente con astas y estrellas de nieve',
     description: 'Polera roja festiva con ilustración tierna de reno navideño en alta resolución.',
-    includes: ['Algodón peinado reactivo', 'Estampado suave al tacto', 'Tallas para toda la familia', 'Precio mayorista por volumen'],
-    originalPrice: 75,
-    promoPrice: 55,
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón peinado reactivo de tacto suave'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N02.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n03',
@@ -262,11 +370,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     badge: 'Catálogo N03',
     tagline: 'El clásico antihéroe que roba sonrisas en Navidad',
     description: 'Diseño icónico del Grinch sonriendo con gorro de Santa sobre tela verde de temporada.',
-    includes: ['Tela peinada de máxima suavidad', 'Colores vivos que no se degradan', 'Tallas niño y adulto', 'Despachos a todo el país'],
-    originalPrice: 75,
-    promoPrice: 55,
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Tela peinada de máxima suavidad'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N03.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n04',
@@ -275,11 +383,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     badge: 'Catálogo N04',
     tagline: 'Clásico muñeco de nieve de invierno con detalles rojos',
     description: 'Ilustración entrañable de muñeco de nieve sonriente con copos y bufanda tejida.',
-    includes: ['Confección 100% algodón', 'Tintas ecológicas certificadas', 'Tallas infantiles y adultos', 'Precios de escala B2B'],
-    originalPrice: 75,
-    promoPrice: 55,
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Confección 100% algodón peinado'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N04.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n05',
@@ -288,11 +396,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     badge: 'Catálogo N05',
     tagline: 'Silueta dorada del nacimiento con estrella de Belén',
     description: 'Diseño solemne y elegante en trazo dorado sobre fondo oscuro para quienes celebran el verdadero espíritu de la Navidad.',
-    includes: ['Fondo negro grafito de alto contraste', 'Estampado dorado de precisión', 'Tallas S a XXXL', 'Factura fiscal'],
-    originalPrice: 80,
-    promoPrice: 60,
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Fondo negro grafito con estampado dorado'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N05.jpg',
-    techniques: ['DTF Textil Dorado', 'Serigrafía']
+    techniques: ['DTF Textil Dorado', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n06',
@@ -301,11 +409,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     badge: 'Catálogo N06',
     tagline: 'Pino estilizado en cinta continua dorada con estrella',
     description: 'Composición moderna de árbol de navidad abstracto en tonos dorados sobre prenda roja festiva.',
-    includes: ['Algodón peinado premium', 'Acabado dorado metálico', 'Tallas S a XXXL', 'Desde 25 Bs. por cantidad'],
-    originalPrice: 75,
-    promoPrice: 55,
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón peinado premium con acabado dorado'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N06.jpg',
-    techniques: ['DTF Textil', 'Foil']
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n07',
@@ -314,11 +422,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     badge: 'Catálogo N07',
     tagline: 'Muñeco de jengibre sonriente con moño y botones rojos',
     description: 'Diseño tradicional y simpático para niños, familias y amantes de la repostería navideña.',
-    includes: ['Tela suave 180 gramos', 'Estampado elástico y lavable', 'Todas las tallas', 'Envíos a toda Bolivia'],
-    originalPrice: 75,
-    promoPrice: 55,
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Tela suave 180 gramos con estampado elástico'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N07.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n08',
@@ -327,11 +435,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     badge: 'Catálogo N08',
     tagline: 'Frase tradicional con campanas doradas y lazo rojo',
     description: 'Tipografía clásica y festiva con follaje de acebo y campanas para desear felices fiestas.',
-    includes: ['Algodón peinado blanco', 'Full color de alta fidelidad', 'Tallas completas', 'Precio mayorista'],
-    originalPrice: 75,
-    promoPrice: 55,
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón peinado blanco con full color HD'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N08.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n09',
@@ -340,11 +448,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     badge: 'Catálogo N09',
     tagline: 'Snoopy abrazando su corazón festivo con gorrito de Santa',
     description: 'Diseño nostálgico y adorable del icónico perrito blanco con detalles de nieve y amor.',
-    includes: ['Algodón reactivo de alta gama', 'Estampado de tacto cero', 'Tallas infantil y adulto', 'Embalaje individual'],
-    originalPrice: 75,
-    promoPrice: 55,
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón reactivo de alta gama'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N09.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n10',
@@ -353,11 +461,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     badge: 'Catálogo N10',
     tagline: 'Reno con actitud y lentes reflejantes de invierno',
     description: 'Diseño con gran personalidad para chicos, jóvenes y familias modernas.',
-    includes: ['Tela verde bosque peinada', 'Detalle reflejante en lentes', 'Tallas S a XXXL', 'Escala por mayor'],
-    originalPrice: 75,
-    promoPrice: 55,
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Tela verde bosque peinada'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N10.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n11',
@@ -366,11 +474,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     badge: 'Catálogo N11',
     tagline: 'Tres gnomos nórdicos con gorros tejidos y barbas largas',
     description: 'Estética escandinava elegante y navideña en tonos rojo y gris sobre polera blanca.',
-    includes: ['Algodón 100% 20/1', 'Estampado digital nítido', 'Tallas S a XXL', 'Precio por mayor'],
-    originalPrice: 75,
-    promoPrice: 55,
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón 100% 20/1 con estampado nítido'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N11.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n12',
@@ -379,11 +487,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     badge: 'Catálogo N12',
     tagline: 'Papá Noel con gesto de silencio y gafas doradas',
     description: 'Ilustración de alta calidad artística con textura realista de barba y guantes blancos.',
-    includes: ['Algodón peinado rojo intenso', 'Resolución fotográfica HD', 'Tallas S a XXXL', 'Facturación legal'],
-    originalPrice: 80,
-    promoPrice: 60,
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón peinado rojo intenso en resolución HD'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N12.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n13',
@@ -392,11 +500,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     badge: 'Catálogo N13',
     tagline: 'Estética geométrica vanguardista en líneas doradas',
     description: 'Diseño sofisticado para quienes prefieren un look navideño sobrio, moderno y elegante.',
-    includes: ['Fondo negro profundo', 'Estampado dorado de precisión', 'Tallas S a XXXL', 'Empaque para regalo'],
-    originalPrice: 80,
-    promoPrice: 60,
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Fondo negro profundo con estampado dorado'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N13.jpg',
-    techniques: ['DTF Textil Dorado', 'Foil']
+    techniques: ['DTF Textil Dorado', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n14',
@@ -405,11 +513,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     badge: 'Catálogo N14',
     tagline: 'Tres pinos navideños y dedicatoria familiar cálida',
     description: 'Prenda pensada para reuniones y cenas familiares con pinos decorados y tipografía festiva.',
-    includes: ['Algodón peinado suave', 'Opción de apellido familiar', 'Tallas infantiles a XXXL', 'Descuento familiar'],
-    originalPrice: 75,
-    promoPrice: 55,
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón peinado suave con opción de apellido'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N14.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n15',
@@ -417,12 +525,12 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     name: 'Modelo N15 · Pingüino Festivo con Bufanda (Verde)',
     badge: 'Catálogo N15',
     tagline: 'Tierno pingüinito polar con gorro rojo y bufanda tejida',
-    description: 'Modelo favorito de los más pequeños de la casa, perfecto para cursos escolares y regalos.',
-    includes: ['Tela hipoalergénica de algodón', 'Colores brillantes y seguros', 'Tallas 2 a 16 e infantiles', 'Precio por mayor'],
-    originalPrice: 70,
-    promoPrice: 50,
+    description: 'Modelo favorito para toda la familia, cursos escolares y regalos navideños.',
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Tela hipoalergénica de algodón peinado'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N15.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n16',
@@ -430,194 +538,25 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     name: 'Modelo N16 · Reno Navideño Sonriente (Rojo)',
     badge: 'Catálogo N16',
     tagline: 'Carita sonriente de reno con cascabel y nieve',
-    description: 'Prenda infantil y juvenil muy tierna para sesiones fotográficas navideñas.',
-    includes: ['Algodón peinado de primera', 'Estampado flexible', 'Tallas completas', 'Desde 25 Bs. x mayor'],
-    originalPrice: 70,
-    promoPrice: 50,
+    description: 'Prenda festiva muy tierna para sesiones fotográficas navideñas.',
+    includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón peinado de primera con estampado flexible'],
+    originalPrice: 85,
+    promoPrice: 65,
     image: '/images/seasonal/navidad/modelo_N16.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
-  },
-  {
-    id: 'navidad-modelo-n17',
-    seasonId: 'navidad',
-    name: 'Modelo N17 · Mickey & Minnie Pareja Romántica (Blanco)',
-    badge: 'Catálogo N17',
-    tagline: 'Ilustración combinable para parejas en Navidad',
-    description: 'Prenda con los queridos ratoncitos con gorritos navideños y corazones flotantes.',
-    includes: ['Precio individual o por par', 'Algodón peinado premium', 'Tallas para él y ella', 'Caja de regalo opcional'],
-    originalPrice: 75,
-    promoPrice: 55,
-    image: '/images/seasonal/navidad/modelo_N17.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
+    techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
     id: 'navidad-modelo-n18',
     seasonId: 'navidad',
     name: 'Modelo N18 · Dúo Pareja "Él es mi regalo / Ella es mi regalo"',
     badge: 'Catálogo N18',
-    tagline: 'Set divertido y amoroso con lazo dorado de obsequio',
+    tagline: 'Set de 2 poleras divertidas con lazo dorado de obsequio (120 Bs. el par)',
     description: 'Frases sincronizadas con lazo de regalo para celebrar las fiestas en pareja.',
-    includes: ['Set de 2 poleras rojas', 'Tipografía script dorada', 'Tallas a elección', 'Empaque especial'],
-    originalPrice: 150,
-    promoPrice: 110,
+    includes: ['Precio Promocional: 120 Bs. el par (2 poleras) | 65 Bs. unidad', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Set de 2 poleras rojas en algodón peinado'],
+    originalPrice: 160,
+    promoPrice: 120,
     image: '/images/seasonal/navidad/modelo_N18.jpg',
-    techniques: ['DTF Textil', 'Algodón Peinado']
-  },
-  {
-    id: 'navidad-modelo-n19',
-    seasonId: 'navidad',
-    name: 'Modelo N19 · Bosque Invernal & Ciervo en Nieve (Blanco)',
-    badge: 'Catálogo N19',
-    tagline: 'Pino dorado abstracto con silueta de ciervo y estrellas',
-    description: 'Estética nórdica luminosa con destellos de polvo estelar y coníferas.',
-    includes: ['Algodón peinado 20/1', 'Tinta dorada y negra', 'Tallas S a XXL', 'Garantía de calidad'],
-    originalPrice: 75,
-    promoPrice: 55,
-    image: '/images/seasonal/navidad/modelo_N19.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
-  },
-  {
-    id: 'navidad-modelo-n20',
-    seasonId: 'navidad',
-    name: 'Modelo N20 · Esferas Navideñas Colgantes en Oro y Rojo',
-    badge: 'Catálogo N20',
-    tagline: 'Tres esferas decoradas con ornamentos de encaje navideño',
-    description: 'Diseño formal y cálido para empresas, reuniones de trabajo o cenas familiares.',
-    includes: ['Prenda roja de alta calidad', 'Detalles dorados refinados', 'Tallas S a XXXL', 'Precio institucional'],
-    originalPrice: 75,
-    promoPrice: 55,
-    image: '/images/seasonal/navidad/modelo_N20.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
-  },
-  {
-    id: 'navidad-modelo-n21',
-    seasonId: 'navidad',
-    name: 'Modelo N21 · Flor de Nochebuena Poinsettia (Verde Bosque)',
-    badge: 'Catálogo N21',
-    tagline: 'La tradicional flor navideña en acuarela botánica vibrante',
-    description: 'Ilustración botánica viva de la flor de Pascua con hojas verdes y centro dorado.',
-    includes: ['Tela verde peinada', 'Gama de rojos intensos', 'Tallas completas', 'Descuento por docena'],
-    originalPrice: 75,
-    promoPrice: 55,
-    image: '/images/seasonal/navidad/modelo_N21.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
-  },
-  {
-    id: 'navidad-modelo-n22',
-    seasonId: 'navidad',
-    name: 'Modelo N22 · Los Tres Reyes Magos con Estrella (Blanco)',
-    badge: 'Catálogo N22',
-    tagline: 'Silueta de Melchor, Gaspar y Baltazar siguiendo la estrella',
-    description: 'Diseño sobrio de gran significado espiritual sobre fondo blanco puro.',
-    includes: ['Algodón suave 180g', 'Estampado en contraste negro y oro', 'Tallas S a XXXL', 'Factura legal'],
-    originalPrice: 75,
-    promoPrice: 55,
-    image: '/images/seasonal/navidad/modelo_N22.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
-  },
-  {
-    id: 'navidad-modelo-n23',
-    seasonId: 'navidad',
-    name: 'Modelo N23 · Noche de Paz con Iglesia & Estrellas (Negro)',
-    badge: 'Catálogo N23',
-    tagline: 'Pueblo invernal iluminado bajo un cielo de estrellas doradas',
-    description: 'Paisaje nocturno de ensueño con casitas, iglesia y pinos cubiertos de nieve.',
-    includes: ['Prenda negra grafito', 'Efecto de luces doradas', 'Tallas S a XXXL', 'Empaque individual'],
-    originalPrice: 80,
-    promoPrice: 60,
-    image: '/images/seasonal/navidad/modelo_N23.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
-  },
-  {
-    id: 'navidad-modelo-n24',
-    seasonId: 'navidad',
-    name: 'Modelo N24 · Camioneta Vintage con Pino Navideño (Verde)',
-    badge: 'Catálogo N24',
-    tagline: 'Camioneta clásica roja llevando el arbolito a casa',
-    description: 'Estilo retro americano muy popular en decoraciones navideñas y colecciones de temporada.',
-    includes: ['Algodón peinado reactivo', 'Colores vintage vibrantes', 'Tallas completas', 'Precios de escala B2B'],
-    originalPrice: 75,
-    promoPrice: 55,
-    image: '/images/seasonal/navidad/modelo_N24.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
-  },
-  {
-    id: 'navidad-modelo-n25',
-    seasonId: 'navidad',
-    name: 'Modelo N25 · Cajas de Regalos y Moños Festivos (Rojo)',
-    badge: 'Catálogo N25',
-    tagline: 'Montón de obsequios navideños con cintas y destellos',
-    description: 'El símbolo por excelencia de los regalos y la emoción de abrir sorpresas en nochebuena.',
-    includes: ['Tela roja de primera', 'Detalles dorados brillantes', 'Tallas infantiles a adultos', 'Envíos nacionales'],
-    originalPrice: 75,
-    promoPrice: 55,
-    image: '/images/seasonal/navidad/modelo_N25.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
-  },
-  {
-    id: 'navidad-modelo-n26',
-    seasonId: 'navidad',
-    name: 'Modelo N26 · Llama Andina Navideña con Gafas (Blanco)',
-    badge: 'Identidad Bolivia',
-    tagline: 'Nuestra simpática llama con gorrito de Santa, chalina y gafas',
-    description: 'Un toque boliviano entrañable que combina identidad andina con espíritu navideño.',
-    includes: ['Diseño original exclusivo', 'Algodón peinado 20/1', 'Tallas para niños y adultos', 'Favorito para regalos'],
-    originalPrice: 75,
-    promoPrice: 55,
-    image: '/images/seasonal/navidad/modelo_N26.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
-  },
-  {
-    id: 'navidad-modelo-n27',
-    seasonId: 'navidad',
-    name: 'Modelo N27 · "Paz, Amor, Esperanza, Navidad" (Negro)',
-    badge: 'Catálogo N27',
-    tagline: 'Mensaje de buenos deseos en lettering caligráfico de autor',
-    description: 'Composición tipográfica en forma de árbol con estrella superior dorada.',
-    includes: ['Fondo negro elegante', 'Tipografía de autor', 'Tallas S a XXXL', 'Precio mayorista'],
-    originalPrice: 75,
-    promoPrice: 55,
-    image: '/images/seasonal/navidad/modelo_N27.jpg',
-    techniques: ['DTF Textil', 'Foil']
-  },
-  {
-    id: 'navidad-modelo-n28',
-    seasonId: 'navidad',
-    name: 'Modelo N28 · Santa en la Chimenea (Verde Bosque)',
-    badge: 'Catálogo N28',
-    tagline: 'Papá Noel de cabeza entrando con botas por la chimenea',
-    description: 'Diseño cómico y festivo que encanta a niños y jóvenes.',
-    includes: ['Tela verde peinada', 'Estampado duradero y flexible', 'Tallas completas', 'Descuento por docena'],
-    originalPrice: 75,
-    promoPrice: 55,
-    image: '/images/seasonal/navidad/modelo_N28.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
-  },
-  {
-    id: 'navidad-modelo-n29',
-    seasonId: 'navidad',
-    name: 'Modelo N29 · Corona de Acebo "Feliz Navidad" (Blanco)',
-    badge: 'Catálogo N29',
-    tagline: 'Corona navideña tradicional con lazo rojo y dedicatoria',
-    description: 'Diseño atemporal y luminoso para recibir las fiestas con alegría.',
-    includes: ['Algodón peinado blanco', 'Acuarela digital HD', 'Tallas S a XXL', 'Factura fiscal'],
-    originalPrice: 75,
-    promoPrice: 55,
-    image: '/images/seasonal/navidad/modelo_N29.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
-  },
-  {
-    id: 'navidad-modelo-n30',
-    seasonId: 'navidad',
-    name: 'Modelo N30 · Árbol Geométrico con Renos Gemelos (Rojo)',
-    badge: 'Catálogo N30',
-    tagline: 'Pino navideño simétrico con dos renos en salto festivo',
-    description: 'Broche de oro de la colección: composición simétrica de gran elegancia y balance visual.',
-    includes: ['Algodón peinado reactivo', 'Estampado blanco y oro', 'Tallas S a XXXL', 'Precios desde 25 Bs. x mayor'],
-    originalPrice: 75,
-    promoPrice: 55,
-    image: '/images/seasonal/navidad/modelo_N30.jpg',
-    techniques: ['DTF Textil', 'Sublimación']
+    techniques: ['DTF Textil (Par 2 Poleras)', 'Logo Mediano (38 Bs.)']
   },
 
   // --- 3. PACKS Y COMBOS FAMILIARES PREEXISTENTES ---
@@ -965,96 +904,1066 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     featured: false
   },
 
-  // =================== SAN VALENTÍN ===================
+  // =================== DÍA DEL AMOR ===================
   {
-    id: 'pack-parejas-san-valentin',
-    seasonId: 'san-valentin',
-    name: 'Combo Parejas "Perfect Match"',
-    badge: 'Top San Valentín',
-    tagline: 'Poleras complementarias + Tazas mágicas con calor',
-    description: 'El kit más vendido para el 14 de Febrero: 2 poleras combinadas con diseños que se complementan + 2 tazas mágicas que muestran la foto con agua caliente.',
+    id: 'amor-combo-parejas-perfect-match',
+    seasonId: 'dia-del-amor',
+    name: 'Combo Parejas "Perfect Match" (2 Poleras + 2 Tazas Mágicas)',
+    badge: 'Top Día del Amor',
+    tagline: 'Poleras complementarias + Tazas mágicas que revelan foto con calor',
+    description: 'El kit más vendido para enamorados: 2 poleras combinadas con diseños sincronizados + 2 tazas mágicas termosensibles con su foto favorita.',
     includes: [
-      '2 Poleras de algodón peinado con diseño complementario',
-      '2 Tazas mágicas termosensibles (revelan la foto con calor)',
-      '2 Llaveros de rompecabezas en madera con fecha grabada',
+      '2 Poleras de algodón peinado con diseño complementario (tallas a elección)',
+      '2 Tazas mágicas termosensibles de 11oz',
+      '2 Llaveros de madera cortados a láser con iniciales y fecha',
       'Empaque de regalo con lazo satinado'
     ],
     originalPrice: 220,
     promoPrice: 175,
     image: '/images/products/taza-magica.jpg',
-    techniques: ['DTF Textil', 'Sublimación Mágica', 'Láser'],
+    techniques: ['DTF Textil', 'Sublimación Mágica', 'Grabado Láser'],
     featured: true
   },
   {
-    id: 'cojin-cuadro-amor',
-    seasonId: 'san-valentin',
-    name: 'Set Cojín & Cuadro de Amor',
-    badge: 'Recuerdo Eterno',
-    tagline: 'Ideal para aniversarios y San Valentín',
-    description: 'Cojín de felpa suave con foto de alta resolución + Cuadro decorativo con código de canción de Spotify y coordenadas de su lugar especial.',
+    id: 'amor-duo-poleras-pareja',
+    seasonId: 'dia-del-amor',
+    name: 'Dúo de Poleras Pareja "King & Queen / Amor Eterno"',
+    badge: 'Especial Parejas',
+    tagline: '2 Poleras de algodón peinado con estampado DTF de alta definición',
+    description: 'Set de 2 poleras personalizadas para novios y esposos con ilustraciones conectadas, fechas especiales o frases de pareja.',
     includes: [
-      'Cojín 40x40 cm con relleno siliconado y funda lavable',
-      'Cuadro fotográfico enmarcado 20x30 cm con vidrio',
-      'Grabado de dedicatoria personalizada'
+      '2 Poleras 100% algodón peinado (colores blanco, negro o rojo)',
+      'Estampado DTF textil resistente a lavados',
+      'Personalización con nombres o fecha de aniversario',
+      'Presentación lista para obsequiar'
+    ],
+    originalPrice: 150,
+    promoPrice: 120,
+    image: '/images/products/polera-personalizada.jpg',
+    techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
+    featured: true
+  },
+  {
+    id: 'amor-cojin-cuadro-spotify',
+    seasonId: 'dia-del-amor',
+    name: 'Set Cojín & Cuadro Spotify con Código de Canción',
+    badge: 'Recuerdo Eterno',
+    tagline: 'Su foto favorita y el código escaneable de su canción especial',
+    description: 'Cojín de felpa suave sublimado en alta resolución + Cuadro decorativo con código de canción de Spotify y fecha de aniversario.',
+    includes: [
+      'Cojín 40x40 cm con relleno siliconado y cierre oculto',
+      'Cuadro fotográfico de 20x30 cm con placa sublimada HD',
+      'Diseño personalizado con código Spotify funcional'
     ],
     originalPrice: 135,
     promoPrice: 105,
     image: '/images/products/almohadas.jpg',
     techniques: ['Sublimación Full Color'],
+    featured: true
+  },
+  {
+    id: 'amor-duo-hoodies-bordados',
+    seasonId: 'dia-del-amor',
+    name: 'Dúo Canguros Hoodie "Together Since" con Fecha Bordada',
+    badge: 'Edición Premium',
+    tagline: '2 Canguros abrigados con bordado de fecha en números romanos',
+    description: 'Pareja de canguros hoodie en algodón frisado de alto gramaje con su fecha especial bordada en el pecho e iniciales en la manga.',
+    includes: [
+      '2 Canguros Hoodie pesados con capucha forrada y bolsillo canguro',
+      'Bordado computarizado de alta densidad en pecho y manga',
+      'Tallas S a XXL a elección',
+      'Caja de regalo especial'
+    ],
+    originalPrice: 310,
+    promoPrice: 260,
+    image: '/images/products/sudadera-hoodie.jpg',
+    techniques: ['Bordado Computarizado', 'DTF Textil'],
+    featured: true
+  },
+  {
+    id: 'amor-par-tazas-magicas',
+    seasonId: 'dia-del-amor',
+    name: 'Dúo Tazas Mágicas Termosensibles "Nuestro Amor"',
+    badge: 'Efecto Sorpresa',
+    tagline: 'Negras en frío y revelan sus fotos al servir café o té caliente',
+    description: 'Par de tazas mágicas importadas de 11 onzas personalizadas con collage fotográfico y dedicatoria romántica.',
+    includes: [
+      '2 Tazas mágicas termosensibles de cerámica AAA',
+      'Impresión panorámica full color de alta nitidez',
+      '2 Cajas individuales de regalo'
+    ],
+    originalPrice: 90,
+    promoPrice: 70,
+    image: '/images/products/taza-magica.jpg',
+    techniques: ['Sublimación Termosensible'],
+    featured: false
+  },
+  {
+    id: 'amor-rompecabezas-fotografico',
+    seasonId: 'dia-del-amor',
+    name: 'Rompecabezas Fotográfico con Mensaje Secreto',
+    badge: 'Detalle Creativo',
+    tagline: 'Armen juntos su mejor recuerdo fotográfico',
+    description: 'Rompecabezas brillante de alta rigidez sublimado con su fotografía favorita y frase oculta para descubrir al armarlo.',
+    includes: [
+      'Rompecabezas sublimado a todo color con acabado brillante',
+      'Caja personalizada con la imagen guía en la tapa',
+      'Diseño y retoque fotográfico incluido'
+    ],
+    originalPrice: 60,
+    promoPrice: 45,
+    image: '/images/products/rompecabezas.jpg',
+    techniques: ['Sublimación HD'],
+    featured: false
+  },
+  {
+    id: 'amor-portarretrato-laser',
+    seasonId: 'dia-del-amor',
+    name: 'Portarretrato & Placa Fotográfica de Aniversario',
+    badge: 'Diseño Elegante',
+    tagline: 'Fotografía transferida en alta definición con soporte de mesa',
+    description: 'Pieza decorativa ideal para el velador o escritorio con fotografía de pareja y grabado de nombres.',
+    includes: [
+      'Portarretrato personalizado de acabado brillante',
+      'Soporte de exhibición incluido',
+      'Empaque protector para regalo'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/products/portarretratos.jpg',
+    techniques: ['Sublimación HD', 'Grabado Láser'],
+    featured: false
+  },
+  {
+    id: 'amor-pack-termo-taza',
+    seasonId: 'dia-del-amor',
+    name: 'Box Enamorados Termo Acero + Taza Bicolor + Llavero',
+    badge: 'Kit Completo',
+    tagline: 'Un regalo práctico y romántico para acompañarlo todo el día',
+    description: 'Combinación de termo de acero grabado a láser con su nombre, taza bicolor sublimada y llavero personalizado.',
+    includes: [
+      'Termo de acero inoxidable 500ml grabado con láser',
+      'Taza cerámica con interior y asa roja o rosada',
+      'Llavero doble en MDF / Acrílico',
+      'Caja de presentación decorada'
+    ],
+    originalPrice: 145,
+    promoPrice: 115,
+    image: '/images/products/regalos-promocionales.jpg',
+    techniques: ['Grabado Láser', 'Sublimación'],
     featured: false
   },
 
-  // =================== DÍA DE LA MADRE & PADRE ===================
+  // =================== DÍA DEL PADRE ===================
   {
-    id: 'kit-termo-libreta-mama-papa',
-    seasonId: 'dia-madre-padre',
-    name: 'Kit Homenaje Termo & Libreta Premium',
-    badge: 'Regalo Emotivo',
-    tagline: 'Un obsequio elegante con frase de agradecimiento',
-    description: 'Termo inteligente con sensor de temperatura LED grabado en láser con el nombre de mamá o papá + libreta de cuero con dedicatoria.',
+    id: 'padre-kit-ejecutivo-termo-libreta',
+    seasonId: 'dia-del-padre',
+    name: 'Kit Papá Ejecutivo (Termo Digital + Libreta Cuero + Bolígrafo)',
+    badge: 'Top Día del Padre',
+    tagline: 'El regalo más elegante para el escritorio o vehículo de papá',
+    description: 'Caja rígida con termo inteligente LED de acero inoxidable grabado a láser con el nombre de papá + libreta ejecutiva y bolígrafo metálico.',
     includes: [
-      'Termo digital de acero 500ml con pantalla táctil de temperatura',
-      'Libreta ejecutiva personalizada con frase emotiva',
-      'Bolígrafo de metal grabado a juego',
-      'Caja rígida con sello dorado'
+      'Termo digital 500ml con sensor táctil de temperatura y grabado láser',
+      'Libreta ejecutiva de eco-cuero personalizada',
+      'Bolígrafo metálico grabado con su nombre o iniciales',
+      'Caja rígida de lujo lista para entregar'
     ],
-    originalPrice: 155,
-    promoPrice: 120,
+    originalPrice: 165,
+    promoPrice: 130,
+    image: '/images/products/termos.jpg',
+    techniques: ['Grabado Láser CNC', 'Impresión UV'],
+    featured: true
+  },
+  {
+    id: 'padre-combo-parrillero-asador',
+    seasonId: 'dia-del-padre',
+    name: 'Combo Parrillero "Rey del Asado" (Mandil Bordado + Vaso Térmico)',
+    badge: 'Favorito de Papá',
+    tagline: 'Para los papás que dominan la parrilla el fin de semana',
+    description: 'Mandil parrillero en gabardina pesada con aplicaciones de cuero y bordado personalizado + vaso térmico grabado en láser.',
+    includes: [
+      'Mandil de gabardina gruesa con bolsillos y correas regulables',
+      'Bordado computarizado con su nombre ("La Parrilla de Papá")',
+      'Termo o vaso cervecero de acero grabado a láser'
+    ],
+    originalPrice: 160,
+    promoPrice: 125,
+    image: '/images/products/mandiles.jpg',
+    techniques: ['Bordado Computarizado', 'Grabado Láser'],
+    featured: true
+  },
+  {
+    id: 'padre-polera-mejor-papa',
+    seasonId: 'dia-del-padre',
+    name: 'Polera Edición Papá "El Mejor Papá de Bolivia" DTF',
+    badge: 'Clásico para Papá',
+    tagline: 'Algodón peinado 20/1 con diseño personalizado e hijos',
+    description: 'Polera confeccionada en suave algodón peinado con estampado DTF de alta durabilidad: personalízala con los nombres de sus hijos o su hobby favorito.',
+    includes: [
+      'Polera 100% algodón peinado en negro, azul marino o blanco',
+      'Estampado DTF textil de tacto suave y alta resistencia',
+      'Tallas S, M, L, XL, XXL y XXXL'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/products/polera-personalizada.jpg',
+    techniques: ['DTF Textil Full Color'],
+    featured: true
+  },
+  {
+    id: 'padre-canguro-hoodie-bordado',
+    seasonId: 'dia-del-padre',
+    name: 'Canguro Hoodie Abrigado "Legend Dad" con Bordado',
+    badge: 'Invierno & Confort',
+    tagline: 'Sudadera pesada con capucha ideal para el frío de junio/marzo',
+    description: 'Canguro hoodie de frisa gruesa y suave con diseño sobrio bordado o estampado en DTF para papá.',
+    includes: [
+      'Canguro Hoodie de alto gramaje con bolsillo frontal',
+      'Personalización en pecho con bordado o DTF',
+      'Tallas S a XXL con costuras reforzadas'
+    ],
+    originalPrice: 175,
+    promoPrice: 145,
+    image: '/images/products/sudadera-hoodie.jpg',
+    techniques: ['Bordado Computarizado', 'DTF Textil'],
+    featured: true
+  },
+  {
+    id: 'padre-gorra-trucker-3d',
+    seasonId: 'dia-del-padre',
+    name: 'Gorra Trucker / Snapback Papá con Bordado 3D',
+    badge: 'Estilo & Sol',
+    tagline: 'Gorra estructurada con parche o bordado en alto relieve',
+    description: 'Gorra personalizada con las iniciales de papá, su equipo, marca de autos o frase favorita en bordado 3D o parche grabado.',
+    includes: [
+      'Gorra Trucker o Snapback de 6 paneles de primera calidad',
+      'Bordado 3D frontal o parche de eco-cuero grabado a láser',
+      'Cierre trasero ajustable'
+    ],
+    originalPrice: 65,
+    promoPrice: 50,
+    image: '/images/products/gorra-trucker.jpg',
+    techniques: ['Bordado 3D', 'Parche Láser'],
+    featured: false
+  },
+  {
+    id: 'padre-camisa-ejecutiva-bordada',
+    seasonId: 'dia-del-padre',
+    name: 'Camisa Ejecutiva Oxford con Iniciales Bordadas',
+    badge: 'Línea Formal',
+    tagline: 'Elegancia impecable con monograma personalizado',
+    description: 'Camisa ejecutiva de corte moderno en tela Oxford con bordado sutil de iniciales en puño o pecho.',
+    includes: [
+      'Camisa tela Oxford de fácil planchado y gran caída',
+      'Bordado de precisión con hilos Madeira de alto brillo',
+      'Tallas S a XXL en colores clásicos'
+    ],
+    originalPrice: 145,
+    promoPrice: 115,
+    image: '/images/products/camisa-ejecutiva.jpg',
+    techniques: ['Bordado Computarizado'],
+    featured: false
+  },
+  {
+    id: 'padre-tomatodo-deportivo-laser',
+    seasonId: 'dia-del-padre',
+    name: 'Tomatodo Térmico Deportivo Grabado para Papá',
+    badge: 'Sport & Gym',
+    tagline: 'Hidratación térmica para el gimnasio, oficina o viajes',
+    description: 'Botella deportiva metálica de alta resistencia con tapa antiderrame y grabado láser permanente.',
+    includes: [
+      'Tomatodo metáico 750ml con pico deportivo',
+      'Grabado láser indeleble con nombre y escudo/logo',
+      'Caja individual de presentación'
+    ],
+    originalPrice: 75,
+    promoPrice: 55,
+    image: '/images/products/tomatodos.jpg',
+    techniques: ['Grabado Láser'],
+    featured: false
+  },
+  {
+    id: 'padre-agenda-ejecutiva-grabada',
+    seasonId: 'dia-del-padre',
+    name: 'Agenda Ejecutiva Anual en Cuero Grabada a Láser',
+    badge: 'Organización VIP',
+    tagline: 'Tapa en eco-cuero cosido con grabado bajo relieve',
+    description: 'Agenda diaria para el trabajo y proyectos de papá, personalizada con su nombre, profesión y dedicatoria en la portada.',
+    includes: [
+      'Agenda ejecutiva encuadernada con cinta separadora',
+      'Grabado láser personalizado en tapa frontal',
+      'Bolígrafo metálico de obsequio'
+    ],
+    originalPrice: 95,
+    promoPrice: 75,
+    image: '/images/products/agendas.jpg',
+    techniques: ['Grabado Láser CNC'],
+    featured: false
+  },
+
+  // =================== DÍA DE LA MADRE ===================
+  {
+    id: 'madre-kit-homenaje-termo-libreta',
+    seasonId: 'dia-de-la-madre',
+    name: 'Kit Homenaje Mamá (Termo Digital + Libreta + Caja de Lujo)',
+    badge: 'Top Día de la Madre',
+    tagline: 'Un obsequio fino con dedicatoria grabada para mamá',
+    description: 'Termo inteligente de acero inoxidable grabado a láser con el nombre de mamá y flores + libreta ejecutiva y bolígrafo a juego.',
+    includes: [
+      'Termo digital de acero 500ml con visor LED de temperatura',
+      'Libreta personalizada con frase emotiva para mamá',
+      'Bolígrafo metálico grabado',
+      'Caja rígida decorada con lazo'
+    ],
+    originalPrice: 165,
+    promoPrice: 130,
     image: '/images/products/termos.jpg',
     techniques: ['Grabado Láser', 'Impresión UV'],
     featured: true
   },
   {
-    id: 'combo-chef-mandil-taza',
-    seasonId: 'dia-madre-padre',
-    name: 'Combo "Chef de la Casa"',
-    badge: 'Favorito Familiar',
-    tagline: 'Para los reyes y reinas de la cocina familiar',
-    description: 'Mandil de gabardina pesada con bolsillos de cuero y bordado con su nombre + taza de cerámica esmaltada de 11oz.',
+    id: 'madre-set-cojin-taza-floral',
+    seasonId: 'dia-de-la-madre',
+    name: 'Set Cojín Decorativo + Taza Floral "Te Amo Mamá"',
+    badge: 'Más Regalado',
+    tagline: 'Sus mejores fotos familiares en un dúo lleno de cariño',
+    description: 'Cojín suave de 40x40 cm sublimado con collage familiar y dedicatoria + taza cerámica de 11oz con interior de color a juego.',
     includes: [
-      'Mandil de chef con correas ajustables y bordado de alta calidad',
-      'Taza personalizada con frase o foto',
-      'Empaque protector para regalo'
+      'Cojín 40x40 cm con relleno siliconado hipoalergénico',
+      'Taza bicolor 11oz sublimada en alta definición',
+      'Diseño floral personalizado con nombres de hijos y nietos'
     ],
     originalPrice: 110,
     promoPrice: 85,
+    image: '/images/products/almohadas.jpg',
+    techniques: ['Sublimación Full Color'],
+    featured: true
+  },
+  {
+    id: 'madre-combo-reina-cocina',
+    seasonId: 'dia-de-la-madre',
+    name: 'Combo "Reina de la Cocina" (Mandil Bordado + Taza)',
+    badge: 'Favorito Familiar',
+    tagline: 'Mandil de gabardina con bordado floral y nombre de mamá',
+    description: 'Delantal de cocina en tela antimanchas de alta durabilidad con bordado computarizado fino + taza personalizada.',
+    includes: [
+      'Mandil con hebilla ajustable, bolsillo amplio y bordado',
+      'Taza cerámica de 11oz con frase o fotografía',
+      'Empaque de regalo incluido'
+    ],
+    originalPrice: 115,
+    promoPrice: 90,
     image: '/images/products/mandiles.jpg',
     techniques: ['Bordado Computarizado', 'Sublimación'],
+    featured: true
+  },
+  {
+    id: 'madre-cuadro-familiar-personalizado',
+    seasonId: 'dia-de-la-madre',
+    name: 'Cuadro Fotográfico Familiar Conmemorativo "Mamá"',
+    badge: 'Recuerdo para Siempre',
+    tagline: 'Retrato familiar en acabado brillante de galería',
+    description: 'Cuadro decorativo de alta resolución con las fotografías más emotivas de mamá junto a toda la familia.',
+    includes: [
+      'Cuadro personalizado 20x30 cm listo para colgar o apoyar',
+      'Impresión HD con protección contra rayos UV',
+      'Retoque fotográfico y diseño con dedicatoria incluidos'
+    ],
+    originalPrice: 95,
+    promoPrice: 75,
+    image: '/images/products/cuadros-personalizados.jpg',
+    techniques: ['Sublimación HD'],
+    featured: true
+  },
+  {
+    id: 'madre-polera-mama-increible',
+    seasonId: 'dia-de-la-madre',
+    name: 'Polera Algodón Peinado "Mamá Increíble" DTF Dorado',
+    badge: 'Edición Mamá',
+    tagline: 'Prenda suave con estampado floral y detalles dorados',
+    description: 'Polera femenina o unisex en algodón peinado 20/1 con diseño exclusivo para el Día de la Madre y los nombres de sus hijos.',
+    includes: [
+      'Polera 100% algodón peinado (blanco, rosa, negro o rojo)',
+      'Estampado DTF textil con detalles en color oro',
+      'Tallas S, M, L, XL y XXL'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/products/polera-personalizada.jpg',
+    techniques: ['DTF Textil Full Color'],
+    featured: false
+  },
+  {
+    id: 'madre-tote-bag-ecologica',
+    seasonId: 'dia-de-la-madre',
+    name: 'Bolsa Tote Bag de Tocuyo Premium Estampada para Mamá',
+    badge: 'Práctica & Eco',
+    tagline: 'Bolso de tela resistente con ilustración botánica y frase',
+    description: 'Tote bag confeccionada en tocuyo grueso de primera calidad con asas reforzadas y estampado DTF de alta definición.',
+    includes: [
+      'Bolsa Tote Bag 38x42 cm con fuelle y costuras dobles',
+      'Estampado personalizado a todo color',
+      'Llavero de madera grabado de regalo'
+    ],
+    originalPrice: 55,
+    promoPrice: 40,
+    image: '/images/products/bolsas-ecologicas.jpg',
+    techniques: ['DTF Textil', 'Sublimación'],
+    featured: false
+  },
+  {
+    id: 'madre-plato-ceramica-decorativa',
+    seasonId: 'dia-de-la-madre',
+    name: 'Plato & Cerámica Decorativa Conmemorativa con Soporte',
+    badge: 'Edición Clásica',
+    tagline: 'Pieza de porcelana sublimada con borde dorado y foto familiar',
+    description: 'Clásico plato decorativo de cerámica brillante ideal para vitrinas y salas, personalizado con fotografía y homenaje a mamá.',
+    includes: [
+      'Plato de cerámica esmaltada con impresión central HD',
+      'Pedestal / soporte de exhibición incluido',
+      'Caja protectora para obsequio'
+    ],
+    originalPrice: 80,
+    promoPrice: 60,
+    image: '/images/products/platos-decorativos.jpg',
+    techniques: ['Sublimación Cerámica'],
+    featured: false
+  },
+  {
+    id: 'madre-taza-magica-collage',
+    seasonId: 'dia-de-la-madre',
+    name: 'Taza Mágica Termosensible "La Mejor Mamá del Mundo"',
+    badge: 'Detalle Sorpresa',
+    tagline: 'Revela las fotos de sus hijos al verter agua caliente',
+    description: 'Taza mágica de 11 onzas con recubrimiento sensible al calor que descubre un hermoso diseño familiar en segundos.',
+    includes: [
+      'Taza mágica 11oz importada calidad AAA',
+      'Diseño de collage con hasta 4 fotografías y frase',
+      'Cajita individual de regalo'
+    ],
+    originalPrice: 50,
+    promoPrice: 38,
+    image: '/images/products/taza-magica.jpg',
+    techniques: ['Sublimación Termosensible'],
     featured: false
   },
 
-  // =================== FIESTAS PATRIAS ===================
+  // =================== TAZAS (COLECCIÓN PERMANENTE) ===================
   {
-    id: 'pack-civico-gorra-polera',
-    seasonId: 'fiestas-patrias',
-    name: 'Pack Cívico "Orgullo Boliviano"',
-    badge: 'Especial 6 de Agosto',
-    tagline: 'Indumentaria para desfiles, colegios e instituciones',
-    description: 'Gorra estructurada con bordado en alto relieve 3D del escudo o escarapela + polera polo piqué con bordado en pecho.',
+    id: 'tazas-blanca-11oz-hd',
+    seasonId: 'tazas',
+    name: 'Taza Blanca Cerámica AAA 11oz Sublimación Full Color',
+    badge: 'Más Vendida',
+    tagline: 'Brillo espejo y colores vibrantes aptos para microondas',
+    description: 'Nuestra taza clásica de cerámica importada grado AAA de 11 onzas, sublimada de extremo a extremo con fotografías, frases o logotipos.',
+    includes: [
+      'Taza de cerámica blanca 11oz triple recubrimiento polímero',
+      'Impresión panorámica full color que no se borra ni cuartea',
+      'Precios especiales al por mayor desde 12, 50 y 100 unidades'
+    ],
+    originalPrice: 35,
+    promoPrice: 25,
+    image: '/images/products/taza-blanca.jpg',
+    techniques: ['Sublimación Digital HD'],
+    featured: true
+  },
+  {
+    id: 'tazas-magica-termosensible',
+    seasonId: 'tazas',
+    name: 'Taza Mágica Termosensible 11oz (Efecto Calor)',
+    badge: 'Efecto Mágico',
+    tagline: 'Cambia de negro mate a full color con líquidos calientes',
+    description: 'Taza recubierta con pigmento termosensible que oculta el diseño en frío y lo revela mágicamente al servir café, té o mate caliente.',
+    includes: [
+      'Taza mágica 11oz con acabado negro satinado en frío',
+      'Personalización con fotos, logos o mensajes sorpresa',
+      'Caja individual blanca incluida'
+    ],
+    originalPrice: 50,
+    promoPrice: 38,
+    image: '/images/products/taza-magica.jpg',
+    techniques: ['Sublimación Termosensible'],
+    featured: true
+  },
+  {
+    id: 'tazas-bicolor-interior-asa',
+    seasonId: 'tazas',
+    name: 'Taza Bicolor 11oz con Interior y Asa de Color',
+    badge: 'Contraste Vivo',
+    tagline: 'Combina el color interno de la taza con la paleta de tu diseño',
+    description: 'Taza de cerámica blanca por fuera con interior y oreja esmaltados en color (rojo, negro, azul, amarillo, verde o rosado).',
+    includes: [
+      'Taza cerámica bicolor 11oz calidad premium',
+      'Variedad de colores internos para combinar con tu marca',
+      'Impresión fotográfica resistente al uso diario'
+    ],
+    originalPrice: 42,
+    promoPrice: 32,
+    image: '/images/products/taza-colores.jpg',
+    techniques: ['Sublimación Digital HD'],
+    featured: true
+  },
+  {
+    id: 'tazas-pack-corporativo-docena',
+    seasonId: 'tazas',
+    name: 'Pack 12 Tazas Corporativas con Logotipo Institucional',
+    badge: 'Pack Mayorista',
+    tagline: 'Docena de tazas personalizadas para oficinas, eventos y clientes',
+    description: 'Set de 12 tazas de cerámica AAA sublimadas con el logotipo de tu empresa y el nombre individual de cada colaborador.',
+    includes: [
+      '12 Tazas blancas de cerámica 11oz grado AAA',
+      'Impresión de logotipo a todo color en ambas caras',
+      'Opción de personalizar el nombre de cada integrante sin costo extra',
+      '12 Cajas individuales de cartón'
+    ],
+    originalPrice: 300,
+    promoPrice: 220,
+    image: '/images/gallery/coleccion-tazas.jpg',
+    techniques: ['Sublimación Corporativa'],
+    featured: true
+  },
+  {
+    id: 'tazas-ceramica-satinada-arte',
+    seasonId: 'tazas',
+    name: 'Taza Cerámica Edición Arte & Fotografía Panorámica',
+    badge: 'Calidad Estudio',
+    tagline: 'Fidelidad cromática superior para ilustraciones y retratos',
+    description: 'Taza personalizada con perfil de color calibrado para reproducir fotografías familiares, arte digital o mascotas con nitidez total.',
+    includes: [
+      'Taza cerámica 11oz seleccionada sin imperfecciones',
+      'Sublimación de alta densidad con negros profundos',
+      'Empaque individual listo para regalo'
+    ],
+    originalPrice: 38,
+    promoPrice: 28,
+    image: '/images/products/ceramicas-personalizadas.jpg',
+    techniques: ['Sublimación Fotográfica'],
+    featured: false
+  },
+  {
+    id: 'tazas-set-duo-pareja',
+    seasonId: 'tazas',
+    name: 'Dúo de Tazas Combinadas (Set de 2 Unidades)',
+    badge: 'Pack x2',
+    tagline: '2 Tazas con diseño sincronizado para parejas o mejores amigos',
+    description: 'Par de tazas personalizadas con ilustraciones complementarias, nombres y frases que se unen al colocarlas juntas.',
+    includes: [
+      '2 Tazas de cerámica 11oz (blancas o bicolor)',
+      'Diseño personalizado doble cara',
+      '2 Cajas de presentación'
+    ],
+    originalPrice: 70,
+    promoPrice: 52,
+    image: '/images/products/taza-colores.jpg',
+    techniques: ['Sublimación Digital HD'],
+    featured: false
+  },
+  {
+    id: 'tazas-pack-6-oficina',
+    seasonId: 'tazas',
+    name: 'Media Docena de Tazas Personalizadas (Pack 6 Unidades)',
+    badge: 'Pack x6',
+    tagline: 'Ideal para pequeños equipos de trabajo, familias o recuerdos',
+    description: 'Pack de 6 tazas sublimadas a todo color con descuento por volumen aplicado.',
+    includes: [
+      '6 Tazas de cerámica blanca 11oz grado AAA',
+      'Sublimación full color con logo, frase o foto',
+      '6 Cajas individuales incluidas'
+    ],
+    originalPrice: 150,
+    promoPrice: 120,
+    image: '/images/products/taza-blanca.jpg',
+    techniques: ['Sublimación Digital HD'],
+    featured: false
+  },
+  {
+    id: 'tazas-magica-duo-pack',
+    seasonId: 'tazas',
+    name: 'Pack 2 Tazas Mágicas Termosensibles con Foto',
+    badge: 'Dúo Mágico',
+    tagline: 'Lleva 2 tazas mágicas con precio promocional especial',
+    description: 'Dos tazas mágicas de 11oz personalizadas individualmente con las fotografías o mensajes que prefieras.',
+    includes: [
+      '2 Tazas mágicas termosensibles de 11oz',
+      'Impresión full color de alta durabilidad',
+      'Cajas individuales de protección'
+    ],
+    originalPrice: 95,
+    promoPrice: 70,
+    image: '/images/products/taza-magica.jpg',
+    techniques: ['Sublimación Termosensible'],
+    featured: false
+  },
+
+  // =================== POLERAS (COLECCIÓN PERMANENTE) ===================
+  {
+    id: 'poleras-algodon-peinado-dtf',
+    seasonId: 'poleras',
+    name: 'Polera Algodón Peinado 20/1 con Estampado DTF Full Color',
+    badge: 'Más Vendida',
+    tagline: 'Suavidad superior y estampado elástico sin límite de colores',
+    description: 'Nuestra prenda estrella: polera 100% algodón peinado 20/1 con cuello rib reforzado y estampado en tecnología DTF textil de alta definición.',
+    includes: [
+      'Polera 100% algodón peinado hipoalergénico de 180g',
+      'Estampado DTF en pecho y/o espalda de máxima durabilidad',
+      'Tallas Infantil (2-14) y Adultos (S a XXXL)',
+      'Descuentos por docena y centena'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/products/polera-personalizada.jpg',
+    techniques: ['DTF Textil Full Color'],
+    featured: true
+  },
+  {
+    id: 'poleras-oversize-streetwear',
+    seasonId: 'poleras',
+    name: 'Polera Oversize Heavyweight 240g Urbano / Streetwear',
+    badge: 'Tendencia Urbana',
+    tagline: 'Corte holgado de hombros caídos en algodón pesado',
+    description: 'Polera de calce oversize auténtico en algodón de alto gramaje con cuello ancho en rib y estampado DTF de gran formato.',
+    includes: [
+      'Algodón pesado de 240g con caída estructurada',
+      'Estampado frontal grande y/o gráfico en espalda',
+      'Colores negro, blanco, beige y gris carbón (S a XXL)'
+    ],
+    originalPrice: 110,
+    promoPrice: 85,
+    image: '/images/products/polera-oversize.jpg',
+    techniques: ['DTF Textil HD', 'Serigrafía'],
+    featured: true
+  },
+  {
+    id: 'poleras-deportiva-dryfit',
+    seasonId: 'poleras',
+    name: 'Polera Deportiva Dry-Fit Respirable Full Sublimación',
+    badge: 'Línea Sport',
+    tagline: 'Tela técnica de secado rápido para equipos, maratones y gym',
+    description: 'Camiseta deportiva en microfibra Dry-Fit con control de humedad, personalizada mediante sublimación digital o DTF.',
+    includes: [
+      'Tela Dry-Fit ultraligera con protección UV y transpirable',
+      'Estampado de tacto cero que no obstruye la ventilación',
+      'Opción de incluir número y nombre de jugador'
+    ],
+    originalPrice: 75,
+    promoPrice: 55,
+    image: '/images/products/polera-deportiva.jpg',
+    techniques: ['Sublimación Textil', 'DTF Textil'],
+    featured: true
+  },
+  {
+    id: 'poleras-manga-larga-algodon',
+    seasonId: 'poleras',
+    name: 'Polera Manga Larga Algodón Peinado con Puño Rib',
+    badge: 'Media Estación',
+    tagline: 'Ideal para climas frescos, uniformes y estilo casual',
+    description: 'Polera de manga larga en algodón peinado suave con puños elásticos y estampado en pecho, espalda o mangas.',
+    includes: [
+      'Confección en algodón peinado 100% primera calidad',
+      'Personalización con DTF textil o bordado computarizado',
+      'Tallas S, M, L, XL y XXL'
+    ],
+    originalPrice: 95,
+    promoPrice: 75,
+    image: '/images/products/polera-manga-larga.jpg',
+    techniques: ['DTF Textil', 'Bordado'],
+    featured: false
+  },
+  {
+    id: 'poleras-musculosa-deportiva',
+    seasonId: 'poleras',
+    name: 'Musculosa / Tank Top Deportiva Personalizada',
+    badge: 'Fitness & Running',
+    tagline: 'Libertad total de movimiento para entrenamiento y básquet',
+    description: 'Musculosa deportiva de corte atlético en tela respirable o algodón jersey con estampado personalizado de alto impacto.',
+    includes: [
+      'Corte anatómico fresco y ligero',
+      'Estampado resistente al sudor y lavados frecuentes',
+      'Tallas S a XXL para hombre y mujer'
+    ],
+    originalPrice: 65,
+    promoPrice: 50,
+    image: '/images/products/musculosa-deportiva.jpg',
+    techniques: ['DTF Textil', 'Sublimación'],
+    featured: false
+  },
+  {
+    id: 'poleras-sudadera-crewneck',
+    seasonId: 'poleras',
+    name: 'Sudadera Crewneck Cuello Redondo en Frisa Algodón',
+    badge: 'Abrigo Clásico',
+    tagline: 'Buzo cerrado sin capucha con interior afelpado suave',
+    description: 'Sudadera clásica cuello redondo con puños y cintura en rib elástico, ideal para bordado institucional o estampado urbano.',
+    includes: [
+      'Tela de algodón frisado abrigado de 320g',
+      'Costuras reforzadas y calce moderno',
+      'Personalización en DTF textil o bordado'
+    ],
+    originalPrice: 145,
+    promoPrice: 120,
+    image: '/images/products/poleron-crewneck.jpg',
+    techniques: ['DTF Textil', 'Bordado Computarizado'],
+    featured: false
+  },
+  {
+    id: 'poleras-canguro-hoodie',
+    seasonId: 'poleras',
+    name: 'Canguro Hoodie con Capucha Forrada y Bolsillo Frontal',
+    badge: 'Top Invierno',
+    tagline: 'La prenda abrigada favorita para promociones, empresas y marcas',
+    description: 'Canguro hoodie de alto gramaje con capucha doble, cordones con puntera y bolsillo canguro, listo para personalizar.',
+    includes: [
+      'Frisa pesada de algodón suave que no forma pilling',
+      'Estampado DTF de gran formato o bordado en pecho',
+      'Tallas infantiles, juveniles y adultos S a XXL'
+    ],
+    originalPrice: 175,
+    promoPrice: 145,
+    image: '/images/products/sudadera-hoodie.jpg',
+    techniques: ['DTF Textil', 'Bordado Computarizado'],
+    featured: true
+  },
+  {
+    id: 'poleras-pack-docena-eventos',
+    seasonId: 'poleras',
+    name: 'Pack 12 Poleras Publicitarias para Eventos y Empresas',
+    badge: 'Mayorista x12',
+    tagline: 'Docena de poleras personalizadas con el logo de tu negocio o campaña',
+    description: 'Lote mayorista de 12 poleras de algodón con estampado en pecho y espalda para campañas, ferias, colegios o staff.',
+    includes: [
+      '12 Poleras de algodón en tallas surtidas a elección',
+      'Estampado de logotipo en pecho y espalda en DTF o serigrafía',
+      'Precio mayorista directo de taller'
+    ],
+    originalPrice: 660,
+    promoPrice: 540,
+    image: '/images/gallery/coleccion-poleras.jpg',
+    techniques: ['Serigrafía Textil', 'DTF Textil'],
+    featured: true
+  },
+
+  // =================== GORRAS (COLECCIÓN PERMANENTE) ===================
+  {
+    id: 'gorras-snapback-bordado-3d',
+    seasonId: 'gorras',
+    name: 'Gorra Snapback 6 Paneles con Bordado 3D en Alto Relieve',
+    badge: 'Más Vendida',
+    tagline: 'Estructura rígida premium con bordado volumétrico de precisión',
+    description: 'Gorra urbana o corporativa de 6 paneles en gabardina acrílica pesada con bordado 3D frontal con goma espuma de alta densidad.',
+    includes: [
+      'Gorra estructurada de 6 paneles con visera plana o semicurva',
+      'Bordado computarizado 3D con hilos de poliéster brillante',
+      'Broche trasero ajustable de alta resistencia'
+    ],
+    originalPrice: 65,
+    promoPrice: 50,
+    image: '/images/products/gorras.jpg',
+    techniques: ['Bordado 3D Computarizado'],
+    featured: true
+  },
+  {
+    id: 'gorras-trucker-malla-dtf',
+    seasonId: 'gorras',
+    name: 'Gorra Trucker con Malla Trasera y Frente Personalizado',
+    badge: 'Clásico Trucker',
+    tagline: 'Frescura, ventilación y frente acolchado para logos vibrantes',
+    description: 'Gorra estilo Trucker de 5 paneles con malla respirable y frente listo para DTF textil full color, sublimación o bordado.',
+    includes: [
+      'Gorra Trucker con malla de nylon ventilada y visera curva',
+      'Estampado frontal a todo color sin límite de detalles',
+      'Amplia gama de combinaciones de color'
+    ],
+    originalPrice: 48,
+    promoPrice: 35,
+    image: '/images/products/gorra-trucker.jpg',
+    techniques: ['DTF Textil', 'Sublimación'],
+    featured: true
+  },
+  {
+    id: 'gorras-beanie-invierno-bordado',
+    seasonId: 'gorras',
+    name: 'Gorro Beanie Tejido de Invierno con Bordado o Parche',
+    badge: 'Abrigo Urbano',
+    tagline: 'Tejido acrílico suave de doble capa con doblez frontal',
+    description: 'Gorro de invierno tipo Beanie ideal para marcas de ropa, trabajo en altura o regalos corporativos de temporada fría.',
+    includes: [
+      'Gorro tejido hipoalergénico de calce elástico',
+      'Bordado directo en el doblez frontal o parche grabado a láser',
+      'Colores negro, gris, azul marino y verde bosque'
+    ],
+    originalPrice: 55,
+    promoPrice: 42,
+    image: '/images/products/gorro-beanie.jpg',
+    techniques: ['Bordado Computarizado', 'Parche Láser'],
+    featured: true
+  },
+  {
+    id: 'gorras-parche-ecocuero-laser',
+    seasonId: 'gorras',
+    name: 'Gorra Gabardina con Parche de Eco-Cuero Grabado a Láser',
+    badge: 'Línea Ejecutiva',
+    tagline: 'Acabado rústico y sofisticado para marcas, cervecerías y empresas',
+    description: 'Gorra de gabardina de algodón con aplicación frontal de parche en eco-cuero grabado y cortado a láser CNC.',
+    includes: [
+      'Gorra de gabardina lavada con hebilla metálica trasera',
+      'Parche en eco-cuero grabado a láser y cosido o termofijado',
+      'Estética premium de larga duración'
+    ],
+    originalPrice: 70,
+    promoPrice: 55,
+    image: '/images/gallery/coleccion-gorras.jpg',
+    techniques: ['Grabado Láser', 'Bordado'],
+    featured: true
+  },
+  {
+    id: 'gorras-deportiva-dryfit',
+    seasonId: 'gorras',
+    name: 'Gorra Deportiva Dry-Fit Ultraligera con DTF Reflectivo',
+    badge: 'Running & Sport',
+    tagline: 'Secado rápido para corredores, ciclismo y actividades al aire libre',
+    description: 'Gorra liviana confeccionada en tela deportiva microperforada con estampado DTF de alta adherencia.',
+    includes: [
+      'Tela Dry-Fit respirable con banda interna absorbente',
+      'Personalización frontal y lateral',
+      'Ajuste trasero con velcro o hebilla rápida'
+    ],
+    originalPrice: 60,
+    promoPrice: 45,
+    image: '/images/products/gorras.jpg',
+    techniques: ['DTF Textil'],
+    featured: false
+  },
+  {
+    id: 'gorras-trucker-bordada',
+    seasonId: 'gorras',
+    name: 'Gorra Trucker Premium con Escudo Bordado',
+    badge: 'Bordado Fino',
+    tagline: 'La combinación perfecta entre ventilación Trucker y bordado clásico',
+    description: 'Gorra con malla trasera y frente rígido en gabardina, personalizada con bordado plano o 3D.',
+    includes: [
+      'Frente estructurado en gabardina de alta densidad',
+      'Bordado computarizado multicolor',
+      'Cierre snap ajustable'
+    ],
+    originalPrice: 60,
+    promoPrice: 45,
+    image: '/images/products/gorra-trucker.jpg',
+    techniques: ['Bordado Computarizado'],
+    featured: false
+  },
+  {
+    id: 'gorras-pack-docena-campana',
+    seasonId: 'gorras',
+    name: 'Pack 12 Gorras Publicitarias Personalizadas por Mayor',
+    badge: 'Pack Mayorista x12',
+    tagline: 'Docena de gorras con tu logotipo para eventos, staff y promociones',
+    description: 'Set mayorista de 12 gorras personalizadas con el logo de tu empresa, comparsa o institución a precio preferencial.',
+    includes: [
+      '12 Gorras Trucker o Gabardina en colores a elección',
+      'Estampado DTF full color o bordado frontal incluido',
+      'Descuento especial para pedidos de 50 y 100+ unidades'
+    ],
+    originalPrice: 480,
+    promoPrice: 360,
+    image: '/images/gallery/coleccion-gorras.jpg',
+    techniques: ['DTF Textil', 'Bordado'],
+    featured: true
+  },
+  {
+    id: 'gorras-beanie-pack-corporativo',
+    seasonId: 'gorras',
+    name: 'Gorro Beanie Térmico con Etiqueta Personalizada',
+    badge: 'Invierno B2B',
+    tagline: 'Dotación invernal para personal de campo, minería e industria',
+    description: 'Gorro térmico tejido de alto abrigo con logotipo institucional bordado al frente.',
+    includes: [
+      'Tejido grueso de alta retención térmica',
+      'Bordado institucional resistente al trabajo diario',
+      'Precio especial por volumen empresarial'
+    ],
+    originalPrice: 55,
+    promoPrice: 40,
+    image: '/images/products/gorro-beanie.jpg',
+    techniques: ['Bordado Computarizado'],
+    featured: false
+  },
+
+  // =================== REGALOS (COLECCIÓN PERMANENTE) ===================
+  {
+    id: 'regalos-termo-digital-laser',
+    seasonId: 'regalos',
+    name: 'Termo Digital Inteligente 500ml Grabado a Láser',
+    badge: 'Regalo Estrella',
+    tagline: 'Acero inoxidable doble pared con pantalla LED de temperatura',
+    description: 'Termo térmico que conserva bebidas calientes o frías por 12 horas, personalizado con grabado láser indeleble.',
+    includes: [
+      'Termo 500ml de acero inoxidable 304 grado alimenticio',
+      'Tapa inteligente con termómetro LED táctil y filtro infusor',
+      'Grabado láser permanente con nombre, frase o logotipo'
+    ],
+    originalPrice: 95,
+    promoPrice: 75,
+    image: '/images/products/termos.jpg',
+    techniques: ['Grabado Láser CNC'],
+    featured: true
+  },
+  {
+    id: 'regalos-cojin-personalizado',
+    seasonId: 'regalos',
+    name: 'Cojín Decorativo 40x40 cm Sublimado Full Color',
+    badge: 'Hogar & Fotos',
+    tagline: 'Tela suave lavable con relleno siliconado hipoalergénico',
+    description: 'Cojín decorativo personalizado con fotografías, ilustraciones, personajes o dedicatorias para cumpleaños y ocasiones especiales.',
+    includes: [
+      'Funda 40x40 cm con cierre invisible para fácil lavado',
+      'Relleno de fibra siliconada suave que no pierde su forma',
+      'Sublimación digital de alta nitidez'
+    ],
+    originalPrice: 75,
+    promoPrice: 55,
+    image: '/images/products/almohadas.jpg',
+    techniques: ['Sublimación Textil HD'],
+    featured: true
+  },
+  {
+    id: 'regalos-cuadro-decorativo-hd',
+    seasonId: 'regalos',
+    name: 'Cuadro Decorativo Personalizado en Alta Definición',
+    badge: 'Arte & Memoria',
+    tagline: 'Tus mejores fotografías o pósters listos para exhibir',
+    description: 'Cuadro fotográfico personalizado con acabado brillante de alta resistencia, ideal para salas, dormitorios u oficinas.',
+    includes: [
+      'Cuadro personalizado 20x30 cm con soporte',
+      'Impresión HD de colores vivos y negros profundos',
+      'Diseño de collage o retoque básico incluido'
+    ],
+    originalPrice: 90,
+    promoPrice: 70,
+    image: '/images/products/cuadros-personalizados.jpg',
+    techniques: ['Sublimación HD'],
+    featured: true
+  },
+  {
+    id: 'regalos-kit-empresarial-vip',
+    seasonId: 'regalos',
+    name: 'Box Regalo Ejecutivo VIP (Termo + Agenda + Bolígrafo)',
+    badge: 'Presentación de Lujo',
+    tagline: 'El obsequio perfecto para graduaciones, ascensos y clientes VIP',
+    description: 'Set ejecutivo presentado en caja rígida con termo metálico, libreta de eco-cuero y bolígrafo rollerball grabados a láser.',
+    includes: [
+      'Termo de acero inoxidable grabado con nombre o logo',
+      'Libreta ejecutiva A5 y bolígrafo metálico grabados',
+      'Estuche rígido de presentación listo para entregar'
+    ],
+    originalPrice: 175,
+    promoPrice: 140,
+    image: '/images/products/kits-empresariales.jpg',
+    techniques: ['Grabado Láser', 'Impresión UV'],
+    featured: true
+  },
+  {
+    id: 'regalos-rompecabezas-foto',
+    seasonId: 'regalos',
+    name: 'Rompecabezas Fotográfico Personalizado con Caja',
+    badge: 'Regalo Divertido',
+    tagline: 'Convierte cualquier foto o invitación en un rompecabezas único',
+    description: 'Rompecabezas sublimado con acabado brillante y corte troquelado preciso, ideal para niños, parejas y sorpresas.',
+    includes: [
+      'Rompecabezas personalizado a todo color',
+      'Cajita con la imagen impresa en la tapa',
+      'Entrega rápida en 24-48 horas'
+    ],
+    originalPrice: 60,
+    promoPrice: 45,
+    image: '/images/products/rompecabezas.jpg',
+    techniques: ['Sublimación HD'],
+    featured: false
+  },
+  {
+    id: 'regalos-portarretrato-personalizado',
+    seasonId: 'regalos',
+    name: 'Portarretrato Conmemorativo Sublimado / Grabado',
+    badge: 'Detalle Elegante',
+    tagline: 'Para graduaciones, bautizos, bodas y reconocimientos',
+    description: 'Portarretrato rígido de mesa personalizado con fotografía, placa conmemorativa o mensaje de agradecimiento.',
+    includes: [
+      'Portarretrato con pedestales de soporte',
+      'Impresión fotográfica o grabado láser de alta precisión',
+      'Caja protectora individual'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/products/portarretratos.jpg',
+    techniques: ['Sublimación HD', 'Grabado Láser'],
+    featured: false
+  },
+  {
+    id: 'regalos-set-llaveros-laser',
+    seasonId: 'regalos',
+    name: 'Pack 12 Llaveros Personalizados en Madera MDF / Acrílico',
+    badge: 'Souvenirs & Eventos',
+    tagline: 'Recuerdos cortados y grabados a láser con forma a medida',
+    description: 'Docena de llaveros personalizados con nombres, logotipos o figuras para cumpleaños, bautizos, promociones y negocios.',
+    includes: [
+      '12 Llaveros cortados y grabados en láser CNC',
+      'Argolla metálica reforzada con cadena en cada unidad',
+      'Diseño a medida según tu temática'
+    ],
+    originalPrice: 85,
+    promoPrice: 60,
+    image: '/images/products/llaveros-mdf.jpg',
+    techniques: ['Corte & Grabado Láser'],
+    featured: false
+  },
+  {
+    id: 'regalos-mousepad-personalizado',
+    seasonId: 'regalos',
+    name: 'Mousepad Gamer / Oficina Antideslizante Full Color',
+    badge: 'Gamer & Escritorio',
+    tagline: 'Base de goma neopreno y superficie de deslizamiento suave',
+    description: 'Mousepad personalizado con tu arte de anime, videojuegos, fotografía o calendario corporativo en alta resolución.',
+    includes: [
+      'Mousepad con base de caucho antideslizante de 3mm',
+      'Superficie textil micro-tejida sublimada a todo color',
+      'Bordes resistentes al desgaste'
+    ],
+    originalPrice: 40,
+    promoPrice: 28,
+    image: '/images/products/mousepads.jpg',
+    techniques: ['Sublimación Digital HD'],
+    featured: false
+  },
+  {
+    id: 'regalos-mochila-personalizada',
+    seasonId: 'regalos',
+    name: 'Mochila Urbana / Corporativa Personalizada con Logo o Nombre',
+    badge: 'Uso Diario',
+    tagline: 'Mochila reforzada con compartimento para laptop y estampado',
+    description: 'Mochila de alta resistencia personalizada mediante DTF textil o bordado, excelente para regalo de cumpleaños, colegio o empresa.',
+    includes: [
+      'Mochila de lona impermeable con cierres reforzados',
+      'Personalización frontal con diseño, nombre o logotipo',
+      'Correas acolchadas ergonómicas'
+    ],
+    originalPrice: 145,
+    promoPrice: 115,
+    image: '/images/products/mochilas.jpg',
+    techniques: ['DTF Textil', 'Bordado'],
+    featured: false
+  },
+
+  // =================== IDENTIDAD BOLIVIANA (COLECCIÓN PERMANENTE) ===================
+  {
+    id: 'bolivia-pack-civico-orgullo',
+    seasonId: 'identidad-boliviana',
+    name: 'Pack Cívico "Orgullo Boliviano" (Gorra Bordado 3D + Polo Piqué)',
+    badge: 'Top Bolivia',
+    tagline: 'Indumentaria de gala con escudo, tricolor o emblema departamental',
+    description: 'Gorra estructurada con bordado en alto relieve 3D de Bolivia + polera polo piqué con bordado en pecho y pin metálico.',
     includes: [
       'Gorra de gabardina pesada con bordado 3D de alta densidad',
-      'Polo piqué 100% algodón con bordado institucional',
-      'Escarapela o pin metálico de regalo'
+      'Polera o Polo 100% algodón con bordado tricolor',
+      'Pin o escarapela metálica de obsequio'
     ],
     originalPrice: 125,
     promoPrice: 95,
@@ -1063,39 +1972,161 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     featured: true
   },
   {
-    id: 'combo-panueletas-escarapelas',
-    seasonId: 'fiestas-patrias',
-    name: 'Pack 20 Pañoletas & Escarapelas Sublimadas',
+    id: 'bolivia-polera-llama-andina',
+    seasonId: 'identidad-boliviana',
+    name: 'Polera "Llama Andina Cool" en Algodón Peinado DTF',
+    badge: 'Diseño Exclusivo',
+    tagline: 'Ilustración original de llama boliviana con chullo, chalina y gafas',
+    description: 'Uno de los diseños más queridos por bolivianos y turistas: polera en algodón peinado 20/1 con arte andino moderno en DTF full color.',
+    includes: [
+      'Precio: 65 Bs. la unidad | 120 Bs. el par',
+      'Opción con Logo Mediano: 38 Bs.',
+      'Tallas estándar: S, M, L (tallas superiores consultar para cotizar)'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/products/polera-personalizada.jpg',
+    techniques: ['DTF Textil Full Color', 'Logo Mediano (38 Bs.)'],
+    featured: true
+  },
+  {
+    id: 'bolivia-polera-cultura-departamentos',
+    seasonId: 'identidad-boliviana',
+    name: 'Polera Colección "Bolivia & Sus 9 Departamentos" DTF',
+    badge: 'Identidad Nacional',
+    tagline: 'Arte gráfico inspirado en La Paz, Santa Cruz, Cochabamba y toda Bolivia',
+    description: 'Polera conmemorativa con ilustraciones del Illimani, Salar de Uyuni, Cristo de la Concordia, Chiquitanía o carnaval boliviano.',
+    includes: [
+      'Precio: 65 Bs. la unidad | 120 Bs. el par',
+      'Opción con Logo Mediano: 38 Bs.',
+      'Tallas estándar: S, M, L (tallas superiores consultar para cotizar)'
+    ],
+    originalPrice: 85,
+    promoPrice: 65,
+    image: '/images/products/polera-personalizada.jpg',
+    techniques: ['DTF Textil Full Color', 'Logo Mediano (38 Bs.)'],
+    featured: true
+  },
+  {
+    id: 'bolivia-termo-acero-escudo',
+    seasonId: 'identidad-boliviana',
+    name: 'Termo de Acero Grabado a Láser "Bolivia & Mapa Andino"',
+    badge: 'Souvenir Premium',
+    tagline: 'Grabado láser permanente con símbolos patrios y tu nombre',
+    description: 'Termo de acero inoxidable de 500ml grabado con el mapa de Bolivia, tejidos andinos o escudo nacional junto a tu nombre.',
+    includes: [
+      'Termo térmico 500ml doble capa de acero inoxidable',
+      'Grabado láser CNC de alta precisión',
+      'Caja individual lista para viaje o regalo'
+    ],
+    originalPrice: 95,
+    promoPrice: 75,
+    image: '/images/products/termos.jpg',
+    techniques: ['Grabado Láser CNC'],
+    featured: true
+  },
+  {
+    id: 'bolivia-taza-tradiciones',
+    seasonId: 'identidad-boliviana',
+    name: 'Taza Colección "Tradiciones, Salar & Folklore de Bolivia"',
+    badge: 'Recuerdo de Bolivia',
+    tagline: 'Taza bicolor 11oz con arte folklórico, diablada, morenada y paisajes',
+    description: 'Taza de cerámica sublimada a todo color con motivos culturales bolivianos, ideal para el desayuno o para obsequiar a visitantes.',
+    includes: [
+      'Taza cerámica 11oz grado AAA (blanca o interior rojo/verde/amarillo)',
+      'Sublimación panorámica de alto brillo',
+      'Caja individual incluida'
+    ],
+    originalPrice: 40,
+    promoPrice: 30,
+    image: '/images/products/taza-colores.jpg',
+    techniques: ['Sublimación Digital HD'],
+    featured: false
+  },
+  {
+    id: 'bolivia-pack-panoletas-escarapelas',
+    seasonId: 'identidad-boliviana',
+    name: 'Pack 20 Pañoletas & Escarapelas Sublimadas para Desfiles',
     badge: 'Mayorista Institucional',
-    tagline: 'Para promociones escolares, desfiles y comparsas',
-    description: 'Set institucional de 20 pañoletas en satén brillante sublimadas a todo color con los colores de la tricolor o bandera departamental.',
+    tagline: 'Para colegios, fraternidades, comparsas e instituciones públicas',
+    description: 'Set institucional de 20 pañoletas en satén brillante sublimadas a todo color con la tricolor o bandera departamental.',
     includes: [
       '20 Pañoletas de satén fino con dobladillo reforzado',
-      '20 Escarapelas sublimadas con broche de seguridad',
-      'Descuento especial por volumen ya aplicado'
+      '20 Escarapelas o chapitas con broche de seguridad',
+      'Descuento mayorista ya aplicado'
     ],
     originalPrice: 220,
     promoPrice: 170,
     image: '/images/products/chapitas.jpg',
     techniques: ['Sublimación Textil'],
     featured: false
+  },
+  {
+    id: 'bolivia-pines-escarapelas-metal',
+    seasonId: 'identidad-boliviana',
+    name: 'Set 12 Pines Metálicos & Escudos Institucionales de Bolivia',
+    badge: 'Protocolo & Gala',
+    tagline: 'Pines de solapa con acabado brillante en resina epóxica UV',
+    description: 'Docena de pines metálicos personalizados con la bandera boliviana, escudo o emblema de tu institución para trajes y uniformes.',
+    includes: [
+      '12 Pines metálicos con broche mariposa de seguridad',
+      'Impresión UV con recubrimiento de gota de resina cristalina',
+      'Presentación individual'
+    ],
+    originalPrice: 120,
+    promoPrice: 90,
+    image: '/images/products/pines.jpg',
+    techniques: ['Impresión UV & Resina'],
+    featured: false
+  },
+  {
+    id: 'bolivia-tote-bag-arte-andino',
+    seasonId: 'identidad-boliviana',
+    name: 'Bolsa Tote Bag de Tocuyo "Hecho en Bolivia" con Arte Andino',
+    badge: 'Eco & Cultural',
+    tagline: 'Tocuyo 100% algodón boliviano con ilustración cultural a todo color',
+    description: 'Bolso ecológico reutilizable de tocuyo grueso estampado con motivos de aguayo, fauna andina y frases bolivianas.',
+    includes: [
+      'Bolsa Tote Bag 38x42 cm de tocuyo nacional reforzado',
+      'Estampado DTF textil de alta durabilidad',
+      'Precios especiales por docena para ferias y turismo'
+    ],
+    originalPrice: 50,
+    promoPrice: 35,
+    image: '/images/products/bolsas-ecologicas.jpg',
+    techniques: ['DTF Textil', 'Serigrafía'],
+    featured: false
   }
 ];
 
 // Helper to convert a seasonal item to a Product-like structure for the cart & modal
 export const seasonalItemToProduct = (item: SeasonalItem): Product => {
-  const isShirt = item.seasonId === 'navidad' || item.seasonId === 'halloween' || item.name.toLowerCase().includes('polera') || item.name.toLowerCase().includes('modelo');
+  const isShirt =
+    item.seasonId === 'navidad' ||
+    item.seasonId === 'halloween' ||
+    item.seasonId === 'poleras' ||
+    item.name.toLowerCase().includes('polera') ||
+    item.name.toLowerCase().includes('canguro') ||
+    item.name.toLowerCase().includes('sudadera') ||
+    item.name.toLowerCase().includes('camisa') ||
+    item.name.toLowerCase().includes('musculosa') ||
+    item.name.toLowerCase().includes('modelo');
   const isHalloween = item.seasonId === 'halloween';
+  const seasonMeta = SEASONS.find((s) => s.id === item.seasonId);
+
+  const techniques = isShirt && !item.techniques.some((t) => t.toLowerCase().includes('38'))
+    ? [...item.techniques, 'Logo Mediano (38 Bs.)']
+    : item.techniques;
   
   return {
     id: item.id,
     name: item.name,
     category: 'regalos',
-    categoryName: `Temporada ${item.seasonId.replace('-', ' ').toUpperCase()}`,
+    categoryName: seasonMeta ? seasonMeta.name : `Colección ${item.seasonId.replace(/-/g, ' ').toUpperCase()}`,
     shortDescription: item.tagline || item.description,
-    fullDescription: `${item.description}\n\nDetalles y lo que incluye:\n${item.includes.map(inc => `• ${inc}`).join('\n')}`,
+    fullDescription: `${item.description}\n\nDetalles y lo que incluye:\n${item.includes.map(inc => `• ${inc}`).join('\n')}${isShirt ? '\n• Precios estándar en poleras: 65 Bs. unidad | 120 Bs. el par | Logos medianos a 38 Bs.\n• Tallas disponibles: S, M, L (Tallas superiores consultar para cotizar).' : ''}`,
     price: item.promoPrice,
-    unit: isShirt ? 'unidad' : 'pack',
+    unit: isShirt ? 'unidad' : 'pack / unidad',
     rating: 5.0,
     reviewsCount: 38,
     inStock: true,
@@ -1109,14 +2140,18 @@ export const seasonalItemToProduct = (item: SeasonalItem): Product => {
       { name: 'Rojo Carmesí', hex: '#B3121F' },
       { name: 'Verde Bosque', hex: '#0F6B3A' },
       { name: 'Negro Grafito', hex: '#141517' }
-    ] : [{ name: 'Edición Temporada', hex: '#D32F2F' }],
-    sizes: isShirt ? ['Infantil (2-14)', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'] : ['Estándar'],
-    techniques: item.techniques,
+    ] : [{ name: 'Edición Especial', hex: '#D32F2F' }],
+    sizes: isShirt ? ['S', 'M', 'L'] : ['Estándar'],
+    techniques,
     minQuantity: 1,
     image: item.image,
     gallery: [item.image],
     specs: [
-      { label: 'Campaña', value: item.badge || 'Edición Limitada 2026' },
+      { label: 'Colección', value: item.badge || 'Catálogo ARTTMANIA' },
+      ...(isShirt ? [
+        { label: 'Estándar de Precios', value: '65 Bs. uno | 120 Bs. el par | Logos medianos a 38 Bs.' },
+        { label: 'Tallas', value: 'S, M, L (Arriba de L se debe consultar para cotizar)' }
+      ] : []),
       ...item.includes.map((inc, i) => ({ label: `Detalle ${i + 1}`, value: inc }))
     ]
   };
@@ -1124,7 +2159,7 @@ export const seasonalItemToProduct = (item: SeasonalItem): Product => {
 
 export const buildSeasonalWhatsAppUrl = (item: SeasonalItem, seasonName: string): string => {
   const text =
-    `*CONSULTA DE EDICIÓN ESPECIAL POR TEMPORADA - ART MANIA*\n` +
+    `*CONSULTA DE EDICIÓN ESPECIAL POR TEMPORADA - ARTTMANIA*\n` +
     `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
     `Campaña: ${seasonName}\n` +
     `Pack / Artículo: ${item.name}\n` +
@@ -1133,16 +2168,16 @@ export const buildSeasonalWhatsAppUrl = (item: SeasonalItem, seasonName: string)
     `Técnicas: ${item.techniques.join(', ')}\n` +
     `Incluye:\n${item.includes.map(inc => `   • ${inc}`).join('\n')}\n` +
     `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-    `Hola ART MANIA. Deseo solicitar información y disponibilidad para encargar este combo temático.`;
+    `Hola ARTTMANIA. Deseo solicitar información y disponibilidad para encargar este combo temático.`;
 
   return `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(text)}`;
 };
 
 export const buildSeasonalCatalogPdfUrl = (seasonName: string): string => {
   const text =
-    `*SOLICITUD DE CATÁLOGO ESPECIAL EN PDF - ART MANIA*\n` +
+    `*SOLICITUD DE CATÁLOGO ESPECIAL EN PDF - ARTTMANIA*\n` +
     `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-    `Hola ART MANIA. Quisiera solicitar el Catálogo Digital en PDF de la temporada de ${seasonName} para revisar precios de combos y cotizaciones al por mayor para mi empresa o institución.\n` +
+    `Hola ARTTMANIA. Quisiera solicitar el Catálogo Digital en PDF de la temporada de ${seasonName} para revisar precios de combos y cotizaciones al por mayor para mi empresa o institución.\n` +
     `━━━━━━━━━━━━━━━━━━━━━━━━`;
 
   return `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(text)}`;
