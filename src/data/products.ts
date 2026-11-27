@@ -1,7 +1,7 @@
 export interface Product {
   id: string;
   name: string;
-  category: 'textiles' | 'sublimacion' | 'regalos' | 'merchandising';
+  category: 'poleras' | 'tazas' | 'gorras' | 'regalos' | 'sublimacion' | 'textiles' | 'merchandising';
   categoryName: string;
   shortDescription: string;
   fullDescription: string;
@@ -22,12 +22,12 @@ export interface Product {
 }
 
 export const PRODUCTS: Product[] = [
-  // ================= TEXTILES (19) =================
+  // ================= TEXTILES & POLERAS & GORRAS =================
   {
       id: 'polera-personalizada',
       name: 'Polera Personalizada Cuello Redondo',
-      category: 'textiles',
-      categoryName: 'Textiles',
+      category: 'poleras',
+      categoryName: 'Poleras',
       shortDescription: 'Algodón peinado 100% 20/1 de alta suavidad. Estampado en DTF textil de máxima definición y elasticidad.',
       fullDescription: 'Confeccionada con tela de algodón peinado suave de 180 gramos, costuras reforzadas en hombros y cuello rib de alta resistencia. Ideal para marcas personales, promociones o eventos familiares con estampado a todo color sin límite de tintas.',
       price: 65,
@@ -58,8 +58,8 @@ export const PRODUCTS: Product[] = [
   {
       id: 'sudadera-hoodie',
       name: 'Canguro Hoodie con Capucha y Bolsillo Frontal',
-      category: 'textiles',
-      categoryName: 'Textiles',
+      category: 'poleras',
+      categoryName: 'Poleras',
       shortDescription: 'Algodón frizado perchado grueso de 320g, ojalillos metálicos y forro interno suave.',
       fullDescription: 'Sudadera pesada con capucha de doble capa y bolsillo canguro reforzado. Su acabado interior perchado abriga manteniendo la transpirabilidad, garantizando una base inmejorable para estampados DTF o bordado.',
       price: 145,
@@ -115,8 +115,8 @@ export const PRODUCTS: Product[] = [
   {
       id: 'polera-oversize',
       name: 'Polera Streetwear Heavyweight Oversize',
-      category: 'textiles',
-      categoryName: 'Textiles',
+      category: 'poleras',
+      categoryName: 'Poleras',
       shortDescription: 'Corte amplio drop-shoulder en algodón premium de 240g con cuello grueso de 3cm.',
       fullDescription: 'La silueta moderna favorita de las marcas urbanas. Algodón pesado de calidad superior con caída estructurada y hombro caído, perfecta para colecciones de autor y merch de creadores.',
       price: 85,
@@ -145,8 +145,8 @@ export const PRODUCTS: Product[] = [
   {
       id: 'poleron-crewneck',
       name: 'Sudadera Clásica Cuello Redondo (Crewneck)',
-      category: 'textiles',
-      categoryName: 'Textiles',
+      category: 'poleras',
+      categoryName: 'Poleras',
       shortDescription: 'Franela de algodón perchado 280g con interior suave y puños acanalados. Perfecto para bordado y DTF.',
       fullDescription: 'Sudadera sin capucha confeccionada en algodón perchado premium con interior afelpado térmico de gran confort. Cuello redondo reforzado con rib 2x1 y costuras overlock de cuatro hilos. Prenda favorita para promociones estudiantiles y merch corporativo minimalista.',
       price: 110,
@@ -175,8 +175,8 @@ export const PRODUCTS: Product[] = [
   {
       id: 'gorras',
       name: 'Gorra Snapback 6 Paneles Estructurada',
-      category: 'textiles',
-      categoryName: 'Textiles',
+      category: 'gorras',
+      categoryName: 'Gorras',
       shortDescription: 'Corona alta armada con entretela dura, visera plana o semi-curva y bordado 3D de alto relieve.',
       fullDescription: 'Gorra estilo premium con cierre de plástico regulable a presión, ojales bordados para ventilación y banda interior anti-sudor. Soporta bordado plano, relieve 3D puff o parches de cuero grabados a láser.',
       price: 50,
@@ -203,8 +203,8 @@ export const PRODUCTS: Product[] = [
   {
       id: 'gorra-trucker',
       name: 'Gorra Trucker con Malla Transpirable',
-      category: 'textiles',
-      categoryName: 'Textiles',
+      category: 'gorras',
+      categoryName: 'Gorras',
       shortDescription: 'Frontal acolchado de esponja o twill y malla trasera de alta ventilación con broche plástico snapback.',
       fullDescription: 'La gorra publicitaria más solicitada en ferias y eventos masivos. Su panel frontal plano de poliéster acolchado brinda el lienzo perfecto para estampado full color DTF o sublimación nítida con costos altamente competitivos.',
       price: 35,
@@ -232,8 +232,8 @@ export const PRODUCTS: Product[] = [
   {
       id: 'polera-deportiva',
       name: 'Polera Deportiva Dry-Fit',
-      category: 'textiles',
-      categoryName: 'Textiles',
+      category: 'poleras',
+      categoryName: 'Poleras',
       shortDescription: 'Tejido técnico microperforado de secado rápido con protección UV y sublimación full print.',
       fullDescription: 'Prenda deportiva de alto rendimiento fabricada en microfibra poliéster con tecnología de dispersión de humedad. Sublimada con colores vivos que nunca se destiñen ni pierden brillo con el sudor o lavados intensos.',
       price: 55,
@@ -247,7 +247,7 @@ export const PRODUCTS: Product[] = [
         { name: 'Verde Deportivo', hex: '#00A878' },
         { name: 'Gris Plata', hex: '#8E9297' }
       ],
-      sizes: ['XS', 'S', 'M', 'L', 'XL'],
+      sizes: ['S', 'M', 'L'],
       techniques: ['Sublimación', 'Vinil Textil'],
       minQuantity: 6,
       image: '/images/products/polera-deportiva.jpg',
@@ -261,8 +261,8 @@ export const PRODUCTS: Product[] = [
   {
       id: 'polera-manga-larga',
       name: 'Polera Manga Larga de Algodón Peinado',
-      category: 'textiles',
-      categoryName: 'Textiles',
+      category: 'poleras',
+      categoryName: 'Poleras',
       shortDescription: 'Algodón 100% 20/1 con puños rib elásticos. Excelente para media estación y uniformes de personal.',
       fullDescription: 'Prenda clásica de alta rotación para promociones de invierno y uniformes de trabajo diurno. Tela de algodón peinado suave de 180 gramos con refuerzo de hombro a hombro y puños acanalados que mantienen la manga en su lugar.',
       price: 75,
@@ -341,34 +341,6 @@ export const PRODUCTS: Product[] = [
       ]
     },
   {
-      id: 'camisa-ejecutiva',
-      name: 'Camisa Corporativa Oxford Manga Larga',
-      category: 'textiles',
-      categoryName: 'Textiles',
-      shortDescription: 'Tejido Oxford 60/40 anti-arrugas de alta prestancia. Cuello clásico estructurado y bolsillo opcional.',
-      fullDescription: 'La prenda insignia para imagen corporativa bancaria, comercial e institucional. Tela Oxford hilado tinturado de tejido tupido que no trasluce, con tratamiento de fácil planchado y corte ergonómico disponible en silueta clásica y slim fit.',
-      price: 95,
-      unit: 'unidad',
-      rating: 4.8,
-      reviewsCount: 27,
-      inStock: true,
-      colors: [
-        { name: 'Azul Cielo Oxford', hex: '#89A8D4' },
-        { name: 'Blanco Nieve', hex: '#F8F9FA' },
-        { name: 'Gris Perla', hex: '#B2B6BD' }
-      ],
-      sizes: ['S', 'M', 'L'],
-      techniques: ['Bordado Computarizado'],
-      minQuantity: 6,
-      image: '/images/products/camisa-ejecutiva.jpg',
-      gallery: ['/images/products/camisa-ejecutiva.jpg'],
-      specs: [
-        { label: 'Composición', value: '60% Algodón / 40% Poliéster Easy-Care' },
-        { label: 'Cuello', value: 'Button-down fusionado indeformable' },
-        { label: 'Puños', value: 'Ajuste doble botón con ojal reforzado' }
-      ]
-    },
-  {
       id: 'mandiles',
       name: 'Mandil de Barista & Chef en Denim y Cuero',
       category: 'textiles',
@@ -396,37 +368,10 @@ export const PRODUCTS: Product[] = [
       ]
     },
   {
-      id: 'mochilas',
-      name: 'Mochila Urbana Porta-Laptop Resistente al Agua',
-      category: 'textiles',
-      categoryName: 'Textiles',
-      shortDescription: 'Tejido Oxford impermeable negro con compartimento acolchado para laptop de 15.6".',
-      fullDescription: 'Mochila corporativa y de trabajo con múltiples compartimentos, cremalleras invertidas estancas y espalda acolchada con malla respirable. Ideal para packs de bienvenida corporativos y personal técnico.',
-      price: 130,
-      unit: 'unidad',
-      rating: 4.7,
-      reviewsCount: 16,
-      inStock: true,
-      colors: [
-        { name: 'Negro Mate', hex: '#17191C' },
-        { name: 'Gris Titanio', hex: '#3E4249' }
-      ],
-      sizes: ['Capacidad 22 Litros'],
-      techniques: ['Bordado', 'Vinil Textil Reflectivo', 'Placa Metálica'],
-      minQuantity: 6,
-      image: '/images/products/mochilas.jpg',
-      gallery: ['/images/products/mochilas.jpg'],
-      specs: [
-        { label: 'Material', value: 'Oxford 900D impermeable' },
-        { label: 'Compartimentos', value: 'Porta-laptop 15.6" + organizador' },
-        { label: 'Tirantes', value: 'Ergonómicos con espuma EVA' }
-      ]
-    },
-  {
       id: 'musculosa-deportiva',
       name: 'Musculosa Deportiva / Bividí Dry-Fit',
-      category: 'textiles',
-      categoryName: 'Textiles',
+      category: 'poleras',
+      categoryName: 'Poleras',
       shortDescription: 'Sisa amplia y costuras reforzadas para máxima libertad de movimiento. Tejido técnico anti-humedad.',
       fullDescription: 'Camiseta sin mangas diseñada para atletismo, crossfit, gimnasios y competencias de verano. Microfibra deportiva con canales de ventilación y tratamiento antibacterial, personalizable con sublimación fotográfica sin límite de colores.',
       price: 45,
@@ -448,34 +393,6 @@ export const PRODUCTS: Product[] = [
         { label: 'Tejido', value: 'Microfibra poliéster con elastano 145g' },
         { label: 'Corte', value: 'Espalda deportiva con sisa holgada' },
         { label: 'Propiedades', value: 'Secado ultra rápido y protección UV' }
-      ]
-    },
-  {
-      id: 'gorro-beanie',
-      name: 'Gorro Beanie Tejido de Invierno',
-      category: 'textiles',
-      categoryName: 'Textiles',
-      shortDescription: 'Punto acrílico elástico acanalado con doble vuelta. Aislante térmico ideal con parche bordado o cuero láser.',
-      fullDescription: 'Gorro tejido de invierno de estilo casual y ajuste envolvente. Elaborado en lana acrílica hipoalergénica de doble capa que no pica. Se personaliza con parches de cuero grabado láser o escudos bordados de alta definición.',
-      price: 40,
-      unit: 'unidad',
-      rating: 4.9,
-      reviewsCount: 30,
-      inStock: true,
-      colors: [
-        { name: 'Negro Carbón', hex: '#111214' },
-        { name: 'Gris Plomo', hex: '#4A4E57' },
-        { name: 'Azul Noche', hex: '#15243B' }
-      ],
-      sizes: ['Talla Única Elástica'],
-      techniques: ['Parche Cuero Láser', 'Bordado Computarizado', 'DTF'],
-      minQuantity: 12,
-      image: '/images/products/gorro-beanie.jpg',
-      gallery: ['/images/products/gorro-beanie.jpg'],
-      specs: [
-        { label: 'Material', value: '100% Acrílico térmico Soft-Touch' },
-        { label: 'Construcción', value: 'Punto canalé 1x1 con dobladillo de 7cm' },
-        { label: 'Aplicación', value: 'Parche frontal centrado' }
       ]
     },
   {
@@ -562,12 +479,12 @@ export const PRODUCTS: Product[] = [
         { label: 'Cremallera', value: 'Cierre bidireccional metálico de alta resistencia' }
       ]
     },
-  // ================= SUBLIMACIÓN (11) =================
+  // ================= TAZAS & SUBLIMACIÓN =================
   {
       id: 'taza-blanca',
       name: 'Taza de Cerámica Blanca Sublimada 11oz',
-      category: 'sublimacion',
-      categoryName: 'Sublimación',
+      category: 'tazas',
+      categoryName: 'Tazas',
       shortDescription: 'Cerámica AAA de alto brillo con polímero uniforme apta para microondas y lavavajillas.',
       fullDescription: 'El clásico indiscutible del merchandising personal y de negocios. Nuestra cerámica grado AAA asegura una blancura pura y un recubrimiento de polímero cristalino que capta hasta el último degradado sin zonas borrosas.',
       price: 25,
@@ -592,8 +509,8 @@ export const PRODUCTS: Product[] = [
   {
       id: 'taza-magica',
       name: 'Taza Mágica Termosensible Mate',
-      category: 'sublimacion',
-      categoryName: 'Sublimación',
+      category: 'tazas',
+      categoryName: 'Tazas',
       shortDescription: 'Negra mate en frío; al verter líquido caliente revela el diseño oculto a todo color.',
       fullDescription: 'Sorprende a tus clientes o seres queridos con este efecto visual cautivador. En reposo es una elegante taza negro mate; basta con agregar café o té caliente para que la capa termosensible se aclare y muestre tu arte.',
       price: 35,
@@ -674,8 +591,8 @@ export const PRODUCTS: Product[] = [
   {
       id: 'taza-colores',
       name: 'Taza Bicolor con Interior y Asa de Color',
-      category: 'sublimacion',
-      categoryName: 'Sublimación',
+      category: 'tazas',
+      categoryName: 'Tazas',
       shortDescription: 'Exterior blanco brillante con asa e interior esmaltados en colores vivos a elección.',
       fullDescription: 'Añade un toque de contraste alineado con la paleta de tu logotipo corporativo. El interior esmaltado aporta sofisticación y resalta sobre cualquier escritorio de trabajo.',
       price: 28,
@@ -1086,33 +1003,6 @@ export const PRODUCTS: Product[] = [
         { label: 'Tarjeta', value: 'PVC laminado termo-fusionado 0.76 mm' },
         { label: 'Lanyard', value: 'Cinta satinada con mosquetón niquelado' },
         { label: 'Opciones', value: 'Código QR, código de barras, perforación oval' }
-      ]
-    },
-  {
-      id: 'identificadores',
-      name: 'Pisa-Corbatas / Identificador Metálico con Sujeción Magnética',
-      category: 'merchandising',
-      categoryName: 'Merchandising Empresarial',
-      shortDescription: 'Placa de aluminio cepillado plateado o dorado con imán neodimio que no perfora la ropa.',
-      fullDescription: 'El solapero institucional más elegante. Su potente broche magnético de doble imán de neodimio fija firmemente el identificador sobre camisas y blusas sin perforar la tela.',
-      price: 28,
-      unit: 'unidad',
-      rating: 4.8,
-      reviewsCount: 37,
-      inStock: true,
-      colors: [
-        { name: 'Plata Cepillado', hex: '#C6C8CB' },
-        { name: 'Oro Cepillado', hex: '#F5B800' }
-      ],
-      sizes: ['7.0 x 2.5 cm', '7.5 x 3.0 cm'],
-      techniques: ['Impresión UV de Cama Plana', 'Grabado Láser'],
-      minQuantity: 6,
-      image: '/images/products/identificadores.jpg',
-      gallery: ['/images/products/identificadores.jpg'],
-      specs: [
-        { label: 'Placa', value: 'Aluminio anodizado con bisel' },
-        { label: 'Sujeción', value: 'Plaqueta con doble imán de neodimio' },
-        { label: 'Impresión', value: 'Tinta UV con barniz de protección' }
       ]
     },
   {

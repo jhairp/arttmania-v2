@@ -1,47 +1,77 @@
 export interface Category {
   id: string;
   name: string;
-  slug: string;
+  slug: 'poleras' | 'tazas' | 'gorras' | 'regalos' | 'sublimacion' | 'textiles' | 'merchandising';
   description: string;
   itemCount: number;
   image: string;
   accentColor: string;
 }
 
+/**
+ * Categorías del Catálogo Oficial ordenadas por popularidad (de más vendidas a especializadas)
+ */
 export const CATEGORIES: Category[] = [
   {
-    id: 'textiles',
-    name: 'Textiles',
-    slug: 'textiles',
-    description: 'Poleras personalizadas, sudaderas, gorras, uniformes y ropa de trabajo con acabados duraderos.',
-    itemCount: 19,
-    image: '/images/categories/cat-textiles.jpg',
+    id: 'poleras',
+    name: 'Poleras',
+    slug: 'poleras',
+    description: 'Poleras de algodón peinado 20/1, oversize, dry-fit deportivas, manga larga, sudaderas y canguros.',
+    itemCount: 8,
+    image: '/images/products/polera-personalizada.jpg',
     accentColor: '#0759E8'
+  },
+  {
+    id: 'tazas',
+    name: 'Tazas',
+    slug: 'tazas',
+    description: 'Tazas de cerámica AAA 11oz, tazas mágicas termosensibles, bicolor y packs corporativos.',
+    itemCount: 5,
+    image: '/images/products/taza-blanca.jpg',
+    accentColor: '#00A878'
+  },
+  {
+    id: 'gorras',
+    name: 'Gorras',
+    slug: 'gorras',
+    description: 'Gorras Snapback de 6 paneles con bordado 3D, gorras Trucker con malla y parches grabados a láser.',
+    itemCount: 4,
+    image: '/images/products/gorras.jpg',
+    accentColor: '#F59E0B'
+  },
+  {
+    id: 'regalos',
+    name: 'Regalos',
+    slug: 'regalos',
+    description: 'Cojines personalizados, cuadros, portarretratos en roca, rompecabezas, llaveros láser, pines y bolsas ecológicas.',
+    itemCount: 10,
+    image: '/images/categories/cat-regalos.jpg',
+    accentColor: '#E600A9'
   },
   {
     id: 'sublimacion',
     name: 'Sublimación',
     slug: 'sublimacion',
-    description: 'Tazas personalizadas, termos térmicos, mousepads, cerámicas y artículos para regalo con máxima nitidez.',
-    itemCount: 11,
+    description: 'Termos de acero inoxidable, tomatodos deportivos, mousepads gamer, cerámicas, platos y tazas sublimadas.',
+    itemCount: 10,
     image: '/images/categories/cat-sublimacion.jpg',
     accentColor: '#00A878'
   },
   {
-    id: 'regalos',
-    name: 'Regalos y Accesorios',
-    slug: 'regalos',
-    description: 'Pines metálicos, llaveros MDF con grabado láser, chapitas, agendas ejecutivas y bolsas ecológicas.',
-    itemCount: 7,
-    image: '/images/categories/cat-regalos.jpg',
-    accentColor: '#E600A9'
+    id: 'textiles',
+    name: 'Textiles',
+    slug: 'textiles',
+    description: 'Indumentaria completa: poleras, gorras, polos piqué corporativos, chalecos, cortavientos, mandiles y ropa de trabajo.',
+    itemCount: 19,
+    image: '/images/categories/cat-textiles.jpg',
+    accentColor: '#0759E8'
   },
   {
     id: 'merchandising',
     name: 'Merchandising Empresarial',
     slug: 'merchandising',
-    description: 'Soluciones corporativas completas: credenciales PVC, identificadores, bolígrafos grabados y kits VIP.',
-    itemCount: 7,
+    description: 'Soluciones corporativas B2B: credenciales PVC con lanyard, bolígrafos metálicos grabados, bolsas de lujo y kits VIP.',
+    itemCount: 6,
     image: '/images/categories/cat-merch.jpg',
     accentColor: '#F5B800'
   }

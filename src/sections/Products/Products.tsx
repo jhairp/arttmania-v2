@@ -6,6 +6,25 @@ import { ProductCard } from '../../components/products/ProductCard';
 import { ProductDetailModal } from '../../components/products/ProductDetailModal';
 import './Products.css';
 
+const matchesProductCategory = (product: Product, slug: string): boolean => {
+  if (slug === 'all') return true;
+  if (slug === 'textiles') {
+    return product.category === 'textiles' || product.category === 'poleras' || product.category === 'gorras';
+  }
+  if (slug === 'sublimacion') {
+    return product.category === 'sublimacion' || product.category === 'tazas';
+  }
+  if (slug === 'regalos') {
+    return (
+      product.category === 'regalos' ||
+      product.id === 'almohadas' ||
+      product.id === 'portarretratos' ||
+      product.id === 'rompecabezas'
+    );
+  }
+  return product.category === slug;
+};
+
 export const Products: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -25,8 +44,7 @@ export const Products: React.FC = () => {
 
   const filteredProducts = useMemo(() => {
     return PRODUCTS.filter((product) => {
-      const matchesCategory =
-        selectedCategory === 'all' || product.category === selectedCategory;
+      const matchesCategory = matchesProductCategory(product, selectedCategory);
 
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
@@ -150,7 +168,7 @@ export const Products: React.FC = () => {
                 <span className="cat-count">({PRODUCTS.length})</span>
               </button>
               {CATEGORIES.map((cat) => {
-                const count = PRODUCTS.filter((p) => p.category === cat.slug).length;
+                const count = PRODUCTS.filter((p) => matchesProductCategory(p, cat.slug)).length;
                 return (
                   <button
                     key={cat.id}
