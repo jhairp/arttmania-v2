@@ -11,7 +11,7 @@ export const COMPANY_INFO = {
   schedule: 'Lunes a Sabado: 09:00 - 20:00',
   social: {
     facebook: 'https://www.facebook.com/Artemaniaserigrafic',
-    instagram: 'https://instagram.com/arttmaniabolivia',
+    instagram: 'https://www.instagram.com/arttmania.62838829_/',
     tiktok: 'https://www.tiktok.com/@artt.mania'
   },
   mapUrl: 'https://maps.app.goo.gl/YR2FuE1n9aYFUDfXA',
