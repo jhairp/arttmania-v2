@@ -170,11 +170,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 200,
     promoPrice: 168,
-    image: '/images/seasonal/navidad/canguro_gato_rojo_1.jpg',
-    backImage: '/images/seasonal/navidad/canguro_gato_rojo_2.jpg',
+    image: '/images/seasonal/navidad/canguro_gato_rojo_1.webp',
+    backImage: '/images/seasonal/navidad/canguro_gato_rojo_2.webp',
     gallery: [
-      '/images/seasonal/navidad/canguro_gato_rojo_1.jpg',
-      '/images/seasonal/navidad/canguro_gato_rojo_2.jpg'
+      '/images/seasonal/navidad/canguro_gato_rojo_1.webp',
+      '/images/seasonal/navidad/canguro_gato_rojo_2.webp'
     ],
     techniques: ['DTF Delantera + Trasera'],
     featured: true
@@ -194,11 +194,11 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 200,
     promoPrice: 168,
-    image: '/images/seasonal/navidad/canguro_muneco_negro_1.jpg',
-    backImage: '/images/seasonal/navidad/canguro_muneco_negro_2.jpg',
+    image: '/images/seasonal/navidad/canguro_muneco_negro_1.webp',
+    backImage: '/images/seasonal/navidad/canguro_muneco_negro_2.webp',
     gallery: [
-      '/images/seasonal/navidad/canguro_muneco_negro_1.jpg',
-      '/images/seasonal/navidad/canguro_muneco_negro_2.jpg'
+      '/images/seasonal/navidad/canguro_muneco_negro_1.webp',
+      '/images/seasonal/navidad/canguro_muneco_negro_2.webp'
     ],
     techniques: ['DTF Delantera + Trasera'],
     featured: true
@@ -218,7 +218,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/mockup_santa_cool_blanco.jpg',
+    image: '/images/seasonal/navidad/mockup_santa_cool_blanco.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
@@ -237,7 +237,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 160,
     promoPrice: 120,
-    image: '/images/seasonal/navidad/mockup_pareja_mickey_minnie.jpg',
+    image: '/images/seasonal/navidad/mockup_pareja_mickey_minnie.webp',
     techniques: ['DTF Textil (Par 2 Poleras)', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
@@ -304,7 +304,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/mockup_grinch_luces_rojo.jpg',
+    image: '/images/seasonal/navidad/mockup_grinch_luces_rojo.webp',
     techniques: ['DTF Textil Full Color', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
@@ -318,7 +318,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio Promocional: 120 Bs. el par (2 poleras) | 65 Bs. unidad', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Set de 2 poleras rojas en algodón peinado'],
     originalPrice: 160,
     promoPrice: 120,
-    image: '/images/seasonal/navidad/modelo_N18.jpg',
+    image: '/images/seasonal/navidad/modelo_N18.webp',
     techniques: ['DTF Textil (Par 2 Poleras)', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -336,7 +336,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/mockup_arbol_dorado_verde.jpg',
+    image: '/images/seasonal/navidad/mockup_arbol_dorado_verde.webp',
     techniques: ['DTF Textil Dorado', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
@@ -355,7 +355,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/mockup_nacimiento_sagrado_rojo.jpg',
+    image: '/images/seasonal/navidad/mockup_nacimiento_sagrado_rojo.webp',
     techniques: ['DTF Textil Dorado', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
@@ -374,7 +374,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 240,
     promoPrice: 180,
-    image: '/images/seasonal/navidad/mockup_familia_munecos_verde.jpg',
+    image: '/images/seasonal/navidad/mockup_familia_munecos_verde.webp',
     techniques: ['DTF Textil', 'Sublimación Digital'],
     featured: true
   },
@@ -393,7 +393,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 240,
     promoPrice: 195,
-    image: '/images/seasonal/navidad/mockup_familia_munecos_verde.jpg',
+    image: '/images/seasonal/navidad/mockup_familia_munecos_verde.webp',
     techniques: ['DTF Textil', 'Grabado Láser'],
     featured: true
   },
@@ -409,7 +409,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Estampado DTF textil en algodón peinado'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N01.jpg',
+    image: '/images/seasonal/navidad/modelo_N01.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -422,7 +422,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón peinado reactivo de tacto suave'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N02.jpg',
+    image: '/images/seasonal/navidad/modelo_N02.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -435,7 +435,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Tela peinada de máxima suavidad'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N03.jpg',
+    image: '/images/seasonal/navidad/modelo_N03.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -448,7 +448,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Confección 100% algodón peinado'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N04.jpg',
+    image: '/images/seasonal/navidad/modelo_N04.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -461,7 +461,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Fondo negro grafito con estampado dorado'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N05.jpg',
+    image: '/images/seasonal/navidad/modelo_N05.webp',
     techniques: ['DTF Textil Dorado', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -474,7 +474,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón peinado premium con acabado dorado'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N06.jpg',
+    image: '/images/seasonal/navidad/modelo_N06.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -487,7 +487,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Tela suave 180 gramos con estampado elástico'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N07.jpg',
+    image: '/images/seasonal/navidad/modelo_N07.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -500,7 +500,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón peinado blanco con full color HD'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N08.jpg',
+    image: '/images/seasonal/navidad/modelo_N08.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -513,7 +513,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón reactivo de alta gama'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N09.jpg',
+    image: '/images/seasonal/navidad/modelo_N09.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -526,7 +526,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Tela verde bosque peinada'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N10.jpg',
+    image: '/images/seasonal/navidad/modelo_N10.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -539,7 +539,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón 100% 20/1 con estampado nítido'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N11.jpg',
+    image: '/images/seasonal/navidad/modelo_N11.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -552,7 +552,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón peinado rojo intenso en resolución HD'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N12.jpg',
+    image: '/images/seasonal/navidad/modelo_N12.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -565,7 +565,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Fondo negro profundo con estampado dorado'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N13.jpg',
+    image: '/images/seasonal/navidad/modelo_N13.webp',
     techniques: ['DTF Textil Dorado', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -578,7 +578,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón peinado suave con opción de apellido'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N14.jpg',
+    image: '/images/seasonal/navidad/modelo_N14.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -591,7 +591,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Tela hipoalergénica de algodón peinado'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N15.jpg',
+    image: '/images/seasonal/navidad/modelo_N15.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
   {
@@ -604,7 +604,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     includes: ['Precio: 65 Bs. unidad | 120 Bs. el par', 'Logos medianos a 38 Bs.', 'Tallas: S, M, L (arriba de L consultar para cotizar)', 'Algodón peinado de primera con estampado flexible'],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/navidad/modelo_N16.jpg',
+    image: '/images/seasonal/navidad/modelo_N16.webp',
     techniques: ['DTF Textil', 'Logo Mediano (38 Bs.)']
   },
 
@@ -624,7 +624,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H01.jpg',
+    image: '/images/seasonal/halloween/modelo_H01.webp',
     techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: true
   },
@@ -643,7 +643,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H02.jpg',
+    image: '/images/seasonal/halloween/modelo_H02.webp',
     techniques: ['DTF Textil HD', 'Algodón Peinado'],
     featured: true
   },
@@ -662,7 +662,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H03.jpg',
+    image: '/images/seasonal/halloween/modelo_H03.webp',
     techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: true
   },
@@ -681,7 +681,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H04.jpg',
+    image: '/images/seasonal/halloween/modelo_H04.webp',
     techniques: ['DTF Textil Neón', 'Algodón Peinado'],
     featured: false
   },
@@ -700,7 +700,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H05.jpg',
+    image: '/images/seasonal/halloween/modelo_H05.webp',
     techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: true
   },
@@ -719,7 +719,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H06.jpg',
+    image: '/images/seasonal/halloween/modelo_H06.webp',
     techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: true
   },
@@ -738,7 +738,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H07.jpg',
+    image: '/images/seasonal/halloween/modelo_H07.webp',
     techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: true
   },
@@ -757,7 +757,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H08.jpg',
+    image: '/images/seasonal/halloween/modelo_H08.webp',
     techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: true
   },
@@ -776,7 +776,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H09.jpg',
+    image: '/images/seasonal/halloween/modelo_H09.webp',
     techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: true
   },
@@ -795,7 +795,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H10.jpg',
+    image: '/images/seasonal/halloween/modelo_H10.webp',
     techniques: ['DTF Textil Neón', 'Algodón Peinado'],
     featured: true
   },
@@ -814,7 +814,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H11.jpg',
+    image: '/images/seasonal/halloween/modelo_H11.webp',
     techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: true
   },
@@ -833,7 +833,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H12.jpg',
+    image: '/images/seasonal/halloween/modelo_H12.webp',
     techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: false
   },
@@ -852,7 +852,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H13.jpg',
+    image: '/images/seasonal/halloween/modelo_H13.webp',
     techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: true
   },
@@ -871,7 +871,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H14.jpg',
+    image: '/images/seasonal/halloween/modelo_H14.webp',
     techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: false
   },
@@ -890,7 +890,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/seasonal/halloween/modelo_H15.jpg',
+    image: '/images/seasonal/halloween/modelo_H15.webp',
     techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: false
   },
@@ -911,7 +911,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 220,
     promoPrice: 175,
-    image: '/images/products/taza-magica.jpg',
+    image: '/images/products/taza-magica.webp',
     techniques: ['DTF Textil', 'Sublimación Mágica', 'Grabado Láser'],
     featured: true
   },
@@ -930,7 +930,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 150,
     promoPrice: 120,
-    image: '/images/products/polera-personalizada.jpg',
+    image: '/images/products/polera-personalizada.webp',
     techniques: ['DTF Textil Full Color', 'Algodón Peinado'],
     featured: true
   },
@@ -948,7 +948,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 135,
     promoPrice: 105,
-    image: '/images/products/almohadas.jpg',
+    image: '/images/products/almohadas.webp',
     techniques: ['Sublimación Full Color'],
     featured: true
   },
@@ -967,7 +967,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 310,
     promoPrice: 260,
-    image: '/images/products/sudadera-hoodie.jpg',
+    image: '/images/products/sudadera-hoodie.webp',
     techniques: ['Bordado Computarizado', 'DTF Textil'],
     featured: true
   },
@@ -985,7 +985,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 90,
     promoPrice: 70,
-    image: '/images/products/taza-magica.jpg',
+    image: '/images/products/taza-magica.webp',
     techniques: ['Sublimación Termosensible'],
     featured: false
   },
@@ -1003,7 +1003,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 60,
     promoPrice: 45,
-    image: '/images/products/rompecabezas.jpg',
+    image: '/images/products/rompecabezas.webp',
     techniques: ['Sublimación HD'],
     featured: false
   },
@@ -1021,7 +1021,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/products/portarretratos.jpg',
+    image: '/images/products/portarretratos.webp',
     techniques: ['Sublimación HD', 'Grabado Láser'],
     featured: false
   },
@@ -1040,7 +1040,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 145,
     promoPrice: 115,
-    image: '/images/products/regalos-promocionales.jpg',
+    image: '/images/products/regalos-promocionales.webp',
     techniques: ['Grabado Láser', 'Sublimación'],
     featured: false
   },
@@ -1061,7 +1061,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 165,
     promoPrice: 130,
-    image: '/images/products/termos.jpg',
+    image: '/images/products/termos.webp',
     techniques: ['Grabado Láser CNC', 'Impresión UV'],
     featured: true
   },
@@ -1079,7 +1079,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 160,
     promoPrice: 125,
-    image: '/images/products/mandiles.jpg',
+    image: '/images/products/mandiles.webp',
     techniques: ['Bordado Computarizado', 'Grabado Láser'],
     featured: true
   },
@@ -1097,7 +1097,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/products/polera-personalizada.jpg',
+    image: '/images/products/polera-personalizada.webp',
     techniques: ['DTF Textil Full Color'],
     featured: true
   },
@@ -1115,7 +1115,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 175,
     promoPrice: 145,
-    image: '/images/products/sudadera-hoodie.jpg',
+    image: '/images/products/sudadera-hoodie.webp',
     techniques: ['Bordado Computarizado', 'DTF Textil'],
     featured: true
   },
@@ -1133,7 +1133,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 65,
     promoPrice: 50,
-    image: '/images/products/gorra-trucker.jpg',
+    image: '/images/products/gorra-trucker.webp',
     techniques: ['Bordado 3D', 'Parche Láser'],
     featured: false
   },
@@ -1151,7 +1151,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 75,
     promoPrice: 55,
-    image: '/images/products/tomatodos.jpg',
+    image: '/images/products/tomatodos.webp',
     techniques: ['Grabado Láser'],
     featured: false
   },
@@ -1169,7 +1169,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 95,
     promoPrice: 75,
-    image: '/images/products/agendas.jpg',
+    image: '/images/products/agendas.webp',
     techniques: ['Grabado Láser CNC'],
     featured: false
   },
@@ -1190,7 +1190,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 165,
     promoPrice: 130,
-    image: '/images/products/termos.jpg',
+    image: '/images/products/termos.webp',
     techniques: ['Grabado Láser', 'Impresión UV'],
     featured: true
   },
@@ -1208,7 +1208,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 110,
     promoPrice: 85,
-    image: '/images/products/almohadas.jpg',
+    image: '/images/products/almohadas.webp',
     techniques: ['Sublimación Full Color'],
     featured: true
   },
@@ -1226,7 +1226,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 115,
     promoPrice: 90,
-    image: '/images/products/mandiles.jpg',
+    image: '/images/products/mandiles.webp',
     techniques: ['Bordado Computarizado', 'Sublimación'],
     featured: true
   },
@@ -1244,7 +1244,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 95,
     promoPrice: 75,
-    image: '/images/products/cuadros-personalizados.jpg',
+    image: '/images/products/cuadros-personalizados.webp',
     techniques: ['Sublimación HD'],
     featured: true
   },
@@ -1262,7 +1262,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/products/polera-personalizada.jpg',
+    image: '/images/products/polera-personalizada.webp',
     techniques: ['DTF Textil Full Color'],
     featured: false
   },
@@ -1280,7 +1280,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 55,
     promoPrice: 40,
-    image: '/images/products/bolsas-ecologicas.jpg',
+    image: '/images/products/bolsas-ecologicas.webp',
     techniques: ['DTF Textil', 'Sublimación'],
     featured: false
   },
@@ -1298,7 +1298,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 80,
     promoPrice: 60,
-    image: '/images/products/platos-decorativos.jpg',
+    image: '/images/products/platos-decorativos.webp',
     techniques: ['Sublimación Cerámica'],
     featured: false
   },
@@ -1316,7 +1316,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 50,
     promoPrice: 38,
-    image: '/images/products/taza-magica.jpg',
+    image: '/images/products/taza-magica.webp',
     techniques: ['Sublimación Termosensible'],
     featured: false
   },
@@ -1336,7 +1336,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 125,
     promoPrice: 95,
-    image: '/images/products/gorras.jpg',
+    image: '/images/products/gorras.webp',
     techniques: ['Bordado 3D Computarizado'],
     featured: true
   },
@@ -1354,7 +1354,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/products/polera-personalizada.jpg',
+    image: '/images/products/polera-personalizada.webp',
     techniques: ['DTF Textil Full Color', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
@@ -1372,7 +1372,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 85,
     promoPrice: 65,
-    image: '/images/products/polera-personalizada.jpg',
+    image: '/images/products/polera-personalizada.webp',
     techniques: ['DTF Textil Full Color', 'Logo Mediano (38 Bs.)'],
     featured: true
   },
@@ -1390,7 +1390,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 95,
     promoPrice: 75,
-    image: '/images/products/termos.jpg',
+    image: '/images/products/termos.webp',
     techniques: ['Grabado Láser CNC'],
     featured: true
   },
@@ -1408,7 +1408,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 40,
     promoPrice: 30,
-    image: '/images/products/taza-colores.jpg',
+    image: '/images/products/taza-colores.webp',
     techniques: ['Sublimación Digital HD'],
     featured: false
   },
@@ -1426,7 +1426,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 220,
     promoPrice: 170,
-    image: '/images/products/chapitas.jpg',
+    image: '/images/products/chapitas.webp',
     techniques: ['Sublimación Textil'],
     featured: false
   },
@@ -1444,7 +1444,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 120,
     promoPrice: 90,
-    image: '/images/products/pines.jpg',
+    image: '/images/products/pines.webp',
     techniques: ['Impresión UV & Resina'],
     featured: false
   },
@@ -1462,7 +1462,7 @@ export const SEASONAL_ITEMS: SeasonalItem[] = [
     ],
     originalPrice: 50,
     promoPrice: 35,
-    image: '/images/products/bolsas-ecologicas.jpg',
+    image: '/images/products/bolsas-ecologicas.webp',
     techniques: ['DTF Textil', 'Serigrafía'],
     featured: false
   }

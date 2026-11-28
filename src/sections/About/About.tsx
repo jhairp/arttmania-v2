@@ -77,7 +77,7 @@ export const About: React.FC = () => {
           {/* Right: Studio Production Workshop Photo */}
           <div className="about-workshop-img-box">
             <img
-              src="/images/about/production-workshop.jpg"
+              src="/images/about/production-workshop.webp"
               alt="Taller de producción y maquinaria de impresión en ARTTMANIA"
               className="about-workshop-img"
               loading="lazy"

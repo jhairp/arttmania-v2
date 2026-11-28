@@ -37,7 +37,7 @@ const CUSTOMIZABLE_PRODUCTS: MockupProduct[] = [
     name: 'Polera de Algodón Peinado',
     category: 'textiles',
     basePrice: 65,
-    image: '/images/products/polera-personalizada.jpg',
+    image: '/images/products/polera-personalizada.webp',
     sizes: ['S', 'M', 'L'],
     techniques: ['DTF Textil (65 Bs. / 120 Bs. par)', 'Logo Mediano (38 Bs.)', 'Serigrafía', 'Bordado'],
     colors: [
@@ -52,7 +52,7 @@ const CUSTOMIZABLE_PRODUCTS: MockupProduct[] = [
     name: 'Canguro Hoodie con Capucha',
     category: 'textiles',
     basePrice: 145,
-    image: '/images/products/sudadera-hoodie.jpg',
+    image: '/images/products/sudadera-hoodie.webp',
     sizes: ['S', 'M', 'L'],
     techniques: ['DTF Textil', 'Bordado Computarizado'],
     colors: [
@@ -66,7 +66,7 @@ const CUSTOMIZABLE_PRODUCTS: MockupProduct[] = [
     name: 'Gorra Snapback 6 Paneles',
     category: 'textiles',
     basePrice: 50,
-    image: '/images/products/gorras.jpg',
+    image: '/images/products/gorras.webp',
     sizes: ['Ajustable'],
     techniques: ['Bordado 3D', 'Parche Láser', 'DTF Textil'],
     colors: [
@@ -80,7 +80,7 @@ const CUSTOMIZABLE_PRODUCTS: MockupProduct[] = [
     name: 'Taza Cerámica 11oz',
     category: 'sublimacion',
     basePrice: 25,
-    image: '/images/products/taza-blanca.jpg',
+    image: '/images/products/taza-blanca.webp',
     sizes: ['11 Onzas'],
     techniques: ['Sublimación Digital'],
     colors: [
@@ -92,7 +92,7 @@ const CUSTOMIZABLE_PRODUCTS: MockupProduct[] = [
     name: 'Termo Tumbler de Acero',
     category: 'sublimacion',
     basePrice: 65,
-    image: '/images/products/termos.jpg',
+    image: '/images/products/termos.webp',
     sizes: ['500 ml', '750 ml'],
     techniques: ['Grabado Láser', 'DTF UV'],
     colors: [
@@ -106,7 +106,7 @@ const CUSTOMIZABLE_PRODUCTS: MockupProduct[] = [
     name: 'Bolsa Tote Bag de Tocuyo',
     category: 'regalos',
     basePrice: 20,
-    image: '/images/products/bolsas-ecologicas.jpg',
+    image: '/images/products/bolsas-ecologicas.webp',
     sizes: ['38 x 42 cm'],
     techniques: ['Serigrafía', 'DTF Textil'],
     colors: [

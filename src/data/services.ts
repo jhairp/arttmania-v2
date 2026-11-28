@@ -18,7 +18,7 @@ export const SERVICES: Service[] = [
     name: 'Sublimación Digital',
     shortDescription: 'Transferencia térmica de alta resolución para artículos de cerámica, polímeros y textiles con base de poliéster.',
     description: 'La sublimación es un proceso térmico donde los pigmentos pasan de estado sólido a gaseoso penetrando directamente en la estructura molecular del polímero o fibra sintética. Proporciona una resistencia inigualable a lavados y uso diario, sin generar relieve táctil ni riesgo de descascarado.',
-    image: '/images/services/sublimacion.jpg',
+    image: '/images/services/sublimacion.webp',
     applications: [
       'Tazas de cerámica y tazas mágicas',
       'Termos metálicos y tomatodos de aluminio',
@@ -37,7 +37,7 @@ export const SERVICES: Service[] = [
     name: 'DTF Textil (Direct to Film)',
     shortDescription: 'Impresión digital directa a película PET de última generación con tinta pigmentada y base blanca para prendas de cualquier color.',
     description: 'La tecnología DTF revolucionó la personalización textil al permitir estampar sobre algodón 100%, mezclas poliéster y tejidos sintéticos de cualquier tono con una elasticidad y suavidad insuperable, superando las limitaciones tradicionales de la serigrafía o el transfer.',
-    image: '/images/services/dtf-textil.jpg',
+    image: '/images/services/dtf-textil.webp',
     applications: [
       'Poleras de algodón peinado y oversize',
       'Polerones, sudaderas y hoodies de felpa',
@@ -56,7 +56,7 @@ export const SERVICES: Service[] = [
     name: 'DTF UV (Stickers 3D & Relieve)',
     shortDescription: 'Transferencias autoadhesivas curadas por luz UV con barniz brillante y relieve táctil 3D para superficies rígidas.',
     description: 'El DTF UV genera calcomanías industriales curadas mediante luz ultravioleta que incorporan tinta blanca, cuatricromía y barniz de relieve brillante. Permite personalizar objetos cilíndricos, curvos o irregulares sin necesidad de someterlos a calor o presión de máquinas grandes.',
-    image: '/images/services/dtf-uv.jpg',
+    image: '/images/services/dtf-uv.webp',
     applications: [
       'Termos metálicos, tomatodos y botellas de vidrio',
       'Fundas de teléfono, laptops y carcasas rígidas',
@@ -75,7 +75,7 @@ export const SERVICES: Service[] = [
     name: 'Vinil Textil Termotransferible',
     shortDescription: 'Corte computarizado de alta precisión en vinilos poliuretánicos térmicos con acabados metalizados, mate y reflectivos.',
     description: 'Técnica ideal para números deportivos, logotipos monocromáticos de alto impacto y aplicaciones especiales como vinilos reflectivos de seguridad industrial, flock aterciopelado o láminas metálicas de alto brillo.',
-    image: '/images/services/vinil-textil.jpg',
+    image: '/images/services/vinil-textil.webp',
     applications: [
       'Numeración y nombres de poleras deportivas',
       'Ropa de trabajo con bandas reflectivas 3M',
@@ -94,7 +94,7 @@ export const SERVICES: Service[] = [
     name: 'Bordado Computarizado Industrial',
     shortDescription: 'Puntadas de alta densidad con hilos de poliéster reforzado y relieve 3D para una apariencia corporativa de máxima jerarquía.',
     description: 'El bordado computarizado aporta elegancia, durabilidad y valor percibido insuperable. Nuestras bordadoras multi-cabezal reproducen matrices vectoriales con precisión milimétrica sobre gorras armadas, polos ejecutivos y camperas de trabajo.',
-    image: '/images/services/bordado.jpg',
+    image: '/images/services/bordado.webp',
     applications: [
       'Gorras estructuradas y snapbacks (plano y 3D puff)',
       'Polos piqué empresariales y camisas corporativas',
@@ -113,7 +113,7 @@ export const SERVICES: Service[] = [
     name: 'Serigrafía Tradicional & Textil',
     shortDescription: 'Impresión por estarcido con tintas plastisol y al agua, insuperable para producciones de gran volumen con costos competitivos.',
     description: 'La serigrafía es la reina de las tiradas medianas y masivas. Empleamos carruseles con micro-registro y tintas plastisol curadas en horno túnel, garantizando un costo por unidad extraordinariamente eficiente para campañas corporativas y eventos.',
-    image: '/images/services/serigrafia.jpg',
+    image: '/images/services/serigrafia.webp',
     applications: [
       'Poleras promocionales para campañas masivas',
       'Bolsas ecológicas de tocuyo y friselina',
@@ -132,7 +132,7 @@ export const SERVICES: Service[] = [
     name: 'Corte y Grabado Láser CNC',
     shortDescription: 'Haz de luz concentrado para marcado indeleble y corte geométrico perfecto sobre metales, maderas, cueros y acrílicos.',
     description: 'Nuestros equipos láser CO2 y fibra óptica ofrecen un marcado permanente que no se borra con el tiempo. El grabado láser elimina material de forma controlada o altera térmicamente el metal para producir una firma elegante y sobria.',
-    image: '/images/services/grabado-laser.jpg',
+    image: '/images/services/grabado-laser.webp',
     applications: [
       'Bolígrafos metálicos y lapiceros ejecutivos',
       'Llaveros de MDF y madera noble',
@@ -151,7 +151,7 @@ export const SERVICES: Service[] = [
     name: 'Diseño Gráfico & Preparación Técnica',
     shortDescription: 'Asesoría profesional de pre-prensa, vectorización de logotipos, separación de color y elaboración de maquetas digitales 3D.',
     description: 'No dejamos nada al azar. Nuestro departamento de diseño verifica tus archivos, calibra perfiles de color CMYK, crea separaciones para cada técnica y genera fotomontajes realistas para que apruebes la muestra digital antes de encender las máquinas.',
-    image: '/images/services/diseno-grafico.jpg',
+    image: '/images/services/diseno-grafico.webp',
     applications: [
       'Vectorización de bocetos y logos de baja resolución',
       'Generación de mockups comerciales para aprobación',
